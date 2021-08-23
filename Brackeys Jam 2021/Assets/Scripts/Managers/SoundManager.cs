@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject soundObject;
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void PlaySound(int soundIndex, float volume, float variance) {
+        GameObject newSound = Instantiate(soundObject);
+        AudioSource soundSource = newSound.GetComponent<AudioSource>();
+        AudioClip newClip = soundIndex < PersistentManager.Instance.audioLibrary.Length ? PersistentManager.Instance.audioLibrary[soundIndex] : null;
         
+        if (newClip is null) {
+            Debug.LogWarning("Sound index is out of range");
+            return;
+        }
+
+        soundSource.volume = volume;
+        soundSource.pitch = Random.Range(-variance, variance);
+
+        soundSource.PlayOneShot(newClip);
     }
 }

@@ -8,13 +8,38 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public SoundManager soundManager;
 
-    void Start() {
+    [HideInInspector] public CustomScriptable[] scriptableLibrary;
+    [HideInInspector] public AudioClip[] audioLibrary;
+
+    void Awake() {
         if (Instance == null) {
             Instance = this;
         } else {
             Destroy(gameObject);
         }
 
+        scriptableLibrary = Resources.LoadAll<CustomScriptable>("Custom Scriptables/Production") as CustomScriptable[];
+        audioLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Production") as AudioClip[];
+
+        if (scriptableLibrary.Length > 0) {
+            for (int i = scriptableLibrary.Length - 1; i >= 0; i--) {
+                scriptableLibrary[i].Initialize(i);
+            }
+        }
+    }
+
+    void Start() {
         soundManager = GetComponentInChildren<SoundManager>();
+    }
+
+    public CustomScriptable FindVariableBySavePath(string varSavePath) {
+        CustomScriptable cVar = null;
+        for(int i = scriptableLibrary.Length-1; i >= 0; i--) {
+            if (scriptableLibrary[i].SaveDataPath == varSavePath) {
+                cVar = scriptableLibrary[i];
+                break;
+            }
+        }
+        return cVar;
     }
 }

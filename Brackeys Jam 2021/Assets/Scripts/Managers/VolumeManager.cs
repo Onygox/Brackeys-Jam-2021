@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class VolumeManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    ScriptableFloat musicVolumeVar, sfxVolumeVar;
+
+    void Start() {
+        musicVolumeVar = PersistentManager.Instance.FindVariableBySavePath("musicvolumedata") as ScriptableFloat;
+        sfxVolumeVar = PersistentManager.Instance.FindVariableBySavePath("sfxvolumedata") as ScriptableFloat;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void AdjustMusicVolume(float newVol) {
+        musicVolumeVar.Value = newVol;
+    }
+
+    public void AdjustEffectsVolume(float newVol) {
+        sfxVolumeVar.Value = newVol;
     }
 }

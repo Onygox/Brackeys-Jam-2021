@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RoboRyanTron.Unite2017.Events;
 
 [CreateAssetMenu(menuName="Scriptable Int")]
 
-public class ScriptableInt : ScriptableObject
+public class ScriptableInt : CustomScriptable
 {
     [SerializeField] private int _value;
 
@@ -28,13 +27,6 @@ public class ScriptableInt : ScriptableObject
 
     public bool isClamped;
     public int lowClampValue, highClampValue;
-    [SerializeField] private string _saveDataPath;
-    public string SaveDataPath {
-        get {
-            return _saveDataPath;
-        }
-    }
-    [SerializeField] GameEvent onVariableChange;
 
     public void SaveData() {
         PlayerPrefs.SetInt(SaveDataPath, Value);

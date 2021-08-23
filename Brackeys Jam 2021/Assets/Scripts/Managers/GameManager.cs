@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public UIManager uiManager;
     [HideInInspector] public VolumeManager volumeManager;
+    [HideInInspector] public PlayerManager playerManager;
 
     void Start() {
 
@@ -19,5 +20,6 @@ public class GameManager : MonoBehaviour
         
         uiManager = transform.parent.gameObject.GetComponentInChildren<UIManager>();
         volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
+        playerManager = transform.parent.gameObject.GetComponentInChildren<PlayerManager>();
     }
 }

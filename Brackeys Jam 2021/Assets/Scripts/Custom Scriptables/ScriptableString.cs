@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RoboRyanTron.Unite2017.Events;
 
 [CreateAssetMenu(menuName="Scriptable String")]
 
-public class ScriptableString : ScriptableObject
+public class ScriptableString : CustomScriptable
 {
     [SerializeField] private string _value;
 
@@ -25,14 +24,6 @@ public class ScriptableString : ScriptableObject
             return _defaultValue;
         }
     }
-
-    [SerializeField] private string _saveDataPath;
-    public string SaveDataPath {
-        get {
-            return _saveDataPath;
-        }
-    }
-    [SerializeField] GameEvent onVariableChange;
 
     public void SaveData() {
         PlayerPrefs.SetString(SaveDataPath, Value);

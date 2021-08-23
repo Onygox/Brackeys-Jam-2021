@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using SAP2D;
 
 public class MapManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class MapManager : MonoBehaviour
 	Grid grid;	
  	BoundsInt bounds;
     List<GameObject> mapObjects = new List<GameObject>();
+    SAP2DPathfinder pathfinder;
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
 		Vector2Int.left,Vector2Int.up,
@@ -21,7 +23,7 @@ public class MapManager : MonoBehaviour
 	};
 
 	void Start () {
-        CreateMap(PersistentManager.Instance.maps[0]);
+        pathfinder = GetComponent<SAP2DPathfinder>();
 	}
 	public void CreateMap(GameObject mapObject) {
 
@@ -53,9 +55,9 @@ public class MapManager : MonoBehaviour
                     GameObject associatedPrefab = Instantiate(tileBase.associatedPrefab) as GameObject;
 
                     if (associatedPrefab.GetComponentInChildren<PlayerScript>()) {
+                        GameManager.Instance.playerManager.playerScript = associatedPrefab.GetComponentInChildren<PlayerScript>();
                         //find player and assign cinemachine virtual camera to follow it
-                        GameManager.Instance.vcam.Follow = associatedPrefab.transform.GetChild(0);
-                        // GameManager.Instance.vcam.LookAt = associatedPrefab.transform.GetChild(0);
+                        GameManager.Instance.vcam.Follow = associatedPrefab.transform;
                     }
 
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);
@@ -66,7 +68,12 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        // Destroy(mapObject);
+        SAP_GridSource sapgrid = pathfinder.GetGrid(0);
+        sapgrid.GridPivot = GridPivot.Center;
+        sapgrid.Position = Vector3.zero;
+        sapgrid.CreateGrid(bounds.size.x * 2, bounds.size.y * 2);
+
+        pathfinder.CalculateColliders();
     }
 
     public void ResetMap() {

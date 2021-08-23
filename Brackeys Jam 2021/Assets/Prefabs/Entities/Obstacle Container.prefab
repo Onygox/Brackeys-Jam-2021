@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4437905147100430377}
   - component: {fileID: 1485806848853804240}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5427890385747386244}
   - component: {fileID: 2761131266108410581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,8 @@ GameObject:
   - component: {fileID: 3624286689269925827}
   - component: {fileID: 5300371121439877345}
   - component: {fileID: 6084846090790303653}
-  m_Layer: 0
+  - component: {fileID: 7405344042600628309}
+  m_Layer: 8
   m_Name: Obstacle Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,3 +207,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7405344042600628309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949408920108044003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac64e123b7aaa40adecd5611222db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}

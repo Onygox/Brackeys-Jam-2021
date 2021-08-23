@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public ScriptableInt currentPlayerHealthVar, maxPlayerHealthVar;
     public Weapon currentWeapon;
+    [HideInInspector] public PlayerScript playerScript;
 
     void Start() {
         currentPlayerHealthVar = PersistentManager.Instance.FindVariableBySavePath("currentplayerhealthdata") as ScriptableInt;

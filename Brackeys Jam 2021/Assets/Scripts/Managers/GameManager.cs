@@ -27,5 +27,11 @@ public class GameManager : MonoBehaviour
         volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
         playerManager = transform.parent.gameObject.GetComponentInChildren<PlayerManager>();
         mapManager = transform.parent.gameObject.GetComponentInChildren<MapManager>();
+
+        StartGame(0);
+    }
+
+    void StartGame(int level) {
+        mapManager.CreateMap(PersistentManager.Instance.maps[level]);
     }
 }

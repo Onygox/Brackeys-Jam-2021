@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9104837485226309660}
   - component: {fileID: 471747816084251795}
+  - component: {fileID: 7500394744561586667}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -43,3 +44,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a9444669b85400fb175779ea44ddc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7500394744561586667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4767349904217665625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab9656328c342c44b85b2a5fa76090f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GraphDrawers:
+  - ShowGrid: 1
+    ShowGridInfo: 1
+    ShowGridParameters: 1
+    ShowPathfindingSettings: 1
+    ShowGridGraphSettigs: 0
+    ScaleLvl: 1
+  EditorSettings: {fileID: 11400000, guid: f54fe2e0866d59148bb49fcb7b6fd41b, type: 2}
+  grids:
+  - GridName: Default Grid 0
+    UsePhysics2D: 1
+    ObstaclesLayer:
+      serializedVersion: 2
+      m_Bits: 256
+    UserGridData: {fileID: 0}
+    gridPosition: {x: 0, y: 0, z: 0}
+    gridPivot: 0
+    width: 11
+    height: 9
+    tileDiameter: 1

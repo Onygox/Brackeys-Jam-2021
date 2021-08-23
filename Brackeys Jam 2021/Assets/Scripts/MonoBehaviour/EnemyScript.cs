@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SAP2D;
 
 public class EnemyScript : Enemy
 {
-    void Start()
-    {
-        
+    SAP2DAgent agent;
+    void Start() {
+        agent = GetComponent<SAP2DAgent>();
+        agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
+        // agent.CanMove = false;
     }
 
     void Update()

@@ -8,7 +8,11 @@ public class PlayerScript : MonoBehaviour
 
     float baseSpeed = 2.0f;
     Vector3 velocity;
-    [SerializeField] private Rigidbody2D thisBody;
+    private Rigidbody2D thisBody;
+
+    void Start() {
+        thisBody = GetComponent<Rigidbody2D>();
+    }
 
     void Update() {
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);

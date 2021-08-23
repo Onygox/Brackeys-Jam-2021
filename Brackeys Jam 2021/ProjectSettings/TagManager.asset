@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Environment
+    uniqueID: 742452531
+    locked: 0
+  - name: Entities
+    uniqueID: 1138257903
+    locked: 0
+  - name: Effects
+    uniqueID: 2626310389
+    locked: 0
+  - name: UI
+    uniqueID: 760482309
+    locked: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Events;
 
 [CreateAssetMenu(menuName="Scriptable Float")]
 
@@ -14,6 +15,7 @@ public class ScriptableFloat : ScriptableObject
         }
         set {
             _value = isClamped ? Mathf.Clamp(value, lowClampValue, highClampValue) : value;
+            if (onVariableChange != null) onVariableChange.Raise();
         }
     }
 
@@ -32,6 +34,7 @@ public class ScriptableFloat : ScriptableObject
             return _saveDataPath;
         }
     }
+    [SerializeField] GameEvent onVariableChange;
 
     public void SaveData() {
         PlayerPrefs.SetFloat(SaveDataPath, Value);

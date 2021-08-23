@@ -10,6 +10,7 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
     [HideInInspector] public AudioClip[] audioLibrary;
+    public GameObject[] maps;
 
     void Awake() {
         if (Instance == null) {

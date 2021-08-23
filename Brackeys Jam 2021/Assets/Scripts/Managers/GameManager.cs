@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,17 +10,22 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public UIManager uiManager;
     [HideInInspector] public VolumeManager volumeManager;
     [HideInInspector] public PlayerManager playerManager;
+    [HideInInspector] public MapManager mapManager;
 
-    void Start() {
+    public CinemachineVirtualCamera vcam;
 
+    void Awake() {
         if (Instance == null) {
             Instance = this;
         } else {
             Destroy(gameObject);
         }
-        
+    }
+
+    void Start() {
         uiManager = transform.parent.gameObject.GetComponentInChildren<UIManager>();
         volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
         playerManager = transform.parent.gameObject.GetComponentInChildren<PlayerManager>();
+        mapManager = transform.parent.gameObject.GetComponentInChildren<MapManager>();
     }
 }

@@ -19,7 +19,7 @@ MonoBehaviour:
   _clipSize: 4
   _maxClipSize: 4
   _spreadAngle: 0
-  _power: 250
+  _power: 15
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}

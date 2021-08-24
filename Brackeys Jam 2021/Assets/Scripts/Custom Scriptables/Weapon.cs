@@ -122,6 +122,8 @@ public class Weapon : ScriptableObject
 
             newZRotation = ExtensionMethods.Remap(i, 1, ProjectileNumber, leastAngle, mostAngle);
 
+            newZRotation += Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)));
+
             Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, startingZRotation) : new Vector3(0, 0, newZRotation);
 
             GameObject newProjectile = projectileType.InstantiatedProjectile();

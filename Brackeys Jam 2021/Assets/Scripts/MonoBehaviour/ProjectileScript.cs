@@ -12,11 +12,15 @@ public class ProjectileScript : MonoBehaviour
     public GameObject radiusIndicator;
     public GameObject owner;
     Rigidbody2D thisBody;
+    GameObject target;
 
     void Start() {
         StartCoroutine("EndLife");
         enemiesHit = 0;
         thisBody = GetComponentInChildren<Rigidbody2D>();
+        if (homing) {
+            
+        }
     }
 
     void Update() {

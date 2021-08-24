@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public VolumeManager volumeManager;
     [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public MapManager mapManager;
+    [HideInInspector] public EnemyManager enemyManager;
 
     public CinemachineVirtualCamera vcam;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
         playerManager = transform.parent.gameObject.GetComponentInChildren<PlayerManager>();
         mapManager = transform.parent.gameObject.GetComponentInChildren<MapManager>();
+        enemyManager = transform.parent.gameObject.GetComponentInChildren<EnemyManager>();
 
         StartGame(0);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Scriptable Float")]
+[CreateAssetMenu(menuName="Brackeys Jam/Scriptable Float")]
 
 public class ScriptableFloat : CustomScriptable
 {

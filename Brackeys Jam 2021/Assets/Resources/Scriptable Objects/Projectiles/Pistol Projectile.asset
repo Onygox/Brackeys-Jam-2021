@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
-  m_Name: Piercing Bullet
+  m_Name: Pistol Projectile
   m_EditorClassIdentifier: 
-  _damage: 5
+  _damage: 7
   _radius: 0.2
-  _lifetime: 100
-  _enemiesToPierce: 2
+  _lifetime: 50
+  _enemiesToPierce: 1
   _deceleration: 1
   _startingSpeed: 20
   homing: 0

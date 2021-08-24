@@ -89,12 +89,6 @@ public class Weapon : ScriptableObject
 
     public void Shoot(Vector3 spawnLocation, Vector3 direction, GameObject owner) {
 
-        if (ClipSize <= 0) {
-            return;
-        }
-
-        // Debug.Log("Weapon shot at " + spawnLocation + " in " + direction + " direction");
-
         int startingZRotation = 0;
 
         switch (direction.x) {
@@ -136,6 +130,8 @@ public class Weapon : ScriptableObject
             ps.owner = owner;
 
         }
+
+        ClipSize--;
 
         onShootEvent?.Raise();
     }

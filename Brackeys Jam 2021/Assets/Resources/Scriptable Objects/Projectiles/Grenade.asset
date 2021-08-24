@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 12
   _radius: 1.2
-  _lifetime: 4
+  _lifetime: 3
   _enemiesToPierce: 1
   _deceleration: 0.975
   _startingSpeed: 15

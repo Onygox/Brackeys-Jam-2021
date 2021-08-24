@@ -10,29 +10,40 @@ public class PlayerScript : MonoBehaviour
     Vector3 velocity;
     private Rigidbody2D thisBody;
     public CircleCollider2D thisCollider;
-    ShootingBehaviour sb;
+    public GameObject lookTarget;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
         thisCollider = GetComponentInChildren<CircleCollider2D>();
-        sb = GetComponent<ShootingBehaviour>();
     }
 
     void Update() {
+
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         thisBody.velocity = velocity * baseSpeed;
 
+        lookTarget.transform.position = transform.position + velocity;
+
         if (Input.GetButtonDown("Fire Horizontal")) {
-            sb.ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
+            ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
         }
 
         if (Input.GetButtonDown("Fire Vertical")) {
-            sb.ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
+            ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
         }
 
         if (Input.GetButtonDown("Reload")) {
-            GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeapon();
+            if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
+                GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
+                StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
+            }
         }
+    }
+
+    private void ShootWeapon(Vector3 direction) {
+        GameManager.Instance.playerManager.playerShootingBehaviour.ShootWeapon(direction);
+        GameManager.Instance.uiManager.ammoSlider.value = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize;
+        GameManager.Instance.uiManager.ammoText.text = "Ammo Left: " + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize.ToString();
     }
 }

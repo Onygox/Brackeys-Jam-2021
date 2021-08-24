@@ -10,6 +10,7 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
     [HideInInspector] public AudioClip[] audioLibrary;
+    public Weapon[] weaponLibrary;
     public GameObject[] maps;
 
     void Awake() {
@@ -19,8 +20,9 @@ public class PersistentManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        scriptableLibrary = Resources.LoadAll<CustomScriptable>("Custom Scriptables/Production") as CustomScriptable[];
+        scriptableLibrary = Resources.LoadAll<CustomScriptable>("Scriptable Objects/Custom Scriptables/Production") as CustomScriptable[];
         audioLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Production") as AudioClip[];
+        weaponLibrary = Resources.LoadAll<Weapon>("Scriptable Objects/Weapons/Production") as Weapon[];
 
         if (scriptableLibrary.Length > 0) {
             for (int i = scriptableLibrary.Length - 1; i >= 0; i--) {

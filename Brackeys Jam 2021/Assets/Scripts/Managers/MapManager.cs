@@ -58,7 +58,7 @@ public class MapManager : MonoBehaviour
                         GameManager.Instance.playerManager.playerScript = associatedPrefab.GetComponentInChildren<PlayerScript>();
                         GameManager.Instance.playerManager.playerShootingBehaviour = associatedPrefab.GetComponentInChildren<ShootingBehaviour>();
                         //find player and assign cinemachine virtual camera to follow it
-                        GameManager.Instance.vcam.Follow = associatedPrefab.transform;
+                        GameManager.Instance.vcam.Follow = GameManager.Instance.playerManager.playerScript.lookTarget.transform;
                     }
 
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);

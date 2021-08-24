@@ -6,47 +6,81 @@ public class ProjectileScript : MonoBehaviour
 {
 
     [HideInInspector] public int damage;
-    public int environmentLayer, enemyLayer;
-    [HideInInspector] public float lifetime, radius;
+    public int environmentLayer, enemyLayer, enemiesToPierce, enemiesHit;
+    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed;
     [HideInInspector] public bool homing, bouncing;
     public GameObject radiusIndicator;
     public GameObject owner;
+    Rigidbody2D thisBody;
 
     void Start() {
         StartCoroutine("EndLife");
+        enemiesHit = 0;
+        thisBody = GetComponentInChildren<Rigidbody2D>();
+    }
+
+    void Update() {
+        if (thisBody.velocity.x > 0.001f || thisBody.velocity.x < -0.001f ||
+            thisBody.velocity.y > 0.001f || thisBody.velocity.y < -0.001f) {
+            thisBody.velocity *= deceleration;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
 
         if (collider.gameObject != owner) {
-            if (collider.gameObject.layer == enemyLayer ||
-                (!bouncing && collider.gameObject.layer == environmentLayer)) {
+            if (collider.gameObject.layer == enemyLayer) {
                 
                 DisplayRadius();
 
                 DealDamage(radius, damage);
 
-                Destroy(gameObject);
+                enemiesHit++;
+
+                if (enemiesHit >= enemiesToPierce) {
+                    Destroy(gameObject);
+                }
                 
+            } else if (!bouncing && collider.gameObject.layer == environmentLayer) {
+
+                DisplayRadius();
+
+                DealDamage(radius, damage);
+
+                Destroy(gameObject);
+
             }
         }
 
     }
 
-    // void OnCollisionEnter2D(Collision2D collider) {
+    void OnCollisionEnter2D(Collision2D collider) {
 
-    //     if (collider.gameObject.layer == enemyLayer ||
-    //         (!bouncing && collider.gameObject.layer == environmentLayer)) {
-            
-    //         DisplayRadius();
+        if (collider.gameObject != owner) {
+            if (collider.gameObject.layer == enemyLayer) {
+                
+                DisplayRadius();
 
-    //         DealDamage(radius, damage);
+                DealDamage(radius, damage);
 
-    //         Destroy(gameObject);
-            
-    //     }
+                enemiesHit++;
 
-    // }
+                if (enemiesHit >= enemiesToPierce) {
+                    Destroy(gameObject);
+                }
+                
+            } else if (!bouncing && collider.gameObject.layer == environmentLayer) {
+
+                DisplayRadius();
+
+                DealDamage(radius, damage);
+
+                Destroy(gameObject);
+
+            }
+        }
+
+    }
 
     void DisplayRadius() {
         GameObject gizmo = Instantiate(radiusIndicator);
@@ -59,14 +93,28 @@ public class ProjectileScript : MonoBehaviour
         
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
 
-        if (owner != playerObject) {
+        if (owner == playerObject) {
             foreach(Enemy enemy in GameManager.Instance.enemyManager.currentEnemies) {
-                if (Vector3.Distance(transform.position, enemy.gameObject.transform.position) <= radius) {
-                    enemy.gameObject.GetComponent<HealthComponent>().TakeDamage(damageAmount);
+
+                CircleCollider2D enemyCollider = enemy.gameObject.GetComponentInChildren<CircleCollider2D>();
+                float realRadius = radius + enemyCollider.radius;
+
+                // Debug.Log("Distance " + Vector3.Distance(transform.position, enemy.gameObject.transform.position));
+                // Debug.Log("real radius " + realRadius);
+
+                if (Vector3.Distance(transform.position, enemy.gameObject.transform.position) <= realRadius) {
+                    enemy.gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
                 }
             }
-        } else if (Vector3.Distance(transform.position, playerObject.transform.position) <= radius) {
-            playerObject.GetComponent<HealthComponent>().TakeDamage(damageAmount);
+        } else {
+            float realRadius = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
+
+            if (Vector3.Distance(transform.position, playerObject.transform.position) <= realRadius) {
+                // Debug.Log("Distance " + Vector3.Distance(transform.position, playerObject.transform.position));
+                // Debug.Log("real radius " + realRadius);
+
+                playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+            }
         }
 
         

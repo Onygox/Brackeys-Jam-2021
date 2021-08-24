@@ -128,7 +128,7 @@ public class Weapon : ScriptableObject
             newProjectile.transform.position = spawnLocation;
             newProjectile.transform.rotation = Quaternion.Euler(projectileRotation);
 
-            newProjectile.GetComponent<Rigidbody2D>().AddForce(Power * newProjectile.transform.up);
+            newProjectile.GetComponent<Rigidbody2D>().AddForce(Power * projectileType.StartingSpeed * newProjectile.transform.up);
 
             ProjectileScript ps = newProjectile.GetComponent<ProjectileScript>();
             ps.owner = owner;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    void Start() {
+    protected virtual void Start() {
         GameManager.Instance.enemyManager.currentEnemies.Add(this);
     }
 

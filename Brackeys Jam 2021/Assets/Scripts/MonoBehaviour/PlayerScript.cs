@@ -9,10 +9,12 @@ public class PlayerScript : MonoBehaviour
     float baseSpeed = 2.0f;
     Vector3 velocity;
     private Rigidbody2D thisBody;
+    public CircleCollider2D thisCollider;
     ShootingBehaviour sb;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
+        thisCollider = GetComponentInChildren<CircleCollider2D>();
         sb = GetComponent<ShootingBehaviour>();
     }
 

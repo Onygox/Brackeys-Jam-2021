@@ -32,6 +32,33 @@ public class Projectile : ScriptableObject
             _lifetime = value;
         }
     }
+    [SerializeField] private int _enemiesToPierce;
+    public int EnemiesToPierce {
+        get {
+            return _enemiesToPierce;
+        }
+        set {
+            _enemiesToPierce = value;
+        }
+    }
+    [SerializeField] private float _deceleration;
+    public float Deceleration {
+        get {
+            return _deceleration;
+        }
+        set {
+            _deceleration = value;
+        }
+    }
+    [SerializeField] private float _startingSpeed;
+    public float StartingSpeed {
+        get {
+            return _startingSpeed;
+        }
+        set {
+            _startingSpeed = value;
+        }
+    }
     public bool homing, bouncing;
     public GameObject prefab;
     public Sprite projectileImage;
@@ -48,11 +75,14 @@ public class Projectile : ScriptableObject
         ps.damage = Damage;
         ps.radius = Radius;
         ps.lifetime = Lifetime;
+        ps.enemiesToPierce = EnemiesToPierce;
+        ps.deceleration = Deceleration;
+        ps.startingSpeed = StartingSpeed;
         ps.homing = homing;
         ps.bouncing = bouncing;
 
         CircleCollider2D bc = newProjectile.AddComponent<CircleCollider2D>();
-        bc.isTrigger = true;
+        bc.isTrigger = !bouncing;
 
         return newProjectile;
     }

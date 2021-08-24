@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5157,6 +5157,11 @@ PrefabInstance:
       propertyPath: weaponSelector
       value: 
       objectReference: {fileID: 501670297}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: reloadTimeSlider
+      value: 
+      objectReference: {fileID: 1259802822}
     - target: {fileID: 5088101403082041662, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: m_Name

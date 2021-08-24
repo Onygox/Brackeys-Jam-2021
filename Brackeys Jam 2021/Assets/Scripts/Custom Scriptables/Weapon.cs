@@ -53,6 +53,7 @@ public class Weapon : ScriptableObject
             _clipSize = value;
         }
     }
+    [Header("Keep max clip size 0 for infinite ammo")]
     [SerializeField] private int _maxClipSize;
     public int MaxClipSize {
         get {
@@ -131,7 +132,7 @@ public class Weapon : ScriptableObject
 
         }
 
-        ClipSize--;
+        if (MaxClipSize > 0) ClipSize--;
 
         onShootEvent?.Raise();
     }

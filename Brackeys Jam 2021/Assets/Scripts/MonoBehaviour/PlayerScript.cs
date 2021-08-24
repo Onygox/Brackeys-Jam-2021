@@ -44,6 +44,6 @@ public class PlayerScript : MonoBehaviour
     private void ShootWeapon(Vector3 direction) {
         GameManager.Instance.playerManager.playerShootingBehaviour.ShootWeapon(direction);
         GameManager.Instance.uiManager.ammoSlider.value = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize;
-        GameManager.Instance.uiManager.ammoText.text = "Ammo Left: " + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize.ToString();
+        GameManager.Instance.uiManager.ammoText.text = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
     }
 }

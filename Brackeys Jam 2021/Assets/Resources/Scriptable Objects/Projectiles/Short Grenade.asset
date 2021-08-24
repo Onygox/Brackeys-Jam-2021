@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
-  m_Name: Pistol Projectile
+  m_Name: Short Grenade
   m_EditorClassIdentifier: 
-  _damage: 7
-  _radius: 0.2
-  _lifetime: 50
+  _damage: 12
+  _radius: 1.2
+  _lifetime: 1.5
   _enemiesToPierce: 1
-  _deceleration: 1
-  _startingSpeed: 21
+  _deceleration: 0.975
+  _startingSpeed: 15
   homing: 0
-  bouncing: 0
+  bouncing: 1
   prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}
   projectileImage: {fileID: 21300000, guid: a3e6004fa570c4901b2be4e5a901e06f, type: 3}
-  projectileSize: {x: 0.2, y: 0.2, z: 0.2}
+  projectileSize: {x: 0.3, y: 0.3, z: 0.3}

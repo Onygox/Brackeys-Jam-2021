@@ -25,7 +25,7 @@ public class ShootingBehaviour : MonoBehaviour
             return;
         }
 
-        if (currentWeapon.ClipSize <= 0) {
+        if (currentWeapon.ClipSize <= 0 && currentWeapon.MaxClipSize > 0) {
             return;
         }
 

@@ -26,6 +26,6 @@ public class PlayerManager : MonoBehaviour
     public void OnWeaponReload() {
         GameManager.Instance.uiManager.ammoSlider.maxValue = playerShootingBehaviour.currentWeapon.MaxClipSize;
         GameManager.Instance.uiManager.ammoSlider.value = playerShootingBehaviour.currentWeapon.ClipSize;
-        GameManager.Instance.uiManager.ammoText.text = "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString();
+        GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
     }
 }

@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 5300371121439877345}
   - component: {fileID: 6084846090790303653}
   - component: {fileID: 7405344042600628309}
+  - component: {fileID: 6104722593098909537}
   m_Layer: 8
   m_Name: Obstacle Body
   m_TagString: Untagged
@@ -220,3 +221,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
+--- !u!114 &6104722593098909537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7949408920108044003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923af8449814043d2b549f8cd04fc73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10

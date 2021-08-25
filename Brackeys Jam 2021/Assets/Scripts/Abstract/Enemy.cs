@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    public int health;
+    protected virtual void Start() {
+        GameManager.Instance.enemyManager.currentEnemies.Add(this);
+    }
 
 }

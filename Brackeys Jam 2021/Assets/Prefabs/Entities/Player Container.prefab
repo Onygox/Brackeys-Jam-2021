@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &443938452350197059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7290996235457394043}
+  m_Layer: 11
+  m_Name: LookTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7290996235457394043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443938452350197059}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1469068319573537020}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1469068319573537018
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +42,8 @@ GameObject:
   - component: {fileID: 1469068319573537021}
   - component: {fileID: 2564581518400425306}
   - component: {fileID: 7019123869330996455}
-  m_Layer: 0
+  - component: {fileID: 6079519866926023024}
+  m_Layer: 11
   m_Name: Player Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +62,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1469068319871198291}
+  - {fileID: 7290996235457394043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,7 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee7450463c6549bb9a0608e7e6cc254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisBody: {fileID: 0}
+  thisCollider: {fileID: 7019123869330996455}
+  lookTarget: {fileID: 443938452350197059}
 --- !u!50 &2564581518400425306
 Rigidbody2D:
   serializedVersion: 4
@@ -84,6 +117,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6079519866926023024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469068319573537018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentWeapon: {fileID: 11400000, guid: 4c8f26bda0b0a4836932576887b35bba, type: 2}
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0
@@ -93,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1469068319871198291}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +174,7 @@ GameObject:
   - component: {fileID: 1469068319871220388}
   - component: {fileID: 1469068319871220390}
   - component: {fileID: 1469068319871220391}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Head Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +275,7 @@ GameObject:
   - component: {fileID: 3531779544434749601}
   - component: {fileID: 7052803719966034866}
   - component: {fileID: 377754503327229574}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Torso Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +376,7 @@ GameObject:
   - component: {fileID: 3000969799773897133}
   - component: {fileID: 2048087905259113050}
   - component: {fileID: 4048700095721856584}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Legs Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

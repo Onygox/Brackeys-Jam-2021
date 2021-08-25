@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName="Scriptable String")]
+[CreateAssetMenu(menuName="Brackeys Jam/Scriptable String")]
 
 public class ScriptableString : CustomScriptable
 {

@@ -7,12 +7,12 @@ public class EnemyScript : Enemy
 {
     SAP2DAgent agent;
     SpriteRenderer thisRenderer;
-    // Rigidbody2D thisBody;
-    public float radius;
+    public float radius, minRadius, maxRadius;
     float timeBetweenShots;
     bool hasBeenSeen, isActive;
     ShootingBehaviour sb;
     public GameObject aim;
+    RotateTowardsPlayer rtp;
     protected override void Start() {
 
         base.Start();
@@ -20,7 +20,7 @@ public class EnemyScript : Enemy
         agent = GetComponent<SAP2DAgent>();
         thisRenderer = GetComponentInChildren<SpriteRenderer>();
         sb = GetComponentInChildren<ShootingBehaviour>();
-        // thisBody = GetComponentInChildren<Rigidbody2D>();
+        rtp = aim.GetComponent<RotateTowardsPlayer>();
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
         isActive = false;
@@ -36,18 +36,29 @@ public class EnemyScript : Enemy
         if (IsVisible()) hasBeenSeen = true;
 
         if (hasBeenSeen) {
-            if (IsInRange()) {
-                agent.CanMove = false;
+            if (rtp.PlayerIsVisible()) {
+                radius = maxRadius;
+                if (IsInRange()) {
+                    agent.CanMove = false;
+                } else {
+                    agent.CanMove = true;
+                }
             } else {
+                radius = Mathf.Clamp(radius-0.01f, minRadius, maxRadius);
                 agent.CanMove = true;
             }
+            // if (IsInRange()) {
+            //     agent.CanMove = false;
+            // } else {
+            //     agent.CanMove = true;
+            // }
         }
     }
 
     IEnumerator ShootTowardPlayer() {
         while (true) {
             yield return new WaitForSeconds(0.1f);
-            if (IsInRange()) {
+            if (IsInRange() && rtp.PlayerIsVisible()) {
                 timeBetweenShots+=0.1f;
                 if (timeBetweenShots >= sb.currentWeapon.FireRate) {
                     sb.ShootWeapon(aim.transform.rotation.eulerAngles);
@@ -72,6 +83,6 @@ public class EnemyScript : Enemy
     }
 
     public bool IsInRange() {
-        return (Vector3.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
+        return (Vector2.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
     }
 }

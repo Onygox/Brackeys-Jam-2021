@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  layersToSee:
+    serializedVersion: 2
+    m_Bits: 2304
 --- !u!1 &3114597783198519192
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
+  minRadius: 1
+  maxRadius: 5
   aim: {fileID: 2238099249555461040}
 --- !u!114 &7088741636227333856
 MonoBehaviour:

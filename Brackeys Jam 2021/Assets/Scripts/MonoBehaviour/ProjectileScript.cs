@@ -32,8 +32,12 @@ public class ProjectileScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) {
 
+        GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
+
         if (collider.gameObject != owner) {
-            if (collider.gameObject.layer == enemyLayer || collider.gameObject.layer == playerLayer) {
+            //if owned by player, hit the first enemy
+            //if not owned by player, no not hit enemies
+            if ((collider.gameObject.layer == enemyLayer && owner == playerObject)|| collider.gameObject.layer == playerLayer) {
                 
                 DisplayRadius();
 
@@ -60,8 +64,12 @@ public class ProjectileScript : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collider) {
 
+        GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
+
         if (collider.gameObject != owner) {
-            if (collider.gameObject.layer == enemyLayer || collider.gameObject.layer == playerLayer) {
+            //if owned by player, hit the first enemy
+            //if not owned by player, no not hit enemies
+            if ((collider.gameObject.layer == enemyLayer && owner == playerObject) || collider.gameObject.layer == playerLayer) {
                 
                 DisplayRadius();
 

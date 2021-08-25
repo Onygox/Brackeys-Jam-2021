@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6472827143017045464}
+  - {fileID: 6801156671933341045}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44,6 +45,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d88b525593f8345429232124011896fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 0}
+  volumeManager: {fileID: 0}
+  scriptableLibrary: []
+  audioLibrary: []
+  weaponLibrary: []
+  maps: []
 --- !u!1001 &1919117977259373699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,4 +125,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4861084238525884763, guid: 00905f7bb32814a849aad3b852e3f75e,
     type: 3}
   m_PrefabInstance: {fileID: 1919117977259373699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7772812733253899506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 620932881793267279}
+    m_Modifications:
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5728855146963730095, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: m_Name
+      value: VolumeManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202826246620941080, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: sfxVolumeVar
+      value: 
+      objectReference: {fileID: 11400000, guid: afd57843d431b4538aa318eaf98cbdb8,
+        type: 2}
+    - target: {fileID: 7202826246620941080, guid: 99f8546c090b24d43bef1121c028fb78,
+        type: 3}
+      propertyPath: musicVolumeVar
+      value: 
+      objectReference: {fileID: 11400000, guid: 00a306adabeec49f2903b1fd5fe04219,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 99f8546c090b24d43bef1121c028fb78, type: 3}
+--- !u!4 &6801156671933341045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3872000609635142023, guid: 99f8546c090b24d43bef1121c028fb78,
+    type: 3}
+  m_PrefabInstance: {fileID: 7772812733253899506}
   m_PrefabAsset: {fileID: 0}

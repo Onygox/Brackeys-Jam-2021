@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private GameObject soundObject;
 
-    public void PlaySound(int soundIndex, float volume, float variance) {
+    public void PlaySound(int soundIndex, float volume = 0.4f, float variance = 0.2f) {
         GameObject newSound = Instantiate(soundObject);
         AudioSource soundSource = newSound.GetComponent<AudioSource>();
         AudioClip newClip = soundIndex < PersistentManager.Instance.audioLibrary.Length ? PersistentManager.Instance.audioLibrary[soundIndex] : null;
@@ -16,9 +16,12 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        soundSource.volume = volume;
-        soundSource.pitch = Random.Range(-variance, variance);
+        // soundSource.clip = newClip;
+        soundSource.volume = volume * PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
+        soundSource.pitch += Random.Range(-variance, variance);
 
         soundSource.PlayOneShot(newClip);
+
+        Destroy(newSound, newClip.length);
     }
 }

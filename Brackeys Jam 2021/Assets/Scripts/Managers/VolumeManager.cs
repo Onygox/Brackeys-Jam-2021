@@ -5,7 +5,7 @@ using UnityEngine;
 public class VolumeManager : MonoBehaviour
 {
 
-    ScriptableFloat musicVolumeVar, sfxVolumeVar;
+    public ScriptableFloat musicVolumeVar, sfxVolumeVar;
 
     void Start() {
         musicVolumeVar = PersistentManager.Instance.FindVariableBySavePath("musicvolumedata") as ScriptableFloat;

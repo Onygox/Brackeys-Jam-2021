@@ -16,7 +16,7 @@ MonoBehaviour:
   _projectileNumber: 1
   _reloadSpeed: 1
   _fireRate: 0.9
-  _clipSize: 11
+  _clipSize: 12
   _maxClipSize: 12
   _spreadAngle: 66
   _power: 13

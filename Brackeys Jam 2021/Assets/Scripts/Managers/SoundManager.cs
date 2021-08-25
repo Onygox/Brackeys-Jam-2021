@@ -16,7 +16,7 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
-        soundSource.volume = volume * PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
+        // soundSource.volume = volume * PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
         soundSource.pitch += Random.Range(-variance, variance);
 
         soundSource.PlayOneShot(newClip);

@@ -6,4 +6,8 @@ public abstract class Enemy : MonoBehaviour
 {
     public int health;
 
+    protected virtual void Start() {
+        
+    }
+
 }

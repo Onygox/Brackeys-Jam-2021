@@ -1,31 +1,22 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class UiActionManager : MonoBehaviour
 {
 
     public AudioClip hoverSfx;
     public AudioClip clickSfx;
     public AudioClip backSfx;
-    public AudioSource hoverSfxPlayer;
-    public AudioSource clickSfxPlayer;
-    public AudioSource backSfxPlayer;
-
-    private void Awake() {
-        hoverSfxPlayer.clip = hoverSfx;
-        clickSfxPlayer.clip = clickSfx;
-        backSfxPlayer.clip = backSfx;
-    }
+    
     public void OnHover() {
-        hoverSfxPlayer.Play();
+        PersistentManager.Instance.soundManager.PlaySound(11 , 1.0f , 1);
     }
 
     public void OnClick() {
-        clickSfxPlayer.Play();
+        PersistentManager.Instance.soundManager.PlaySound(12 , 1.0f , 1);
     }
 
     public void OnBack() {
-        backSfxPlayer.Play();
+        PersistentManager.Instance.soundManager.PlaySound(10 , 1.0f , 1);
     }
 
 }

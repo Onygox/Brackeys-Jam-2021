@@ -2659,7 +2659,7 @@ PrefabInstance:
     - target: {fileID: 7782732457610652270, guid: 94d08ab9903734cecb4f406a7dee6503,
         type: 3}
       propertyPath: m_Name
-      value: Text Standard (TMP)
+      value: Current Weapon Text Standard (TMP)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d08ab9903734cecb4f406a7dee6503, type: 3}
@@ -3311,6 +3311,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367125196}
   m_CullTransparentMesh: 0
+--- !u!114 &1404574404 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
+    type: 3}
+  m_PrefabInstance: {fileID: 1061707169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1442846649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,7 +4010,7 @@ PrefabInstance:
     - target: {fileID: 7001797717456325504, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Name
-      value: Panel Standard (1)
+      value: Current Weapon Panel Standard (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2be1161b9221e4f3e979d5b4e2763725, type: 3}
@@ -5645,6 +5657,11 @@ PrefabInstance:
       propertyPath: reloadTimeSlider
       value: 
       objectReference: {fileID: 1259802822}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: currentWeaponText
+      value: 
+      objectReference: {fileID: 1404574404}
     - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: playerHealthSlider

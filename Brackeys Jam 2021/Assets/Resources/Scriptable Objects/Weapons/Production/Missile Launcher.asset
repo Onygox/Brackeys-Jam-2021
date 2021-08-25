@@ -16,12 +16,12 @@ MonoBehaviour:
   _projectileNumber: 1
   _reloadSpeed: 2.7
   _fireRate: 2
-  _clipSize: 0
+  _clipSize: 1
   _maxClipSize: 3
   _spreadAngle: 45
   _power: 16
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: 9728b8466a3a74fb6a74b15fbe7289f5, type: 2}
+  projectileType: {fileID: 11400000, guid: ba89e0349bc0548199fcb51f2b9bbabe, type: 2}
   prefab: {fileID: 0}

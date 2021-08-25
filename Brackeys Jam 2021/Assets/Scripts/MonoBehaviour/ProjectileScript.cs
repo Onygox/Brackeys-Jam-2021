@@ -14,6 +14,7 @@ public class ProjectileScript : MonoBehaviour
     Rigidbody2D thisBody;
     public Transform target;
     private Vector3 vectorToTarget;
+    [SerializeField] public GameObject homingAimTarget;
 
     void Start() {
         StartCoroutine("EndLife");
@@ -21,6 +22,8 @@ public class ProjectileScript : MonoBehaviour
         thisBody = GetComponentInChildren<Rigidbody2D>();
         if (homing) {
             target = GetClosestEnemy(GameManager.Instance.enemyManager.currentEnemies);
+            GameObject aimTarget = Instantiate(homingAimTarget, target.position, Quaternion.identity);
+            Destroy(aimTarget, lifetime-0.1f);
         }
     }
 

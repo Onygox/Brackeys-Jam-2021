@@ -55,11 +55,17 @@ MonoBehaviour:
   radius: 0
   deceleration: 0
   startingSpeed: 0
+  homingSpeed: 0
+  homingAccuracy: 0
   homing: 0
   bouncing: 0
+  friendlyDamage: 0
   radiusIndicator: {fileID: 1956901694331190508, guid: f4df3709647d647b48ad000dac5de010,
     type: 3}
   owner: {fileID: 0}
+  target: {fileID: 0}
+  homingAimTarget: {fileID: 3768134530846046034, guid: 474edf2088407464282675b8d1353b09,
+    type: 3}
 --- !u!50 &4938746224974453874
 Rigidbody2D:
   serializedVersion: 4

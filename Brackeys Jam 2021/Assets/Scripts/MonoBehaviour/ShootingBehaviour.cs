@@ -15,7 +15,7 @@ public class ShootingBehaviour : MonoBehaviour
         ReloadWeapon();
     }
 
-    public void ShootWeapon(Vector3 direction) {
+    public void ShootWeapon(Vector3 location, Vector3 direction) {
 
         if (timeSinceLastShot < currentWeapon.FireRate) {
             return;
@@ -31,7 +31,7 @@ public class ShootingBehaviour : MonoBehaviour
 
         StopCoroutine("CoolDown");
 
-        currentWeapon.Shoot(transform.position + direction/2, direction, this.gameObject);
+        currentWeapon.Shoot(location, direction, this.gameObject);
 
         if (isPlayer && currentWeapon.ClipSize <= 0) {
             //change weapon automatically on clip empty

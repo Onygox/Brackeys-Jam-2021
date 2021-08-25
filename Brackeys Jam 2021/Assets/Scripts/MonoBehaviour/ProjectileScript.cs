@@ -74,6 +74,7 @@ public class ProjectileScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collider) {
 
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
+        Debug.Log("Hit " + collider.gameObject);
 
         if (collider.gameObject != owner) {
             //if owned by player, hit the first enemy

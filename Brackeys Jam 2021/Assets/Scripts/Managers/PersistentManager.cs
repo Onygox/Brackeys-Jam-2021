@@ -7,10 +7,11 @@ public class PersistentManager : MonoBehaviour
     public static PersistentManager Instance;
 
     [HideInInspector] public SoundManager soundManager;
+    [HideInInspector] public VolumeManager volumeManager;
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
-    [HideInInspector] public AudioClip[] audioLibrary;
-    public Weapon[] weaponLibrary;
+    public AudioClip[] audioLibrary;
+    [HideInInspector] public Weapon[] weaponLibrary;
     public GameObject[] maps;
 
     void Awake() {
@@ -33,6 +34,7 @@ public class PersistentManager : MonoBehaviour
 
     void Start() {
         soundManager = GetComponentInChildren<SoundManager>();
+        volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
     }
 
     public CustomScriptable FindVariableBySavePath(string varSavePath) {

@@ -14,11 +14,13 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        foreach(Weapon w in PersistentManager.Instance.weaponLibrary) {
-            weaponNames.Add(w.name);
-        }
+        if (weaponSelector != null) {
+            foreach(Weapon w in PersistentManager.Instance.weaponLibrary) {
+                weaponNames.Add(w.name);
+            }
 
-        weaponSelector.ClearOptions();
-        weaponSelector.AddOptions(weaponNames);
+            weaponSelector.ClearOptions();
+            weaponSelector.AddOptions(weaponNames);
+        }
     }
 }

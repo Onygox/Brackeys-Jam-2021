@@ -47,11 +47,6 @@ public class EnemyScript : Enemy
                 radius = Mathf.Clamp(radius-0.01f, minRadius, maxRadius);
                 agent.CanMove = true;
             }
-            // if (IsInRange()) {
-            //     agent.CanMove = false;
-            // } else {
-            //     agent.CanMove = true;
-            // }
         }
     }
 
@@ -74,7 +69,7 @@ public class EnemyScript : Enemy
     }
 
     public bool IsVisible() {
-        //Check Visibility
+        //Check Visibility in main camera viewport
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         bool onScreen = screenPos.x > 0f && screenPos.x < Screen.width && screenPos.y > 0f && screenPos.y < Screen.height;

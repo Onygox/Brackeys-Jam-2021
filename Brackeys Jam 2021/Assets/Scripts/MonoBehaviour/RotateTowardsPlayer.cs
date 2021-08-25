@@ -20,8 +20,11 @@ public class RotateTowardsPlayer : MonoBehaviour
     }
 
     public bool PlayerIsVisible() {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, vectorToTarget, 100, layersToSee);
+        RaycastHit2D hit1 = Physics2D.Raycast(transform.position + new Vector3(0.12f, -0.12f, 0.0f), vectorToTarget, 100, layersToSee);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.12f, 0.12f, 0.0f), vectorToTarget, 100, layersToSee);
+        RaycastHit2D hit3 = Physics2D.Raycast(transform.position + new Vector3(-0.12f, -0.12f, 0.0f), vectorToTarget, 100, layersToSee);
+        RaycastHit2D hit4 = Physics2D.Raycast(transform.position + new Vector3(0.12f, 0.12f, 0.0f), vectorToTarget, 100, layersToSee);
 
-        return (hit.collider.gameObject == target);
+        return (hit1.collider.gameObject == target && hit2.collider.gameObject == target && hit3.collider.gameObject == target && hit4.collider.gameObject == target);
     }
 }

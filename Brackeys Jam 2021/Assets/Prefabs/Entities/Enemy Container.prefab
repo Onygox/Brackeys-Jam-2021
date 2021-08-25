@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 6628836540809973198}
   - component: {fileID: 8434190325823566668}
   - component: {fileID: 8632227309798772969}
-  - component: {fileID: 6142740746762751311}
+  - component: {fileID: 1597706705030957724}
   m_Layer: 9
   m_Name: Enemy Body
   m_TagString: Untagged
@@ -317,7 +317,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -336,8 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2342446500217199252}
-  _health: 25
-  _maxHealth: 25
+  _health: 50
+  _maxHealth: 50
 --- !u!114 &8632227309798772969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 2
   currentWeapon: {fileID: 11400000, guid: 16a056abda5774bd2ad4682d80c2048f, type: 2}
---- !u!114 &6142740746762751311
+--- !u!114 &1597706705030957724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

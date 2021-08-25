@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee7450463c6549bb9a0608e7e6cc254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSpeed: 3
   thisCollider: {fileID: 7019123869330996455}
   lookTarget: {fileID: 443938452350197059}
   playerHealthComponent: {fileID: 6081203308721728618}

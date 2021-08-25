@@ -14,7 +14,6 @@ public class RotateTowardsPlayer : MonoBehaviour
 
     void Update() {
         vectorToTarget = target.transform.position - transform.position;
-        // float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
@@ -22,8 +21,6 @@ public class RotateTowardsPlayer : MonoBehaviour
 
     public bool PlayerIsVisible() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, vectorToTarget, 100, layersToSee);
-
-        // if (hit) Debug.Log("Hit " + hit.collider.gameObject);
 
         return (hit.collider.gameObject == target);
     }

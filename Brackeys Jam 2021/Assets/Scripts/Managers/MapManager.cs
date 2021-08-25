@@ -70,6 +70,9 @@ public class MapManager : MonoBehaviour
             }
         }
 
+        //set starting weapon
+        GameManager.Instance.uiManager.weaponSelector.value = GameManager.Instance.uiManager.pistolIndex;
+
         // pathfinder.AddGrid(bounds.size.x * 2, bounds.size.y * 2);
         SAP_GridSource sapgrid = pathfinder.GetGrid(0);
         sapgrid.GridPivot = GridPivot.Center;

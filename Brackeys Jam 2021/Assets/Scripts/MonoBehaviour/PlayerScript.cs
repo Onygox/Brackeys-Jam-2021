@@ -39,12 +39,12 @@ public class PlayerScript : MonoBehaviour
             ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
         }
 
-        if (Input.GetButtonDown("Reload")) {
-            if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
-                GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
-                StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
-            }
-        }
+        // if (Input.GetButtonDown("Reload")) {
+        //     if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
+        //         GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
+        //         StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
+        //     }
+        // }
     }
 
     private void ShootWeapon(Vector3 direction) {

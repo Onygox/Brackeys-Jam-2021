@@ -7,19 +7,20 @@ public class ProjectileScript : MonoBehaviour
 
     [HideInInspector] public int damage;
     public int environmentLayer, enemyLayer, playerLayer, enemiesToPierce, enemiesHit;
-    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed;
-    [HideInInspector] public bool homing, bouncing;
+    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy;
+    [HideInInspector] public bool homing, bouncing, friendlyDamage;
     public GameObject radiusIndicator;
     public GameObject owner;
     Rigidbody2D thisBody;
-    GameObject target;
+    public Transform target;
+    private Vector3 vectorToTarget;
 
     void Start() {
         StartCoroutine("EndLife");
         enemiesHit = 0;
         thisBody = GetComponentInChildren<Rigidbody2D>();
         if (homing) {
-            
+            target = GetClosestEnemy(GameManager.Instance.enemyManager.currentEnemies);
         }
     }
 
@@ -27,6 +28,14 @@ public class ProjectileScript : MonoBehaviour
         if (thisBody.velocity.x > 0.001f || thisBody.velocity.x < -0.001f ||
             thisBody.velocity.y > 0.001f || thisBody.velocity.y < -0.001f) {
             thisBody.velocity *= deceleration;
+        }
+
+        if (target != null && homing) {
+            vectorToTarget = target.position - transform.position;
+            float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * homingSpeed);
+            thisBody.AddForce(transform.up * homingAccuracy);
         }
     }
 
@@ -106,18 +115,6 @@ public class ProjectileScript : MonoBehaviour
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
 
         if (owner == playerObject) {
-            // foreach(Enemy enemy in GameManager.Instance.enemyManager.currentEnemies) {
-
-            //     CircleCollider2D enemyCollider = enemy.gameObject.GetComponentInChildren<CircleCollider2D>();
-            //     float realRadius = radius + enemyCollider.radius;
-
-            //     // Debug.Log("Distance " + Vector2.Distance(transform.position, enemy.gameObject.transform.position));
-            //     // Debug.Log("real radius " + realRadius);
-
-            //     if (Vector2.Distance(transform.position, enemy.gameObject.transform.position) <= realRadius) {
-            //         enemy.gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
-            //     }
-            // }
             for(int i = GameManager.Instance.enemyManager.currentEnemies.Count - 1; i >= 0; i--) {
 
                 CircleCollider2D enemyCollider = GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<CircleCollider2D>();
@@ -131,6 +128,13 @@ public class ProjectileScript : MonoBehaviour
                 }
             
             }
+            if (friendlyDamage) {
+                float radiusToPlayer = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
+
+                if (Vector2.Distance(transform.position, playerObject.transform.position) <= radiusToPlayer) {
+                    playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+                }
+            }
         } else {
             float realRadius = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
 
@@ -138,7 +142,6 @@ public class ProjectileScript : MonoBehaviour
             // Debug.Log("real radius " + realRadius);
 
             if (Vector2.Distance(transform.position, playerObject.transform.position) <= realRadius) {
-
                 playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
             }
         }
@@ -155,5 +158,24 @@ public class ProjectileScript : MonoBehaviour
         DealDamage(radius, damage);
 
         Destroy(gameObject);
+    }
+
+    //from edwardrowe at https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
+    Transform GetClosestEnemy (List<Enemy> enemies) {
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach(Enemy potentialTarget in enemies) {
+            Transform enemyTransform = potentialTarget.gameObject.transform;
+            Vector3 directionToTarget = enemyTransform.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if(dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = enemyTransform;
+            }
+        }
+     
+        return bestTarget;
     }
 }

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: a1d20c8b411abab4591c86df203e56ea
+<<<<<<< HEAD:Brackeys Jam 2021/Assets/Resources/Scriptable Objects.meta
+guid: 3e57d6d3019b14eb888ff191be757e26
+=======
+guid: 75c32a5e01077f34985fb58c686d3ef5
+>>>>>>> AI-Enemies:Brackeys Jam 2021/Assets/Resources/Sound Effects.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

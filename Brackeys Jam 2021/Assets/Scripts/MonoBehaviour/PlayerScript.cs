@@ -42,7 +42,25 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void ShootWeapon(Vector3 direction) {
-        GameManager.Instance.playerManager.playerShootingBehaviour.ShootWeapon(direction);
+        int startingZRotation = 0;
+
+        switch (direction.x) {
+
+            case 1:
+                startingZRotation = 270;
+                break;
+            case -1:
+                startingZRotation = 90;
+                break;
+            case 0:
+                startingZRotation = direction.y > 0 ? 0 : 180;
+                break;
+            default:
+                break;
+
+        }
+
+        GameManager.Instance.playerManager.playerShootingBehaviour.ShootWeapon(new Vector3(0, 0, startingZRotation));
         GameManager.Instance.uiManager.ammoSlider.value = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize;
         GameManager.Instance.uiManager.ammoText.text = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
     }

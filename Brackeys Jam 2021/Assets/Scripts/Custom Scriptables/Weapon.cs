@@ -90,36 +90,18 @@ public class Weapon : ScriptableObject
 
     public void Shoot(Vector3 spawnLocation, Vector3 direction, GameObject owner) {
 
-        int startingZRotation = 0;
-
-        switch (direction.x) {
-
-            case 1:
-                startingZRotation = 270;
-                break;
-            case -1:
-                startingZRotation = 90;
-                break;
-            case 0:
-                startingZRotation = direction.y > 0 ? 0 : 180;
-                break;
-            default:
-                break;
-
-        }
-
         for(int i = 1; i <= ProjectileNumber; i++) {
 
             float newZRotation;
 
-            float leastAngle = startingZRotation - (SpreadAngle/2);
-            float mostAngle = startingZRotation + (SpreadAngle/2);
+            float leastAngle = direction.z - (SpreadAngle/2);
+            float mostAngle = direction.z + (SpreadAngle/2);
 
             newZRotation = ExtensionMethods.Remap(i, 1, ProjectileNumber, leastAngle, mostAngle);
 
             newZRotation += Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)));
 
-            Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, startingZRotation) : new Vector3(0, 0, newZRotation);
+            Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, direction.z) : new Vector3(0, 0, newZRotation);
 
             GameObject newProjectile = projectileType.InstantiatedProjectile();
             newProjectile.transform.position = spawnLocation;

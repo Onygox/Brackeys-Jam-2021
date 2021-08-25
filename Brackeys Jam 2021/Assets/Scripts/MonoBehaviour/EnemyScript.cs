@@ -11,7 +11,7 @@ public class EnemyScript : Enemy
     public float radius;
     float timeBetweenShots;
     bool hasBeenSeen;
-    //ShootingBehaviour sb;
+    ShootingBehaviour sb;
     public GameObject aim;
     protected override void Start() {
 
@@ -19,7 +19,7 @@ public class EnemyScript : Enemy
 
         agent = GetComponent<SAP2DAgent>();
         thisRenderer = GetComponentInChildren<SpriteRenderer>();
-        //sb = GetComponentInChildren<ShootingBehaviour>();
+        sb = GetComponentInChildren<ShootingBehaviour>();
         // thisBody = GetComponentInChildren<Rigidbody2D>();
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
@@ -45,10 +45,10 @@ public class EnemyScript : Enemy
             yield return new WaitForSeconds(0.1f);
             if (IsInRange()) {
                 timeBetweenShots+=0.1f;
-                // if (timeBetweenShots >= sb.currentWeapon.FireRate) {
-                //     //sb.ShootWeapon(aim.transform.rotation.eulerAngles);
-                //     timeBetweenShots = 0;
-                // }
+                if (timeBetweenShots >= sb.currentWeapon.FireRate) {
+                    sb.ShootWeapon(aim.transform.rotation.eulerAngles);
+                    timeBetweenShots = 0;
+                }
             }
         }
     }

@@ -8,8 +8,4 @@ public abstract class Enemy : MonoBehaviour
         GameManager.Instance.enemyManager.currentEnemies.Add(this);
     }
 
-    protected virtual void Start() {
-        
-    }
-
 }

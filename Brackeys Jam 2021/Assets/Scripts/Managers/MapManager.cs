@@ -57,6 +57,7 @@ public class MapManager : MonoBehaviour
                     if (associatedPrefab.GetComponentInChildren<PlayerScript>()) {
                         GameManager.Instance.playerManager.playerScript = associatedPrefab.GetComponentInChildren<PlayerScript>();
                         GameManager.Instance.playerManager.playerShootingBehaviour = associatedPrefab.GetComponentInChildren<ShootingBehaviour>();
+                        Camera.main.gameObject.transform.position = associatedPrefab.transform.position;
                         //find player and assign cinemachine virtual camera to follow it
                         GameManager.Instance.vcam.Follow = GameManager.Instance.playerManager.playerScript.lookTarget.transform;
                     }
@@ -69,6 +70,7 @@ public class MapManager : MonoBehaviour
             }
         }
 
+        // pathfinder.AddGrid(bounds.size.x * 2, bounds.size.y * 2);
         SAP_GridSource sapgrid = pathfinder.GetGrid(0);
         sapgrid.GridPivot = GridPivot.Center;
         sapgrid.Position = Vector3.zero;

@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public Slider musicSlider, sfxSlider;
     List<string> weaponNames = new List<string>();
     public TMP_Dropdown weaponSelector;
-    public Slider ammoSlider, fireRateSlider, reloadTimeSlider;
+    public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
     public TextMeshProUGUI ammoText;
 
     void Start()

@@ -257,6 +257,7 @@ GameObject:
   - component: {fileID: 6628836540809973198}
   - component: {fileID: 8434190325823566668}
   - component: {fileID: 8632227309798772969}
+  - component: {fileID: 6142740746762751311}
   m_Layer: 9
   m_Name: Enemy Body
   m_TagString: Untagged
@@ -344,8 +345,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 1
+  reloadTime: 2
   currentWeapon: {fileID: 11400000, guid: 16a056abda5774bd2ad4682d80c2048f, type: 2}
+--- !u!114 &6142740746762751311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755589557285454953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac64e123b7aaa40adecd5611222db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
 --- !u!1 &6218640342642587557
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +694,7 @@ GameObject:
   - component: {fileID: 2802890062893878489}
   - component: {fileID: 2342446500217199252}
   m_Layer: 9
-  m_Name: Slider
+  m_Name: EnemyHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

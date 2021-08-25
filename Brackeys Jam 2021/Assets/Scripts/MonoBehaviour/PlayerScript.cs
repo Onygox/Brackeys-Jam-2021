@@ -6,15 +6,21 @@ public class PlayerScript : MonoBehaviour
 {
     //put movement and visual scripting in here
 
-    float baseSpeed = 2.0f;
+    [SerializeField] float baseSpeed = 2.7f;
     Vector3 velocity;
     private Rigidbody2D thisBody;
     public CircleCollider2D thisCollider;
     public GameObject lookTarget;
+    public HealthComponent playerHealthComponent;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
         thisCollider = GetComponentInChildren<CircleCollider2D>();
+        playerHealthComponent = GetComponent<HealthComponent>();
+        playerHealthComponent.healthSlider = GameManager.Instance.uiManager.playerHealthSlider;
+        playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
+        GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
+        playerHealthComponent.Health = GameManager.Instance.playerManager.currentPlayerHealthVar.Value;
     }
 
     void Update() {

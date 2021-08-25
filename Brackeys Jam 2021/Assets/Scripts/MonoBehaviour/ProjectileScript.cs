@@ -6,7 +6,7 @@ public class ProjectileScript : MonoBehaviour
 {
 
     [HideInInspector] public int damage;
-    public int environmentLayer, enemyLayer, enemiesToPierce, enemiesHit;
+    public int environmentLayer, enemyLayer, playerLayer, enemiesToPierce, enemiesHit;
     [HideInInspector] public float lifetime, radius, deceleration, startingSpeed;
     [HideInInspector] public bool homing, bouncing;
     public GameObject radiusIndicator;
@@ -33,7 +33,7 @@ public class ProjectileScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
 
         if (collider.gameObject != owner) {
-            if (collider.gameObject.layer == enemyLayer) {
+            if (collider.gameObject.layer == enemyLayer || collider.gameObject.layer == playerLayer) {
                 
                 DisplayRadius();
 
@@ -61,7 +61,7 @@ public class ProjectileScript : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collider) {
 
         if (collider.gameObject != owner) {
-            if (collider.gameObject.layer == enemyLayer) {
+            if (collider.gameObject.layer == enemyLayer || collider.gameObject.layer == playerLayer) {
                 
                 DisplayRadius();
 
@@ -98,24 +98,38 @@ public class ProjectileScript : MonoBehaviour
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
 
         if (owner == playerObject) {
-            foreach(Enemy enemy in GameManager.Instance.enemyManager.currentEnemies) {
+            // foreach(Enemy enemy in GameManager.Instance.enemyManager.currentEnemies) {
 
-                CircleCollider2D enemyCollider = enemy.gameObject.GetComponentInChildren<CircleCollider2D>();
+            //     CircleCollider2D enemyCollider = enemy.gameObject.GetComponentInChildren<CircleCollider2D>();
+            //     float realRadius = radius + enemyCollider.radius;
+
+            //     // Debug.Log("Distance " + Vector2.Distance(transform.position, enemy.gameObject.transform.position));
+            //     // Debug.Log("real radius " + realRadius);
+
+            //     if (Vector2.Distance(transform.position, enemy.gameObject.transform.position) <= realRadius) {
+            //         enemy.gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+            //     }
+            // }
+            for(int i = GameManager.Instance.enemyManager.currentEnemies.Count - 1; i >= 0; i--) {
+
+                CircleCollider2D enemyCollider = GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<CircleCollider2D>();
                 float realRadius = radius + enemyCollider.radius;
 
-                // Debug.Log("Distance " + Vector3.Distance(transform.position, enemy.gameObject.transform.position));
+                // Debug.Log("Distance " + Vector2.Distance(transform.position, enemy.gameObject.transform.position));
                 // Debug.Log("real radius " + realRadius);
 
-                if (Vector3.Distance(transform.position, enemy.gameObject.transform.position) <= realRadius) {
-                    enemy.gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+                if (Vector2.Distance(transform.position, GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position) <= realRadius) {
+                    GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
                 }
+            
             }
         } else {
             float realRadius = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
 
-            if (Vector3.Distance(transform.position, playerObject.transform.position) <= realRadius) {
-                // Debug.Log("Distance " + Vector3.Distance(transform.position, playerObject.transform.position));
-                // Debug.Log("real radius " + realRadius);
+            // Debug.Log("Distance " + Vector2.Distance(transform.position, playerObject.transform.position));
+            // Debug.Log("real radius " + realRadius);
+
+            if (Vector2.Distance(transform.position, playerObject.transform.position) <= realRadius) {
 
                 playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
             }

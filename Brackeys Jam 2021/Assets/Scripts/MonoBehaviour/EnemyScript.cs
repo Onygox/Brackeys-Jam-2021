@@ -10,7 +10,7 @@ public class EnemyScript : Enemy
     // Rigidbody2D thisBody;
     public float radius;
     float timeBetweenShots;
-    bool hasBeenSeen;
+    bool hasBeenSeen, isActive;
     ShootingBehaviour sb;
     public GameObject aim;
     protected override void Start() {
@@ -23,12 +23,16 @@ public class EnemyScript : Enemy
         // thisBody = GetComponentInChildren<Rigidbody2D>();
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
+        isActive = false;
         hasBeenSeen = false;
         timeBetweenShots = 0;
         StartCoroutine("ShootTowardPlayer");
+        StartCoroutine("MakeActive");
     }
 
     void Update() {
+        if (!isActive) return;
+
         if (IsVisible()) hasBeenSeen = true;
 
         if (hasBeenSeen) {
@@ -51,6 +55,11 @@ public class EnemyScript : Enemy
                 }
             }
         }
+    }
+
+    IEnumerator MakeActive() {
+        yield return new WaitForSeconds(0.2f);
+        isActive = true;
     }
 
     public bool IsVisible() {

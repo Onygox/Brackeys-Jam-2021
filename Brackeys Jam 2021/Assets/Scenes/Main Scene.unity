@@ -1262,6 +1262,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538631718}
   m_CullTransparentMesh: 0
+--- !u!114 &599906565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
+    type: 3}
+  m_PrefabInstance: {fileID: 155197552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &644399338
 GameObject:
   m_ObjectHideFlags: 0
@@ -5518,6 +5530,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 282a4e86150e642aabb9a89e71842f04,
         type: 2}
+    - target: {fileID: 107697231688573693, guid: 81366456350054a8da5e2d8cb2560af8,
+        type: 3}
+      propertyPath: playerMovementSpeedVar
+      value: 
+      objectReference: {fileID: 11400000, guid: 69dfd7c6271204fe2ad106a7f4651002,
+        type: 2}
     - target: {fileID: 1079522257358318287, guid: 81366456350054a8da5e2d8cb2560af8,
         type: 3}
       propertyPath: m_Name
@@ -5736,6 +5754,11 @@ PrefabInstance:
       propertyPath: weaponSelector
       value: 
       objectReference: {fileID: 501670297}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: readyToFireText
+      value: 
+      objectReference: {fileID: 599906565}
     - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: reloadTimeSlider

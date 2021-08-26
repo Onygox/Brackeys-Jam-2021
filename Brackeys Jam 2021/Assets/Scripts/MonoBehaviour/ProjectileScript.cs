@@ -5,8 +5,8 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
 
-    [HideInInspector] public int damage;
-    public int environmentLayer, enemyLayer, playerLayer, enemiesToPierce, enemiesHit;
+    public int damage, enemiesToPierce, enemiesHit;
+    public int environmentLayer, enemyLayer, playerLayer;
     [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy, knockback;
     [HideInInspector] public bool homing, bouncing, friendlyDamage, targetOwner;
     public GameObject radiusIndicator;

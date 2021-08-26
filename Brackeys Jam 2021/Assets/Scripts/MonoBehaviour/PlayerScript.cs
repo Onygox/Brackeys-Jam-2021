@@ -30,7 +30,7 @@ public class PlayerScript : MonoBehaviour
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
-        if (!isRecoiling) thisBody.velocity = velocity * baseSpeed;
+        if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
 
         lookTarget.transform.position = transform.position + velocity;
 
@@ -55,14 +55,6 @@ public class PlayerScript : MonoBehaviour
         if (Input.GetButtonDown("Activate")) {
             
         }
-
-        // if (Input.GetButtonDown("Reload")) {
-        //     // if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
-        //     //     GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
-        //     //     StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
-        //     // }
-        //     Recoil(new Vector3(0, 1, 0), 100);
-        // }
     }
 
     private void ShootWeapon(Vector3 direction) {
@@ -84,11 +76,11 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        playerShootingBehaviour.ShootWeapon(transform.position + direction, new Vector3(0, 0, startingZRotation));
-        
-        if (playerShootingBehaviour.currentWeapon.Recoil > 0) {
+        if (playerShootingBehaviour.timeSinceLastShot >= playerShootingBehaviour.currentWeapon.FireRate && playerShootingBehaviour.currentWeapon.Recoil > 0) {
             StartCoroutine(RecoilRoutine(-direction, playerShootingBehaviour.currentWeapon.Recoil));
         }
+
+        playerShootingBehaviour.ShootWeapon(transform.position + (direction*0.67f), new Vector3(0, 0, startingZRotation));
 
         GameManager.Instance.uiManager.ammoSlider.value = playerShootingBehaviour.currentWeapon.ClipSize;
         GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";

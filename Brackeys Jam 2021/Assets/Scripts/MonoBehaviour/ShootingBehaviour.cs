@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ShootingBehaviour : MonoBehaviour
 {
-    private float timeSinceLastShot = 0;
+    public float timeSinceLastShot = 0;
     public float reloadTime = 0;
     public Weapon currentWeapon;
     private bool isPlayer;
+    public ScriptableFloat playerFireRateMultiplier;
     // public bool isReloading;
 
     void Start() {
@@ -44,13 +45,17 @@ public class ShootingBehaviour : MonoBehaviour
 
     IEnumerator CoolDown() {
         timeSinceLastShot = 0;
+        GameManager.Instance.uiManager.readyToFireText.text = " ";
         while (timeSinceLastShot <= currentWeapon.FireRate) {
             yield return new WaitForSeconds(0.1f);
-            timeSinceLastShot += 0.1f;
             if (isPlayer) {
+                timeSinceLastShot += (0.1f * playerFireRateMultiplier.Value);
                 GameManager.Instance.uiManager.fireRateSlider.value = ExtensionMethods.Remap(timeSinceLastShot, 0.0f, currentWeapon.FireRate, 0.0f, 1.0f);
+            } else {
+                timeSinceLastShot += 0.1f;
             }
         }
+        GameManager.Instance.uiManager.readyToFireText.text = "Ready To Fire";
     }
 
     // public IEnumerator ReloadWeaponRoutine() {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618073bce77b447d5b5e15613700e51c, type: 3}
   m_Name: Player Damage Dealt Multiplier
   m_EditorClassIdentifier: 
-  libraryIndex: 0
+  libraryIndex: 1
   _saveDataPath: playerdamagedealtdata
   onVariableChange: {fileID: 0}
   _value: 1

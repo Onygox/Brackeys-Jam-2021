@@ -134,7 +134,7 @@ public class ProjectileScript : MonoBehaviour
                     if (knockback > 0) {
                         Vector3 vectorToTarget = GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position - transform.position;
                         // Debug.Log("Hit Vector " + vectorToTarget.normalized);
-                        StartCoroutine(GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponent<EnemyScript>().GetKnocked(vectorToTarget, knockback, 0.4f));
+                        GameManager.Instance.enemyManager.currentEnemies[i].GetKnockedBack(vectorToTarget, knockback);
                     }
                 }
             
@@ -149,7 +149,7 @@ public class ProjectileScript : MonoBehaviour
                     if (knockback > 0) {
                         Vector3 vectorToTarget = playerObject.gameObject.transform.position - transform.position;
                         // Debug.Log("Hit Vector " + vectorToTarget.normalized);
-                        StartCoroutine(GameManager.Instance.playerManager.playerScript.RecoilRoutine(vectorToTarget, knockback));
+                        GameManager.Instance.playerManager.playerScript.GetKnockedBack(vectorToTarget, knockback);
                     }
                 }
             }
@@ -187,8 +187,7 @@ public class ProjectileScript : MonoBehaviour
             Transform enemyTransform = potentialTarget.gameObject.transform;
             Vector3 directionToTarget = enemyTransform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr)
-            {
+            if(dSqrToTarget < closestDistanceSqr) {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = enemyTransform;
             }

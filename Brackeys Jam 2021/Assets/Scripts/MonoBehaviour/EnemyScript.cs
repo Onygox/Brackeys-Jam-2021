@@ -9,8 +9,9 @@ public class EnemyScript : Enemy
     SpriteRenderer thisRenderer;
     public float radius, minRadius, maxRadius;
     float timeBetweenShots;
-    bool hasBeenSeen, isActive, isBeingKnocked;
+    bool hasBeenSeen, isActive;
     ShootingBehaviour sb;
+    HealthComponent hc;
     public GameObject aim;
     RotateTowardsPlayer rtp;
     protected override void Start() {
@@ -21,24 +22,31 @@ public class EnemyScript : Enemy
         sb = GetComponentInChildren<ShootingBehaviour>();
         rtp = aim.GetComponent<RotateTowardsPlayer>();
         agent = GetComponent<SAP2DAgent>();
+        hc = GetComponent<HealthComponent>();
 
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
         isActive = false;
         hasBeenSeen = false;
-        isBeingKnocked = false;
         timeBetweenShots = 0;
+        hc.indestructible = true;
 
         StartCoroutine("ShootTowardPlayer");
         StartCoroutine("MakeActive");
     }
 
     void Update() {
-        if (!isActive) return;
+        if (!isActive) {
+            hc.indestructible = true;
+            return;
+        }
 
-        if (IsVisible()) hasBeenSeen = true;
+        if (IsVisible()) {
+            hasBeenSeen = true;
+            hc.indestructible = false;
+        }
 
-        if (hasBeenSeen) {
+        if (hasBeenSeen && !isBeingKnocked) {
             if (rtp.PlayerIsVisible()) {
                 radius = maxRadius;
                 if (IsInRange()) {
@@ -71,13 +79,6 @@ public class EnemyScript : Enemy
     IEnumerator MakeActive() {
         yield return new WaitForSeconds(0.2f);
         isActive = true;
-    }
-
-    public IEnumerator GetKnocked(Vector3 direction, float strength, float delay = 0.7f) {
-        // isBeingKnocked = true;
-        thisBody.AddForce(direction*strength);
-        yield return new WaitForSeconds(delay);
-        // isBeingKnocked = false;
     }
 
     public bool IsVisible() {

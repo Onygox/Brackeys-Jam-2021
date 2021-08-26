@@ -96,4 +96,9 @@ public class PlayerScript : MonoBehaviour
         yield return new WaitForSeconds(delay);
         isRecoiling = false;
     }
+
+    public void GetKnockedBack(Vector3 direction, float strength, float delay = 0.7f) {
+        StopCoroutine(RecoilRoutine(direction, strength, delay));
+        StartCoroutine(RecoilRoutine(direction, strength, delay));
+    }
 }

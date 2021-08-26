@@ -16,13 +16,17 @@ MonoBehaviour:
   _projectileNumber: 26
   _reloadSpeed: 1.5
   _fireRate: 1.5
-  _clipSize: 0
+  _clipSize: 4
   _maxClipSize: 6
   _spreadAngle: 40
   _power: 20
-  _recoil: 150
+  _recoil: 5
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: 349160946117447ebaed742031f3e922, type: 2}
   prefab: {fileID: 0}
+  playerIncreasedProjectilesPerShot: {fileID: 11400000, guid: 9e750323fcba64ef1b5ed01a7b760d87,
+    type: 2}
+  playerAccuracyMultiplier: {fileID: 11400000, guid: 96e8edb8b91ba4d23b1743e7130b5870,
+    type: 2}

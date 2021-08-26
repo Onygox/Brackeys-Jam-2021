@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour
 
     public IEnumerator RecoilRoutine(Vector2 direction, float strength, float delay = 0.7f) {
         isRecoiling = true;
-        thisBody.AddForce(direction*strength);
+        thisBody.AddForce(direction*strength, ForceMode2D.Impulse);
         yield return new WaitForSeconds(delay);
         isRecoiling = false;
     }

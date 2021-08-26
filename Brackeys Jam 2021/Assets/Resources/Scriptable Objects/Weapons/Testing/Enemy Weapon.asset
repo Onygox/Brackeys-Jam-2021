@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1e2ef5cf43c456eb96c404e0f539de, type: 3}
   m_Name: Enemy Weapon
   m_EditorClassIdentifier: 
-  _accuracy: 100
+  _accuracy: 95
   _projectileNumber: 1
   _reloadSpeed: 1.6
   _fireRate: 1.6
@@ -20,6 +20,7 @@ MonoBehaviour:
   _maxClipSize: 0
   _spreadAngle: 66
   _power: 13
+  _recoil: 0
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}

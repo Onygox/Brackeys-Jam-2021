@@ -45,7 +45,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     IEnumerator CoolDown() {
         timeSinceLastShot = 0;
-        GameManager.Instance.uiManager.readyToFireText.text = " ";
+        if (GameManager.Instance.uiManager.readyToFireText) GameManager.Instance.uiManager.readyToFireText.text = " ";
         while (timeSinceLastShot <= currentWeapon.FireRate) {
             yield return new WaitForSeconds(0.1f);
             if (isPlayer) {
@@ -55,7 +55,7 @@ public class ShootingBehaviour : MonoBehaviour
                 timeSinceLastShot += 0.1f;
             }
         }
-        GameManager.Instance.uiManager.readyToFireText.text = "Ready To Fire";
+        if (GameManager.Instance.uiManager.readyToFireText) GameManager.Instance.uiManager.readyToFireText.text = "Ready To Fire";
     }
 
     // public IEnumerator ReloadWeaponRoutine() {
@@ -71,7 +71,7 @@ public class ShootingBehaviour : MonoBehaviour
 
     public void ChangeWeapons(Weapon newWeapon) {
         currentWeapon = newWeapon;
-        GameManager.Instance.uiManager.currentWeaponText.text = "Current Weapon: " + currentWeapon.name;
+        if (GameManager.Instance.uiManager.currentWeaponText) GameManager.Instance.uiManager.currentWeaponText.text = "Current Weapon: " + currentWeapon.name;
         ReloadWeapon();
     }
 

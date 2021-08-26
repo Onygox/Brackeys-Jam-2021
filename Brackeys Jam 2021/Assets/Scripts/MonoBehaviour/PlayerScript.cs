@@ -14,12 +14,14 @@ public class PlayerScript : MonoBehaviour
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
     bool isRecoiling;
+    ActivationAura aAura;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
         thisCollider = GetComponentInChildren<CircleCollider2D>();
         playerHealthComponent = GetComponent<HealthComponent>();
         playerShootingBehaviour = GetComponent<ShootingBehaviour>();
+        aAura = GetComponentInChildren<ActivationAura>();
         playerHealthComponent.healthSlider = GameManager.Instance.uiManager.playerHealthSlider;
         playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
@@ -53,7 +55,9 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Activate")) {
-            
+            if (aAura.closestTerminal != null && !aAura.closestTerminal.hasBeenActivated) {
+                aAura.closestTerminal.Activate();
+            }
         }
     }
 
@@ -97,4 +101,5 @@ public class PlayerScript : MonoBehaviour
         StopCoroutine(RecoilRoutine(direction, strength, delay));
         StartCoroutine(RecoilRoutine(direction, strength, delay));
     }
+
 }

@@ -4034,22 +4034,22 @@ PrefabInstance:
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.18823531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.18823531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.18823531
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7001797717456325504, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
@@ -5280,6 +5280,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5388125270176088950, guid: 3a9e8c6204c2e4403a91e8b719b7a40f,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388125270176088950, guid: 3a9e8c6204c2e4403a91e8b719b7a40f,
+        type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 3140171049811110294, guid: 53d517244e5874dcbbb4f62d41cb1a82,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a9e8c6204c2e4403a91e8b719b7a40f, type: 3}
 --- !u!4 &972023700934938003 stripped
@@ -5358,7 +5369,7 @@ PrefabInstance:
     - target: {fileID: 7148147979690635588, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
       propertyPath: startingLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7554144555630169603, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
@@ -5845,6 +5856,12 @@ PrefabInstance:
       propertyPath: ammoSlider
       value: 
       objectReference: {fileID: 847656931}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: messageCanvas
+      value: 
+      objectReference: {fileID: 5669340886045558032, guid: 0f548d903ad604ef39500631440637e3,
+        type: 3}
     - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: fireRateSlider

@@ -133,35 +133,37 @@ public class ProjectileScript : MonoBehaviour
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
 
         if (owner == playerObject) {
-            for(int i = GameManager.Instance.enemyManager.currentEnemies.Count - 1; i >= 0; i--) {
+            if (GameManager.Instance.enemyManager.currentEnemies.Count > 0){
+                for(int i = GameManager.Instance.enemyManager.currentEnemies.Count - 1; i >= 0; i--) {
 
-                GameObject iteratedEnemy = GameManager.Instance.enemyManager.currentEnemies[i].gameObject;
-                CircleCollider2D enemyCollider = iteratedEnemy.GetComponentInChildren<CircleCollider2D>();
-                float realRadius = radius + enemyCollider.radius;
+                    GameObject iteratedEnemy = GameManager.Instance.enemyManager.currentEnemies[i].gameObject;
+                    CircleCollider2D enemyCollider = iteratedEnemy.GetComponentInChildren<CircleCollider2D>();
+                    float realRadius = radius + enemyCollider.radius;
 
-                if (Vector2.Distance(transform.position, iteratedEnemy.transform.position) <= realRadius) {
-                    iteratedEnemy.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+                    if (Vector2.Distance(transform.position, iteratedEnemy.transform.position) <= realRadius) {
+                        iteratedEnemy.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
 
-                    //knockback
-                    if (knockback > 0) {
-                        Vector2 vectorToTarget = (iteratedEnemy.transform.position - transform.position).normalized;
-                        
-                        float xVector, yVector;
-                        if (vectorToTarget.x > 0) {
-                            xVector = 1 - vectorToTarget.x;
-                        } else {
-                            xVector = - 1 - vectorToTarget.x;
+                        //knockback
+                        if (knockback > 0) {
+                            Vector2 vectorToTarget = (iteratedEnemy.transform.position - transform.position).normalized;
+                            
+                            float xVector, yVector;
+                            if (vectorToTarget.x > 0) {
+                                xVector = 1 - vectorToTarget.x;
+                            } else {
+                                xVector = - 1 - vectorToTarget.x;
+                            }
+                            if (vectorToTarget.y > 0) {
+                                yVector = 1 - vectorToTarget.y;
+                            } else {
+                                yVector = - 1 - vectorToTarget.y;
+                            }
+                            Vector2 realVector = new Vector2(xVector, yVector);
+                            GameManager.Instance.enemyManager.currentEnemies[i].GetKnockedBack(realVector.normalized, knockback);
                         }
-                        if (vectorToTarget.y > 0) {
-                            yVector = 1 - vectorToTarget.y;
-                        } else {
-                            yVector = - 1 - vectorToTarget.y;
-                        }
-                        Vector2 realVector = new Vector2(xVector, yVector);
-                        GameManager.Instance.enemyManager.currentEnemies[i].GetKnockedBack(realVector.normalized, knockback);
                     }
+                
                 }
-            
             }
 
             DealDamageToEnvironment(r, damageAmount);

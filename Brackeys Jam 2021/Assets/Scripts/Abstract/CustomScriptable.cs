@@ -17,7 +17,7 @@ public class CustomScriptable : ScriptableObject
 
     [SerializeField] protected GameEvent onVariableChange;
 
-    public void Initialize(int index) {
+    public virtual void Initialize(int index) {
         libraryIndex = index;
     }
 }

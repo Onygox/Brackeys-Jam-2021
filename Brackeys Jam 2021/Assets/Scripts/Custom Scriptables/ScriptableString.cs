@@ -32,4 +32,9 @@ public class ScriptableString : CustomScriptable
     public void LoadData() {
         Value = PlayerPrefs.GetString(SaveDataPath);
     }
+
+    public override void Initialize(int index) {
+        base.Initialize(index);
+        Value = DefaultValue;
+    }
 }

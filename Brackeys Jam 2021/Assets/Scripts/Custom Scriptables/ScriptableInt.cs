@@ -35,4 +35,9 @@ public class ScriptableInt : CustomScriptable
     public void LoadData() {
         Value = PlayerPrefs.GetInt(SaveDataPath);
     }
+
+    public override void Initialize(int index) {
+        base.Initialize(index);
+        Value = DefaultValue;
+    }
 }

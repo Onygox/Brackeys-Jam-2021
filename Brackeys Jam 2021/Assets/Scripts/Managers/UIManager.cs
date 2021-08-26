@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public TMP_Dropdown weaponSelector;
     public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
     public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText;
+    public GameObject messageCanvas;
     public int pistolIndex = 0;
 
     void Start() {
@@ -24,5 +25,12 @@ public class UIManager : MonoBehaviour
             weaponSelector.ClearOptions();
             weaponSelector.AddOptions(weaponNames);
         }
+    }
+
+    public void SendFleetingMessage(Vector3 location, string messageText, float destroyDelay = 3.0f) {
+        GameObject temporaryMessage = Instantiate(messageCanvas);
+        temporaryMessage.transform.position = location;
+        temporaryMessage.GetComponentInChildren<TextMeshProUGUI>().text = messageText;
+        Destroy(temporaryMessage, destroyDelay);
     }
 }

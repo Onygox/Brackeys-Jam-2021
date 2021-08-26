@@ -11,7 +11,8 @@ public class PersistentManager : MonoBehaviour
     [HideInInspector] public VolumeManager volumeManager;
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
-    public AudioClip[] audioLibrary;
+    [HideInInspector] public TerminalEffect[] terminalEffectLibrary;
+    [HideInInspector] public AudioClip[] audioLibrary;
     [HideInInspector] public Weapon[] weaponLibrary;
     public GameObject[] maps;
 
@@ -25,6 +26,7 @@ public class PersistentManager : MonoBehaviour
         scriptableLibrary = Resources.LoadAll<CustomScriptable>("Scriptable Objects/Custom Scriptables/Production") as CustomScriptable[];
         audioLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Production") as AudioClip[];
         weaponLibrary = Resources.LoadAll<Weapon>("Scriptable Objects/Weapons/Production") as Weapon[];
+        terminalEffectLibrary = Resources.LoadAll<TerminalEffect>("Scriptable Objects/Terminal Effects") as TerminalEffect[];
 
         if (scriptableLibrary.Length > 0) {
             for (int i = scriptableLibrary.Length - 1; i >= 0; i--) {

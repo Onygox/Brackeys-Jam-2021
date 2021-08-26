@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
-  m_Name: Homing Missile With Friendly Fire
+  m_Name: Homing Missile That Targets Owner
   m_EditorClassIdentifier: 
   _damage: 15
   _radius: 2.5
@@ -22,6 +22,7 @@ MonoBehaviour:
   _homingSpeed: 12
   _homingAccuracy: 12
   homing: 1
+  targetOwner: 1
   bouncing: 0
   friendlyDamage: 1
   prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}

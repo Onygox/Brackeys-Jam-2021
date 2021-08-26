@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Missile Launcher V3
   m_EditorClassIdentifier: 
   _accuracy: 33
-  _projectileNumber: 2
+  _projectileNumber: 1
   _reloadSpeed: 2.7
   _fireRate: 2
-  _clipSize: 2
+  _clipSize: 0
   _maxClipSize: 3
   _spreadAngle: 45
   _power: 16
@@ -24,5 +24,5 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: ba89e0349bc0548199fcb51f2b9bbabe, type: 2}
+  projectileType: {fileID: 11400000, guid: 0ef569477da5f4edbb9b43ba0097e980, type: 2}
   prefab: {fileID: 0}

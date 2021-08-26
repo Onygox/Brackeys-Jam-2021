@@ -52,6 +52,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if (Input.GetButtonDown("Activate")) {
+            
+        }
+
         // if (Input.GetButtonDown("Reload")) {
         //     // if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
         //     //     GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {

@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject lookTarget;
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
+    bool isRecoiling;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
@@ -29,7 +30,7 @@ public class PlayerScript : MonoBehaviour
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
-        thisBody.velocity = velocity * baseSpeed;
+        if (!isRecoiling) thisBody.velocity = velocity * baseSpeed;
 
         lookTarget.transform.position = transform.position + velocity;
 
@@ -52,10 +53,11 @@ public class PlayerScript : MonoBehaviour
         }
 
         // if (Input.GetButtonDown("Reload")) {
-        //     if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
-        //         GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
-        //         StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
-        //     }
+        //     // if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
+        //     //     GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
+        //     //     StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
+        //     // }
+        //     Recoil(new Vector3(0, 1, 0), 100);
         // }
     }
 
@@ -79,7 +81,19 @@ public class PlayerScript : MonoBehaviour
         }
 
         playerShootingBehaviour.ShootWeapon(transform.position + (direction/2), new Vector3(0, 0, startingZRotation));
+        
+        if (playerShootingBehaviour.currentWeapon.Recoil > 0) {
+            StartCoroutine(RecoilRoutine(-direction, playerShootingBehaviour.currentWeapon.Recoil));
+        }
+
         GameManager.Instance.uiManager.ammoSlider.value = playerShootingBehaviour.currentWeapon.ClipSize;
         GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
+    }
+
+    public IEnumerator RecoilRoutine(Vector3 direction, float strength, float delay = 0.7f) {
+        isRecoiling = true;
+        thisBody.AddForce(direction*strength);
+        yield return new WaitForSeconds(delay);
+        isRecoiling = false;
     }
 }

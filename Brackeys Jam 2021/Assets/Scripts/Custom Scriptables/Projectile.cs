@@ -59,6 +59,15 @@ public class Projectile : ScriptableObject
             _startingSpeed = value;
         }
     }
+    [SerializeField] private float _knockback;
+    public float Knockback {
+        get {
+            return _knockback;
+        }
+        set {
+            _knockback = value;
+        }
+    }
     [Header("These values are only important if the 'homing' bool is set to true")]
     [SerializeField] private float _homingSpeed;
     public float HomingSpeed {
@@ -97,6 +106,7 @@ public class Projectile : ScriptableObject
         ps.enemiesToPierce = EnemiesToPierce;
         ps.deceleration = Deceleration;
         ps.startingSpeed = StartingSpeed;
+        ps.knockback = Knockback;
         ps.homingSpeed = HomingSpeed;
         ps.homingAccuracy = HomingAccuracy;
         ps.homing = homing;

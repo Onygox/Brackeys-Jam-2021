@@ -81,6 +81,15 @@ public class Weapon : ScriptableObject
             _power = value;
         }
     }
+    [SerializeField] private float _recoil;
+    public float Recoil {
+        get {
+            return _recoil;
+        }
+        set {
+            _recoil = value;
+        }
+    }
 
     public Sprite weaponImage;
     public bool automatic;
@@ -101,7 +110,7 @@ public class Weapon : ScriptableObject
 
             newZRotation += Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)));
 
-            Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, direction.z) : new Vector3(0, 0, newZRotation);
+            Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, direction.z + Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)))) : new Vector3(0, 0, newZRotation);
 
             GameObject newProjectile = projectileType.InstantiatedProjectile();
             newProjectile.transform.position = spawnLocation;

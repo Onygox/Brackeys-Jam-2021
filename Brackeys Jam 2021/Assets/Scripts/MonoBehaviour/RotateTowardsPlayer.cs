@@ -6,7 +6,7 @@ public class RotateTowardsPlayer : MonoBehaviour
 {
     GameObject target;
     public float speed = 10.0f;
-    Vector2 vectorToTarget;
+    public Vector2 vectorToTarget;
     public LayerMask layersToSee;
     void Start() {
         target = GameManager.Instance.playerManager.playerScript.gameObject;

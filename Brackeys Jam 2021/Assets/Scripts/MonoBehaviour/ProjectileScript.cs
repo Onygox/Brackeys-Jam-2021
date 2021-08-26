@@ -7,8 +7,8 @@ public class ProjectileScript : MonoBehaviour
 
     [HideInInspector] public int damage;
     public int environmentLayer, enemyLayer, playerLayer, enemiesToPierce, enemiesHit;
-    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy;
-    [HideInInspector] public bool homing, bouncing, friendlyDamage;
+    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy, knockback;
+    [HideInInspector] public bool homing, bouncing, friendlyDamage, targetOwner;
     public GameObject radiusIndicator;
     public GameObject owner;
     Rigidbody2D thisBody;
@@ -21,9 +21,12 @@ public class ProjectileScript : MonoBehaviour
         enemiesHit = 0;
         thisBody = GetComponentInChildren<Rigidbody2D>();
         if (homing) {
-            target = GetClosestEnemy(GameManager.Instance.enemyManager.currentEnemies);
+
+            target = targetOwner ? owner.transform : GetClosestEnemy(GameManager.Instance.enemyManager.currentEnemies);
             GameObject aimTarget = Instantiate(homingAimTarget, target.position, Quaternion.identity);
+            aimTarget.transform.SetParent(target);
             Destroy(aimTarget, lifetime-0.1f);
+
         }
     }
 
@@ -48,8 +51,9 @@ public class ProjectileScript : MonoBehaviour
 
         if (collider.gameObject != owner) {
             //if owned by player, hit the first enemy
-            //if not owned by player, no not hit enemies
-            if ((collider.gameObject.layer == enemyLayer && owner == playerObject)|| collider.gameObject.layer == playerLayer) {
+            //if not owned by player, do not hit enemies
+            if ((collider.gameObject.layer == enemyLayer && owner == playerObject)||
+                (collider.gameObject.layer == playerLayer)) {
                 
                 DisplayRadius();
 
@@ -69,6 +73,16 @@ public class ProjectileScript : MonoBehaviour
 
                 Destroy(gameObject);
 
+            }
+        } else if (friendlyDamage) {
+            DisplayRadius();
+
+            DealDamage(radius, damage);
+
+            enemiesHit++;
+
+            if (enemiesHit >= enemiesToPierce) {
+                Destroy(gameObject);
             }
         }
 
@@ -129,6 +143,25 @@ public class ProjectileScript : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position) <= realRadius) {
                     GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+
+                    //knockback
+                    if (knockback > 0) {
+                        Vector2 vectorToTarget = (GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position - transform.position).normalized;
+                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        float xVector, yVector;
+                        if (vectorToTarget.x > 0) {
+                            xVector = 1 - vectorToTarget.x;
+                        } else {
+                            xVector = - 1 - vectorToTarget.x;
+                        }
+                        if (vectorToTarget.y > 0) {
+                            yVector = 1 - vectorToTarget.y;
+                        } else {
+                            yVector = - 1 - vectorToTarget.y;
+                        }
+                        Vector2 realVector = new Vector2(xVector, yVector);
+                        GameManager.Instance.enemyManager.currentEnemies[i].GetKnockedBack(realVector.normalized, knockback);
+                    }
                 }
             
             }
@@ -137,6 +170,25 @@ public class ProjectileScript : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, playerObject.transform.position) <= radiusToPlayer) {
                     playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+
+                    //knockback
+                    if (knockback > 0) {
+                        Vector2 vectorToTarget = (playerObject.gameObject.transform.position - transform.position).normalized;
+                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        float xVector, yVector;
+                        if (vectorToTarget.x > 0) {
+                            xVector = 1 - vectorToTarget.x;
+                        } else {
+                            xVector = - 1 - vectorToTarget.x;
+                        }
+                        if (vectorToTarget.y > 0) {
+                            yVector = 1 - vectorToTarget.y;
+                        } else {
+                            yVector = - 1 - vectorToTarget.y;
+                        }
+                        Vector2 realVector = new Vector2(xVector, yVector);
+                        GameManager.Instance.playerManager.playerScript.GetKnockedBack(realVector.normalized, knockback);
+                    }
                 }
             }
         } else {
@@ -173,8 +225,7 @@ public class ProjectileScript : MonoBehaviour
             Transform enemyTransform = potentialTarget.gameObject.transform;
             Vector3 directionToTarget = enemyTransform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr)
-            {
+            if(dSqrToTarget < closestDistanceSqr) {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = enemyTransform;
             }

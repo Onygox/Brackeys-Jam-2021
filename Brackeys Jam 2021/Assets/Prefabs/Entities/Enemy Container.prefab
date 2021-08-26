@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  vectorToTarget: {x: 0, y: 0}
   layersToSee:
     serializedVersion: 2
     m_Bits: 2304
@@ -318,8 +319,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2342446500217199252}
+  indestructible: 0
   _health: 50
   _maxHealth: 50
+  damageReceivedMultiplier: {fileID: 0}
+  damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
+    type: 3}
 --- !u!114 &1449732935525843319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,8 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeSinceLastShot: 0
   reloadTime: 2
   currentWeapon: {fileID: 11400000, guid: 16a056abda5774bd2ad4682d80c2048f, type: 2}
+  playerFireRateMultiplier: {fileID: 0}
 --- !u!1 &4755589557285454953
 GameObject:
   m_ObjectHideFlags: 0

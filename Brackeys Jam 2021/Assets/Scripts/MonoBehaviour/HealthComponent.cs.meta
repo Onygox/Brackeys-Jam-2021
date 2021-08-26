@@ -3,7 +3,11 @@ guid: 923af8449814043d2b549f8cd04fc73b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthSlider: {instanceID: 0}
+  - damageReceivedMultiplier: {instanceID: 0}
+  - damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

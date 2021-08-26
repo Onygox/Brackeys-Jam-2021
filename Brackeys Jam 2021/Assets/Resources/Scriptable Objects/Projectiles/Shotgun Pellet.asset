@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
   m_Name: Shotgun Pellet
   m_EditorClassIdentifier: 
-  _damage: 2
+  _damage: 1
   _radius: 0.01
   _lifetime: 0.3
   _enemiesToPierce: 1
-  _deceleration: 1
+  _deceleration: 0.998
   _startingSpeed: 20
   _knockback: 0
   _homingSpeed: 0

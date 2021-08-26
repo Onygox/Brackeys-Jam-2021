@@ -77,7 +77,7 @@ public class EnemyScript : Enemy
     }
 
     IEnumerator MakeActive() {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.3f);
         isActive = true;
     }
 

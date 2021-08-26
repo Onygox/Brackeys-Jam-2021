@@ -97,7 +97,7 @@ public class Weapon : ScriptableObject
     public Projectile projectileType;
     public GameObject prefab;
     public ScriptableInt playerIncreasedProjectilesPerShot;
-    public ScriptableFloat playerAccuracyMultiplier;
+    public ScriptableFloat playerAccuracyMultiplier, playerDamageDealtMultiplier;
 
     public void Shoot(Vector3 spawnLocation, Vector3 direction, GameObject owner) {
 
@@ -130,6 +130,7 @@ public class Weapon : ScriptableObject
 
             ProjectileScript ps = newProjectile.GetComponent<ProjectileScript>();
             ps.owner = owner;
+            if (owner == GameManager.Instance.playerManager.playerScript.gameObject) ps.damage = Mathf.FloorToInt(ps.damage*playerDamageDealtMultiplier.Value);
 
         }
 

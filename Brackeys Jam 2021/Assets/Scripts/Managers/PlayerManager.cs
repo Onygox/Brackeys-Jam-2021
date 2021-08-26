@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     public ScriptableInt currentPlayerHealthVar, maxPlayerHealthVar;
+    public ScriptableFloat playerMovementSpeedVar;
     [HideInInspector] public PlayerScript playerScript;
 
     void Start() {

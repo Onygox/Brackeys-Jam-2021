@@ -31,6 +31,7 @@ public class HealthComponent : MonoBehaviour
             if (_health <= 0) OnDeath();
         }
     }
+    public ScriptableFloat damageReceivedMultiplier;
 
     void Start() {
 
@@ -44,9 +45,12 @@ public class HealthComponent : MonoBehaviour
     public void TakeDamage(int damageTaken) {
 
         if (indestructible) return;
-
-        Health -= damageTaken;
-        if (playerScript != null) GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
+        if (playerScript != null) {
+            Health -= Mathf.FloorToInt(damageTaken*damageReceivedMultiplier.Value);
+            GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
+        } else {
+            Health -= damageTaken;
+        }
     }
 
     void OnDeath() {

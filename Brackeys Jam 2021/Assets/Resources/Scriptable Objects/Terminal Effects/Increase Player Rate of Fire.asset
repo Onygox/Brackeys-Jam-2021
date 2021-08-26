@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatToAffect: {fileID: 11400000, guid: f16b5f48631bf4e8db5af8a81a95d3bb, type: 2}
   intToAffect: {fileID: 0}
-  floatAmount: -0.7
+  floatAmount: 0.7
   intAmount: 0
   message: Increased Player's Max Health

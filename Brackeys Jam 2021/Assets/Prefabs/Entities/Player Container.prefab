@@ -156,7 +156,7 @@ MonoBehaviour:
   thisCollider: {fileID: 7019123869330996455}
   lookTarget: {fileID: 443938452350197059}
   playerHealthComponent: {fileID: 6081203308721728618}
-  playerShootingBehaviour: {fileID: 0}
+  playerShootingBehaviour: {fileID: 6079519866926023024}
 --- !u!50 &2564581518400425306
 Rigidbody2D:
   serializedVersion: 4
@@ -208,6 +208,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 0
   currentWeapon: {fileID: 11400000, guid: 4c8f26bda0b0a4836932576887b35bba, type: 2}
+  playerFireRateMultiplier: {fileID: 11400000, guid: f16b5f48631bf4e8db5af8a81a95d3bb,
+    type: 2}
 --- !u!114 &6081203308721728618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,6 +226,8 @@ MonoBehaviour:
   indestructible: 0
   _health: 100
   _maxHealth: 100
+  damageReceivedMultiplier: {fileID: 11400000, guid: 4e0b5489b4a8d4962969dfdc27d6a646,
+    type: 2}
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0

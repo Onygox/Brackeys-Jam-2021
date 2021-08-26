@@ -3679,7 +3679,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.747573, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7417,6 +7417,12 @@ PrefabInstance:
       propertyPath: currentPlayerHealthVar
       value: 
       objectReference: {fileID: 11400000, guid: 282a4e86150e642aabb9a89e71842f04,
+        type: 2}
+    - target: {fileID: 107697231688573693, guid: 81366456350054a8da5e2d8cb2560af8,
+        type: 3}
+      propertyPath: playerMovementSpeedVar
+      value: 
+      objectReference: {fileID: 11400000, guid: 69dfd7c6271204fe2ad106a7f4651002,
         type: 2}
     - target: {fileID: 1079522257358318287, guid: 81366456350054a8da5e2d8cb2560af8,
         type: 3}

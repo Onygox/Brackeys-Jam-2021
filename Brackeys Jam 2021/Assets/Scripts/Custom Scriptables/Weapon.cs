@@ -81,6 +81,15 @@ public class Weapon : ScriptableObject
             _power = value;
         }
     }
+    [SerializeField] private float _recoil;
+    public float Recoil {
+        get {
+            return _recoil;
+        }
+        set {
+            _recoil = value;
+        }
+    }
 
     public Sprite weaponImage;
     public bool automatic;

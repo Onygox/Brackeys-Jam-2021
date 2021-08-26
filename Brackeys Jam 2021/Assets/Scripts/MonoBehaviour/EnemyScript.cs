@@ -5,37 +5,48 @@ using SAP2D;
 
 public class EnemyScript : Enemy
 {
-    SAP2DAgent agent;
+    public SAP2DAgent agent;
     SpriteRenderer thisRenderer;
     public float radius, minRadius, maxRadius;
     float timeBetweenShots;
     bool hasBeenSeen, isActive;
     ShootingBehaviour sb;
+    HealthComponent hc;
     public GameObject aim;
     RotateTowardsPlayer rtp;
     protected override void Start() {
 
         base.Start();
 
-        agent = GetComponent<SAP2DAgent>();
         thisRenderer = GetComponentInChildren<SpriteRenderer>();
         sb = GetComponentInChildren<ShootingBehaviour>();
         rtp = aim.GetComponent<RotateTowardsPlayer>();
+        agent = GetComponent<SAP2DAgent>();
+        hc = GetComponent<HealthComponent>();
+
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
         isActive = false;
         hasBeenSeen = false;
         timeBetweenShots = 0;
+        hc.indestructible = true;
+
         StartCoroutine("ShootTowardPlayer");
         StartCoroutine("MakeActive");
     }
 
     void Update() {
-        if (!isActive) return;
+        if (!isActive) {
+            hc.indestructible = true;
+            return;
+        }
 
-        if (IsVisible()) hasBeenSeen = true;
+        if (IsVisible()) {
+            hasBeenSeen = true;
+            hc.indestructible = false;
+        }
 
-        if (hasBeenSeen) {
+        if (hasBeenSeen && !isBeingKnocked) {
             if (rtp.PlayerIsVisible()) {
                 radius = maxRadius;
                 if (IsInRange()) {
@@ -47,6 +58,8 @@ public class EnemyScript : Enemy
                 radius = Mathf.Clamp(radius-0.01f, minRadius, maxRadius);
                 agent.CanMove = true;
             }
+        } else {
+            agent.CanMove = false;
         }
     }
 

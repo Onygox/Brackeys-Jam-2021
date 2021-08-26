@@ -7,6 +7,7 @@ public class HealthComponent : MonoBehaviour
 {
     public Slider healthSlider;
     private PlayerScript playerScript;
+    public bool indestructible;
 
     [SerializeField] private int _health;
     public int Health {
@@ -33,21 +34,26 @@ public class HealthComponent : MonoBehaviour
 
     void Start() {
         if (GetComponent<PlayerScript>()) playerScript = GetComponent<PlayerScript>();
+
+        indestructible = false;
     }
 
     public void TakeDamage(int damageTaken) {
+
+        if (indestructible) return;
+
         Health -= damageTaken;
         if (playerScript != null) GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
     }
 
     void OnDeath() {
         if (playerScript is null) {
-            GameObject thisParentObject = transform.parent.gameObject;
-            Enemy thisEnemy = thisParentObject.GetComponentInChildren<Enemy>();
+            // GameObject thisParentObject = transform.parent.gameObject;
+            Enemy thisEnemy = GetComponent<Enemy>();
             if (GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
                 GameManager.Instance.enemyManager.currentEnemies.Remove(thisEnemy);
             }
-            Destroy(thisParentObject);
+            Destroy(gameObject);
         } else {
 
         }

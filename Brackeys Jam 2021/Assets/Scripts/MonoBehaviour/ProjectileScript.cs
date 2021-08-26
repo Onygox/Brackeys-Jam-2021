@@ -7,7 +7,7 @@ public class ProjectileScript : MonoBehaviour
 
     [HideInInspector] public int damage;
     public int environmentLayer, enemyLayer, playerLayer, enemiesToPierce, enemiesHit;
-    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy;
+    [HideInInspector] public float lifetime, radius, deceleration, startingSpeed, homingSpeed, homingAccuracy, knockback;
     [HideInInspector] public bool homing, bouncing, friendlyDamage;
     public GameObject radiusIndicator;
     public GameObject owner;
@@ -129,6 +129,13 @@ public class ProjectileScript : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position) <= realRadius) {
                     GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+
+                    //knockback
+                    if (knockback > 0) {
+                        Vector3 vectorToTarget = GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position - transform.position;
+                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        GameManager.Instance.enemyManager.currentEnemies[i].GetKnockedBack(vectorToTarget, knockback);
+                    }
                 }
             
             }
@@ -137,6 +144,13 @@ public class ProjectileScript : MonoBehaviour
 
                 if (Vector2.Distance(transform.position, playerObject.transform.position) <= radiusToPlayer) {
                     playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+
+                    //knockback
+                    if (knockback > 0) {
+                        Vector3 vectorToTarget = playerObject.gameObject.transform.position - transform.position;
+                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        GameManager.Instance.playerManager.playerScript.GetKnockedBack(vectorToTarget, knockback);
+                    }
                 }
             }
         } else {
@@ -173,8 +187,7 @@ public class ProjectileScript : MonoBehaviour
             Transform enemyTransform = potentialTarget.gameObject.transform;
             Vector3 directionToTarget = enemyTransform.position - currentPosition;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr)
-            {
+            if(dSqrToTarget < closestDistanceSqr) {
                 closestDistanceSqr = dSqrToTarget;
                 bestTarget = enemyTransform;
             }

@@ -16,10 +16,11 @@ MonoBehaviour:
   _projectileNumber: 20
   _reloadSpeed: 1.5
   _fireRate: 1.5
-  _clipSize: 6
+  _clipSize: 0
   _maxClipSize: 6
   _spreadAngle: 45
   _power: 20
+  _recoil: 150
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}

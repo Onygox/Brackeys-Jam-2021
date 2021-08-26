@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Player Accuracy Multiplier
   m_EditorClassIdentifier: 
   libraryIndex: 0
-  _saveDataPath: 
+  _saveDataPath: playeraccuracydata
   onVariableChange: {fileID: 0}
-  _value: 0
-  _defaultValue: 0
-  isClamped: 0
+  _value: 1
+  _defaultValue: 1
+  isClamped: 1
   lowClampValue: 0
-  highClampValue: 0
+  highClampValue: 2

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 618073bce77b447d5b5e15613700e51c, type: 3}
   m_Name: Player Damage Received Multiplier
   m_EditorClassIdentifier: 
-  libraryIndex: 0
-  _saveDataPath: 
+  libraryIndex: 2
+  _saveDataPath: playerdamagereceiveddata
   onVariableChange: {fileID: 0}
-  _value: 0
-  _defaultValue: 0
-  isClamped: 0
-  lowClampValue: 0
-  highClampValue: 0
+  _value: 1
+  _defaultValue: 1
+  isClamped: 1
+  lowClampValue: 0.1
+  highClampValue: 2

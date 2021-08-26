@@ -96,21 +96,31 @@ public class Weapon : ScriptableObject
     public GameEvent onShootEvent;
     public Projectile projectileType;
     public GameObject prefab;
+    public ScriptableInt playerIncreasedProjectilesPerShot;
+    public ScriptableFloat playerAccuracyMultiplier, playerDamageDealtMultiplier;
 
     public void Shoot(Vector3 spawnLocation, Vector3 direction, GameObject owner) {
 
-        for(int i = 1; i <= ProjectileNumber; i++) {
+        int numberOfProjectiles = ProjectileNumber;
+        float accuracyForPlayer = Accuracy;
+
+        if (owner == GameManager.Instance.playerManager.playerScript.gameObject) {
+            numberOfProjectiles += playerIncreasedProjectilesPerShot.Value;
+            accuracyForPlayer*=playerAccuracyMultiplier.Value;
+        }
+
+        for(int i = 1; i <= numberOfProjectiles; i++) {
 
             float newZRotation;
 
             float leastAngle = direction.z - (SpreadAngle/2);
             float mostAngle = direction.z + (SpreadAngle/2);
 
-            newZRotation = ExtensionMethods.Remap(i, 1, ProjectileNumber, leastAngle, mostAngle);
+            newZRotation = ExtensionMethods.Remap(i, 1, numberOfProjectiles, leastAngle, mostAngle);
 
-            newZRotation += Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)));
+            newZRotation += Random.Range(((accuracyForPlayer/2) - 50), (50 - (accuracyForPlayer/2)));
 
-            Vector3 projectileRotation = ProjectileNumber == 1 ? new Vector3(0, 0, direction.z + Random.Range(((Accuracy/2) - 50), (50 - (Accuracy/2)))) : new Vector3(0, 0, newZRotation);
+            Vector3 projectileRotation = numberOfProjectiles == 1 ? new Vector3(0, 0, direction.z + Random.Range(((accuracyForPlayer/2) - 50), (50 - (accuracyForPlayer/2)))) : new Vector3(0, 0, newZRotation);
 
             GameObject newProjectile = projectileType.InstantiatedProjectile();
             newProjectile.transform.position = spawnLocation;
@@ -120,6 +130,7 @@ public class Weapon : ScriptableObject
 
             ProjectileScript ps = newProjectile.GetComponent<ProjectileScript>();
             ps.owner = owner;
+            if (owner == GameManager.Instance.playerManager.playerScript.gameObject) ps.damage = Mathf.FloorToInt(ps.damage*playerDamageDealtMultiplier.Value);
 
         }
 

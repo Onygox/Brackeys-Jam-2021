@@ -18,10 +18,11 @@ MonoBehaviour:
   _enemiesToPierce: 0
   _deceleration: 0.999
   _startingSpeed: 15
-  _knockback: 162
+  _knockback: 8
   _homingSpeed: 12
   _homingAccuracy: 12
   homing: 1
+  targetOwner: 0
   bouncing: 0
   friendlyDamage: 0
   prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}

@@ -30,6 +30,67 @@ Transform:
   m_Father: {fileID: 1469068319573537020}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1037284544217888900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219346792401772711}
+  - component: {fileID: 6660913071782411642}
+  - component: {fileID: 692169086881250487}
+  m_Layer: 12
+  m_Name: Activation Aura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219346792401772711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037284544217888900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1469068319573537020}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6660913071782411642
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037284544217888900}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &692169086881250487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037284544217888900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e1032083bb542f5b3e4462a16b293d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closestTerminal: {fileID: 0}
 --- !u!1 &1469068319573537018
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,9 +102,9 @@ GameObject:
   - component: {fileID: 1469068319573537020}
   - component: {fileID: 1469068319573537021}
   - component: {fileID: 2564581518400425306}
-  - component: {fileID: 7019123869330996455}
   - component: {fileID: 6079519866926023024}
   - component: {fileID: 6081203308721728618}
+  - component: {fileID: 4374716101602720705}
   m_Layer: 11
   m_Name: Player Container
   m_TagString: Untagged
@@ -64,6 +125,7 @@ Transform:
   m_Children:
   - {fileID: 1469068319871198291}
   - {fileID: 7290996235457394043}
+  - {fileID: 1219346792401772711}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -80,9 +142,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 3
-  thisCollider: {fileID: 7019123869330996455}
+  thisCollider: {fileID: 0}
   lookTarget: {fileID: 443938452350197059}
   playerHealthComponent: {fileID: 6081203308721728618}
+  playerShootingBehaviour: {fileID: 6079519866926023024}
 --- !u!50 &2564581518400425306
 Rigidbody2D:
   serializedVersion: 4
@@ -104,7 +167,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &7019123869330996455
+--- !u!114 &6079519866926023024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469068319573537018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSinceLastShot: 0
+  reloadTime: 0
+  currentWeapon: {fileID: 11400000, guid: 4c8f26bda0b0a4836932576887b35bba, type: 2}
+  playerFireRateMultiplier: {fileID: 11400000, guid: f16b5f48631bf4e8db5af8a81a95d3bb,
+    type: 2}
+--- !u!114 &6081203308721728618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469068319573537018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923af8449814043d2b549f8cd04fc73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
+  indestructible: 0
+  _health: 100
+  _maxHealth: 100
+  damageReceivedMultiplier: {fileID: 11400000, guid: 4e0b5489b4a8d4962969dfdc27d6a646,
+    type: 2}
+  damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
+    type: 3}
+--- !u!58 &4374716101602720705
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,35 +220,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &6079519866926023024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469068319573537018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reloadTime: 0
-  currentWeapon: {fileID: 11400000, guid: 4c8f26bda0b0a4836932576887b35bba, type: 2}
---- !u!114 &6081203308721728618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469068319573537018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 923af8449814043d2b549f8cd04fc73b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
-  _health: 100
-  _maxHealth: 100
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,9 +523,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1138257903
-  m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingLayerID: 742452531
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1160e4481ce2d40c2aabf175be2e7ad9, type: 3}
   m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_FlipX: 0

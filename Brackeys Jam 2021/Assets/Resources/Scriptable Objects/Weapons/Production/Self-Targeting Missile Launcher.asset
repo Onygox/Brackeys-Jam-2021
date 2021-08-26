@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1e2ef5cf43c456eb96c404e0f539de, type: 3}
-  m_Name: Missile Launcher V3
+  m_Name: Self-Targeting Missile Launcher
   m_EditorClassIdentifier: 
   _accuracy: 33
-  _projectileNumber: 2
+  _projectileNumber: 1
   _reloadSpeed: 2.7
   _fireRate: 2
-  _clipSize: 2
+  _clipSize: 0
   _maxClipSize: 3
   _spreadAngle: 45
   _power: 16
@@ -24,5 +24,11 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: ba89e0349bc0548199fcb51f2b9bbabe, type: 2}
+  projectileType: {fileID: 11400000, guid: 0ef569477da5f4edbb9b43ba0097e980, type: 2}
   prefab: {fileID: 0}
+  playerIncreasedProjectilesPerShot: {fileID: 11400000, guid: 9e750323fcba64ef1b5ed01a7b760d87,
+    type: 2}
+  playerAccuracyMultiplier: {fileID: 11400000, guid: 96e8edb8b91ba4d23b1743e7130b5870,
+    type: 2}
+  playerDamageDealtMultiplier: {fileID: 11400000, guid: 5250fa46bd43f43b4831270fbeee151a,
+    type: 2}

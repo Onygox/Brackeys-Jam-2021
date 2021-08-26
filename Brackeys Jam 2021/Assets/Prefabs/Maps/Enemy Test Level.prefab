@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4233557397807915138}
   - component: {fileID: 4233557397807915141}
   m_Layer: 0
-  m_Name: Test Map
+  m_Name: Enemy Test Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

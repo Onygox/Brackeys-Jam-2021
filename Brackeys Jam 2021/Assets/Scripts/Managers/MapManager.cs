@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
  	BoundsInt bounds;
     List<GameObject> mapObjects = new List<GameObject>();
     SAP2DPathfinder pathfinder;
+    public List<Obstacle> destructableObjects = new List<Obstacle>();
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
 		Vector2Int.left,Vector2Int.up,
@@ -27,14 +28,7 @@ public class MapManager : MonoBehaviour
 	}
 	public void CreateMap(GameObject mapObject) {
 
-        if (mapObjects.Count > 0) {
-
-            for (int i = mapObjects.Count - 1; i >= 0; i--) {
-                Destroy(mapObjects[i]);
-            }
-
-            mapObjects.Clear();
-        }
+        ResetMap();
 
         tilemap = mapObject.GetComponentInChildren<Tilemap>();
 		tilemap.CompressBounds();
@@ -61,8 +55,13 @@ public class MapManager : MonoBehaviour
                         //find player and assign cinemachine virtual camera to follow it
                         GameManager.Instance.vcam.Follow = GameManager.Instance.playerManager.playerScript.lookTarget.transform;
                     }
+                    
+                    if (associatedPrefab.GetComponentInChildren<Obstacle>()) {
+                        destructableObjects.Add(associatedPrefab.GetComponentInChildren<Obstacle>());
+                    }
 
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);
+                    associatedPrefab.name = name + " - " + associatedPrefab.transform.position;
 
                     mapObjects.Add(associatedPrefab);
 				}
@@ -83,6 +82,19 @@ public class MapManager : MonoBehaviour
     }
 
     public void ResetMap() {
+
+        GameManager.Instance.enemyManager.currentEnemies.Clear();
+        GameManager.Instance.enemyManager.currentSpawners.Clear();
+        destructableObjects.Clear();
+
+        if (mapObjects.Count > 0) {
+
+            for (int i = mapObjects.Count - 1; i >= 0; i--) {
+                Destroy(mapObjects[i]);
+            }
+
+            mapObjects.Clear();
+        }
 
     }
 

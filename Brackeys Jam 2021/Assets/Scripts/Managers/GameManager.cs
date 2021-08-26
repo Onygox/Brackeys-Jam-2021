@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public MapManager mapManager;
     [HideInInspector] public EnemyManager enemyManager;
     private int levelInt;
+    public int startingLevel = 0;
 
     public CinemachineVirtualCamera vcam;
 
@@ -29,11 +30,16 @@ public class GameManager : MonoBehaviour
         mapManager = transform.parent.gameObject.GetComponentInChildren<MapManager>();
         enemyManager = transform.parent.gameObject.GetComponentInChildren<EnemyManager>();
 
-        StartGame(0);
+        StartGame(startingLevel);
         
     }
 
     void StartGame(int level) {
+
+        if (PersistentManager.Instance.maps.Length < level - 1) {
+            Debug.LogWarning("level number out of range");
+            return;
+        }
         // mapManager.CreateMap(PersistentManager.Instance.maps[level]);
         levelInt = level;
         StartCoroutine("StartGameRoutine");

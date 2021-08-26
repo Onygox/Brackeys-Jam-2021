@@ -91,6 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5427890385747386244}
   - component: {fileID: 2761131266108410581}
+  - component: {fileID: -8360128208108599681}
   m_Layer: 8
   m_Name: Obstacle Container
   m_TagString: Untagged
@@ -126,6 +127,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destructable: 0
+--- !u!114 &-8360128208108599681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491155677833363042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000033ed402cef6fd843f5508a9c
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 63340
 --- !u!1 &7949408920108044003
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +261,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 0}
-  indestructible: 0
   _health: 10
   _maxHealth: 0

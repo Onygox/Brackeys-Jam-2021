@@ -18,6 +18,7 @@ MonoBehaviour:
   _enemiesToPierce: 0
   _deceleration: 0.999
   _startingSpeed: 15
+  _knockback: 162
   _homingSpeed: 12
   _homingAccuracy: 12
   homing: 1

@@ -28,14 +28,7 @@ public class MapManager : MonoBehaviour
 	}
 	public void CreateMap(GameObject mapObject) {
 
-        if (mapObjects.Count > 0) {
-
-            for (int i = mapObjects.Count - 1; i >= 0; i--) {
-                Destroy(mapObjects[i]);
-            }
-
-            mapObjects.Clear();
-        }
+        ResetMap();
 
         tilemap = mapObject.GetComponentInChildren<Tilemap>();
 		tilemap.CompressBounds();
@@ -89,6 +82,19 @@ public class MapManager : MonoBehaviour
     }
 
     public void ResetMap() {
+
+        GameManager.Instance.enemyManager.currentEnemies.Clear();
+        GameManager.Instance.enemyManager.currentSpawners.Clear();
+        destructableObjects.Clear();
+
+        if (mapObjects.Count > 0) {
+
+            for (int i = mapObjects.Count - 1; i >= 0; i--) {
+                Destroy(mapObjects[i]);
+            }
+
+            mapObjects.Clear();
+        }
 
     }
 

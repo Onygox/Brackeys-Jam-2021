@@ -14,13 +14,14 @@ public class PlayerScript : MonoBehaviour
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
     bool isRecoiling;
-    TerminalScript closestTerminal = null;
+    ActivationAura aAura;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
         thisCollider = GetComponentInChildren<CircleCollider2D>();
         playerHealthComponent = GetComponent<HealthComponent>();
         playerShootingBehaviour = GetComponent<ShootingBehaviour>();
+        aAura = GetComponentInChildren<ActivationAura>();
         playerHealthComponent.healthSlider = GameManager.Instance.uiManager.playerHealthSlider;
         playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
@@ -54,8 +55,8 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Activate")) {
-            if (closestTerminal != null && !closestTerminal.hasBeenActivated) {
-                closestTerminal.Activate();
+            if (aAura.closestTerminal != null && !aAura.closestTerminal.hasBeenActivated) {
+                aAura.closestTerminal.Activate();
             }
         }
     }
@@ -101,20 +102,4 @@ public class PlayerScript : MonoBehaviour
         StartCoroutine(RecoilRoutine(direction, strength, delay));
     }
 
-    void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.gameObject.GetComponent<TerminalScript>()) {
-            TerminalScript ts = collider.gameObject.GetComponent<TerminalScript>();
-            if (!ts.hasBeenActivated) {
-                collider.gameObject.GetComponent<TerminalScript>().activationUI.SetActive(true);
-                closestTerminal = collider.gameObject.GetComponent<TerminalScript>();
-            }
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D collider) {
-        if (collider.gameObject.GetComponent<TerminalScript>()) {
-            collider.gameObject.GetComponent<TerminalScript>().activationUI.SetActive(false);
-            closestTerminal = null;
-        }
-    }
 }

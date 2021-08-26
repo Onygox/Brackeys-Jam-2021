@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2900787904833674729}
   - component: {fileID: 2251984243979608775}
   - component: {fileID: 2527365204195320797}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7617551756928359510}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4784363213565739509}
   - component: {fileID: 4148664971838662730}
   - component: {fileID: 6035526844326408212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terminal Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destructable: 1
   activationUI: {fileID: 1133204275690704202}
+  hasBeenActivated: 0
 --- !u!1 &5357229272626768278
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ GameObject:
   - component: {fileID: 7025920864707971335}
   - component: {fileID: 4550571942827658745}
   - component: {fileID: 1755367471762393047}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -323,7 +324,7 @@ GameObject:
   - component: {fileID: 5469667637614586320}
   - component: {fileID: 6968253767060474570}
   - component: {fileID: 3514410740106835731}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 335460876683698181}
   - component: {fileID: 2305695369381578479}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: TerminalHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5038318679468710442}
   - component: {fileID: 8498574959299870827}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terminal Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2215581944242909921}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,6 +752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7782732457610652270, guid: 94d08ab9903734cecb4f406a7dee6503,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782732457610652270, guid: 94d08ab9903734cecb4f406a7dee6503,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -893,6 +899,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: World Canvas Standard
+      objectReference: {fileID: 0}
+    - target: {fileID: 3355120948405501793, guid: 3c547801ee7cb4990b346d8198346264,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c547801ee7cb4990b346d8198346264, type: 3}

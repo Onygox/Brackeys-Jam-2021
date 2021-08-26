@@ -21,7 +21,7 @@ public abstract class Enemy : MonoBehaviour {
 
     public IEnumerator KnockbackRoutine(Vector2 direction, float strength, float delay = 0.7f) {
         isBeingKnocked = true;
-        thisBody.AddForce(direction*strength);
+        thisBody.AddForce(direction*strength, ForceMode2D.Impulse);
         yield return new WaitForSeconds(delay);
         thisBody.velocity = Vector2.zero;
         isBeingKnocked = false;

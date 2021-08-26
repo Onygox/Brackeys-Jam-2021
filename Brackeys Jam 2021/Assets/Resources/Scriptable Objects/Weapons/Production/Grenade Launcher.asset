@@ -10,18 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1e2ef5cf43c456eb96c404e0f539de, type: 3}
-  m_Name: Missile Launcher V1
+  m_Name: Grenade Launcher
   m_EditorClassIdentifier: 
-  _accuracy: 33
+  _accuracy: 100
   _projectileNumber: 1
-  _reloadSpeed: 2.7
+  _reloadSpeed: 2
   _fireRate: 2
-  _clipSize: 1
-  _maxClipSize: 3
-  _spreadAngle: 45
-  _power: 16
+  _clipSize: 3
+  _maxClipSize: 4
+  _spreadAngle: 25
+  _power: 15
+  _recoil: 0
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: ba89e0349bc0548199fcb51f2b9bbabe, type: 2}
+  projectileType: {fileID: 11400000, guid: 55d23d4124a2b4f4b8aba629252d5fae, type: 2}
   prefab: {fileID: 0}
+  playerIncreasedProjectilesPerShot: {fileID: 11400000, guid: 9e750323fcba64ef1b5ed01a7b760d87,
+    type: 2}
+  playerAccuracyMultiplier: {fileID: 11400000, guid: 96e8edb8b91ba4d23b1743e7130b5870,
+    type: 2}

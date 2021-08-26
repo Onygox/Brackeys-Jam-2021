@@ -52,6 +52,10 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
+        if (Input.GetButtonDown("Activate")) {
+            
+        }
+
         // if (Input.GetButtonDown("Reload")) {
         //     // if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
         //     //     GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
@@ -92,7 +96,7 @@ public class PlayerScript : MonoBehaviour
 
     public IEnumerator RecoilRoutine(Vector2 direction, float strength, float delay = 0.7f) {
         isRecoiling = true;
-        thisBody.AddForce(direction*strength);
+        thisBody.AddForce(direction*strength, ForceMode2D.Impulse);
         yield return new WaitForSeconds(delay);
         isRecoiling = false;
     }

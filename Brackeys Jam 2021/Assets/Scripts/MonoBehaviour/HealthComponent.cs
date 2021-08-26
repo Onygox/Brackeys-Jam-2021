@@ -16,7 +16,7 @@ public class HealthComponent : MonoBehaviour
         }
         set {
             _health = value;
-            healthSlider.value = ExtensionMethods.Remap(_health, 0, MaxHealth, 0, 1);
+            if (healthSlider != null) healthSlider.value = ExtensionMethods.Remap(_health, 0, MaxHealth, 0, 1);
             if (_health <= 0) OnDeath();
         }
     }
@@ -27,15 +27,18 @@ public class HealthComponent : MonoBehaviour
         }
         set {
             _maxHealth = value;
-            healthSlider.value = ExtensionMethods.Remap(_health, 0, MaxHealth, 0, 1);
+            if (healthSlider != null) healthSlider.value = ExtensionMethods.Remap(_health, 0, MaxHealth, 0, 1);
             if (_health <= 0) OnDeath();
         }
     }
 
     void Start() {
-        if (GetComponent<PlayerScript>()) playerScript = GetComponent<PlayerScript>();
 
         indestructible = false;
+        
+        if (GetComponent<PlayerScript>()) playerScript = GetComponent<PlayerScript>();
+
+        if (GetComponent<Obstacle>()) indestructible = !GetComponent<Obstacle>().destructable;
     }
 
     public void TakeDamage(int damageTaken) {
@@ -48,10 +51,13 @@ public class HealthComponent : MonoBehaviour
 
     void OnDeath() {
         if (playerScript is null) {
-            // GameObject thisParentObject = transform.parent.gameObject;
             Enemy thisEnemy = GetComponent<Enemy>();
-            if (GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
+            if (thisEnemy != null && GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
                 GameManager.Instance.enemyManager.currentEnemies.Remove(thisEnemy);
+            }
+            Obstacle thisObstacle = GetComponent<Obstacle>();
+            if (thisObstacle != null && GameManager.Instance.mapManager.destructableObjects.Contains(thisObstacle)) {
+                GameManager.Instance.mapManager.destructableObjects.Remove(thisObstacle);
             }
             Destroy(gameObject);
         } else {

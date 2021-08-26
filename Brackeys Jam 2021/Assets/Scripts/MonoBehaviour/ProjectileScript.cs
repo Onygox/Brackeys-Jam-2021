@@ -135,19 +135,17 @@ public class ProjectileScript : MonoBehaviour
         if (owner == playerObject) {
             for(int i = GameManager.Instance.enemyManager.currentEnemies.Count - 1; i >= 0; i--) {
 
-                CircleCollider2D enemyCollider = GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<CircleCollider2D>();
+                GameObject iteratedEnemy = GameManager.Instance.enemyManager.currentEnemies[i].gameObject;
+                CircleCollider2D enemyCollider = iteratedEnemy.GetComponentInChildren<CircleCollider2D>();
                 float realRadius = radius + enemyCollider.radius;
 
-                // Debug.Log("Distance " + Vector2.Distance(transform.position, enemy.gameObject.transform.position));
-                // Debug.Log("real radius " + realRadius);
-
-                if (Vector2.Distance(transform.position, GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position) <= realRadius) {
-                    GameManager.Instance.enemyManager.currentEnemies[i].gameObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+                if (Vector2.Distance(transform.position, iteratedEnemy.transform.position) <= realRadius) {
+                    iteratedEnemy.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
 
                     //knockback
                     if (knockback > 0) {
-                        Vector2 vectorToTarget = (GameManager.Instance.enemyManager.currentEnemies[i].gameObject.transform.position - transform.position).normalized;
-                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        Vector2 vectorToTarget = (iteratedEnemy.transform.position - transform.position).normalized;
+                        
                         float xVector, yVector;
                         if (vectorToTarget.x > 0) {
                             xVector = 1 - vectorToTarget.x;
@@ -165,6 +163,10 @@ public class ProjectileScript : MonoBehaviour
                 }
             
             }
+
+            DealDamageToEnvironment(r, damageAmount);
+
+            //deal damage to player if friendly fire is on
             if (friendlyDamage) {
                 float radiusToPlayer = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
 
@@ -174,7 +176,7 @@ public class ProjectileScript : MonoBehaviour
                     //knockback
                     if (knockback > 0) {
                         Vector2 vectorToTarget = (playerObject.gameObject.transform.position - transform.position).normalized;
-                        // Debug.Log("Hit Vector " + vectorToTarget.normalized);
+                        
                         float xVector, yVector;
                         if (vectorToTarget.x > 0) {
                             xVector = 1 - vectorToTarget.x;
@@ -194,16 +196,25 @@ public class ProjectileScript : MonoBehaviour
         } else {
             float realRadius = radius + GameManager.Instance.playerManager.playerScript.thisCollider.radius;
 
-            // Debug.Log("Distance " + Vector2.Distance(transform.position, playerObject.transform.position));
-            // Debug.Log("real radius " + realRadius);
-
             if (Vector2.Distance(transform.position, playerObject.transform.position) <= realRadius) {
                 playerObject.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
             }
+
+            DealDamageToEnvironment(r, damageAmount);
         }
+    }
 
-        
+    void DealDamageToEnvironment(float r, int damageAmount) {
+        for (int i = GameManager.Instance.mapManager.destructableObjects.Count - 1; i >= 0; i--) {
 
+            GameObject iteratedObstacle = GameManager.Instance.mapManager.destructableObjects[i].gameObject;
+            BoxCollider2D obstacleCollider = iteratedObstacle.GetComponentInChildren<BoxCollider2D>();
+            float realRadius = radius + obstacleCollider.size.x;
+
+            if (Vector2.Distance(transform.position, iteratedObstacle.transform.position) <= realRadius) {
+                iteratedObstacle.GetComponentInChildren<HealthComponent>().TakeDamage(damageAmount);
+            }
+        }
     }
 
     IEnumerator EndLife() {

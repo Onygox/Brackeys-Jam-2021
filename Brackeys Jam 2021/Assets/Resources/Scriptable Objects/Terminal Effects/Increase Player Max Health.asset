@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72478ef84fe7f4706b119d425c544245, type: 3}
+  m_Name: Increase Player Max Health
+  m_EditorClassIdentifier: 
+  floatToAffect: {fileID: 0}
+  intToAffect: {fileID: 11400000, guid: 5b5eb65916b0441abb7e72da3c20effc, type: 2}
+  floatAmount: 0
+  intAmount: 33
+  message: Increased Player's Max Health

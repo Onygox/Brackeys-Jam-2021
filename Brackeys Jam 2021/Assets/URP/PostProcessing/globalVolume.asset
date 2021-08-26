@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Value: 65472
     min: 0
   tint:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 1, g: 0.9009434, b: 0.9009434, a: 1}
     hdr: 0
     showAlpha: 0
@@ -62,11 +62,11 @@ MonoBehaviour:
   active: 1
   m_AdvancedMode: 0
   type:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   intensity:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.1
     min: 0
     max: 1
   response:
@@ -92,6 +92,7 @@ MonoBehaviour:
   components:
   - {fileID: -8531313130487855054}
   - {fileID: 188006482603158459}
+  - {fileID: -2459971791626354456}
 --- !u!114 &188006482603158459
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -113,7 +114,7 @@ MonoBehaviour:
     showAlpha: 0
     showEyeDropper: 1
   center:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1

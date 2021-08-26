@@ -87,7 +87,7 @@ public class Projectile : ScriptableObject
             _homingAccuracy = value;
         }
     }
-    public bool homing, bouncing, friendlyDamage;
+    public bool homing, targetOwner, bouncing, friendlyDamage;
     public GameObject prefab;
     public Sprite projectileImage;
     public Vector3 projectileSize;
@@ -112,6 +112,7 @@ public class Projectile : ScriptableObject
         ps.homing = homing;
         ps.bouncing = bouncing;
         ps.friendlyDamage = friendlyDamage;
+        ps.targetOwner = targetOwner;
 
         CircleCollider2D bc = newProjectile.AddComponent<CircleCollider2D>();
         bc.isTrigger = !bouncing;

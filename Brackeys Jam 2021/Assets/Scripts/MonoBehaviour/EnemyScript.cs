@@ -69,7 +69,8 @@ public class EnemyScript : Enemy
             if (IsInRange() && rtp.PlayerIsVisible()) {
                 timeBetweenShots+=0.1f;
                 if (timeBetweenShots >= sb.currentWeapon.FireRate) {
-                    sb.ShootWeapon(transform.position, aim.transform.rotation.eulerAngles);
+                    Vector2 normalizedDirection = rtp.vectorToTarget.normalized;
+                    sb.ShootWeapon(transform.position + new Vector3(normalizedDirection.x, normalizedDirection.y, 0), aim.transform.rotation.eulerAngles);
                     timeBetweenShots = 0;
                 }
             }

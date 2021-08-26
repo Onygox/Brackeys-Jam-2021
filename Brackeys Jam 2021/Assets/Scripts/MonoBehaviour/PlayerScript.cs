@@ -80,7 +80,7 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        playerShootingBehaviour.ShootWeapon(transform.position + (direction/2), new Vector3(0, 0, startingZRotation));
+        playerShootingBehaviour.ShootWeapon(transform.position + direction, new Vector3(0, 0, startingZRotation));
         
         if (playerShootingBehaviour.currentWeapon.Recoil > 0) {
             StartCoroutine(RecoilRoutine(-direction, playerShootingBehaviour.currentWeapon.Recoil));
@@ -90,14 +90,14 @@ public class PlayerScript : MonoBehaviour
         GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
     }
 
-    public IEnumerator RecoilRoutine(Vector3 direction, float strength, float delay = 0.7f) {
+    public IEnumerator RecoilRoutine(Vector2 direction, float strength, float delay = 0.7f) {
         isRecoiling = true;
         thisBody.AddForce(direction*strength);
         yield return new WaitForSeconds(delay);
         isRecoiling = false;
     }
 
-    public void GetKnockedBack(Vector3 direction, float strength, float delay = 0.7f) {
+    public void GetKnockedBack(Vector2 direction, float strength, float delay = 0.7f) {
         StopCoroutine(RecoilRoutine(direction, strength, delay));
         StartCoroutine(RecoilRoutine(direction, strength, delay));
     }

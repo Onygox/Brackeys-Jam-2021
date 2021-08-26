@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 7019123869330996455}
   - component: {fileID: 6079519866926023024}
   - component: {fileID: 6081203308721728618}
+  - component: {fileID: 727321836315360156}
   m_Layer: 11
   m_Name: Player Container
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeSinceLastShot: 0
   reloadTime: 0
   currentWeapon: {fileID: 11400000, guid: 4c8f26bda0b0a4836932576887b35bba, type: 2}
   playerFireRateMultiplier: {fileID: 11400000, guid: f16b5f48631bf4e8db5af8a81a95d3bb,
@@ -155,6 +157,22 @@ MonoBehaviour:
   _maxHealth: 100
   damageReceivedMultiplier: {fileID: 11400000, guid: 4e0b5489b4a8d4962969dfdc27d6a646,
     type: 2}
+--- !u!58 &727321836315360156
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469068319573537018}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0

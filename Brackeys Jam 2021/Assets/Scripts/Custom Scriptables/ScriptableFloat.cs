@@ -35,4 +35,9 @@ public class ScriptableFloat : CustomScriptable
     public void LoadData() {
         Value = PlayerPrefs.GetFloat(SaveDataPath);
     }
+
+    public override void Initialize(int index) {
+        base.Initialize(index);
+        Value = DefaultValue;
+    }
 }

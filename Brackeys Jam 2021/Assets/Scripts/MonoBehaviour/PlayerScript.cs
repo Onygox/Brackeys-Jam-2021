@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
     bool isRecoiling;
+    TerminalScript closestTerminal = null;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
@@ -53,7 +54,9 @@ public class PlayerScript : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Activate")) {
-            
+            if (closestTerminal != null && !closestTerminal.hasBeenActivated) {
+                closestTerminal.Activate();
+            }
         }
     }
 
@@ -96,5 +99,22 @@ public class PlayerScript : MonoBehaviour
     public void GetKnockedBack(Vector2 direction, float strength, float delay = 0.7f) {
         StopCoroutine(RecoilRoutine(direction, strength, delay));
         StartCoroutine(RecoilRoutine(direction, strength, delay));
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (collider.gameObject.GetComponent<TerminalScript>()) {
+            TerminalScript ts = collider.gameObject.GetComponent<TerminalScript>();
+            if (!ts.hasBeenActivated) {
+                collider.gameObject.GetComponent<TerminalScript>().activationUI.SetActive(true);
+                closestTerminal = collider.gameObject.GetComponent<TerminalScript>();
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collider) {
+        if (collider.gameObject.GetComponent<TerminalScript>()) {
+            collider.gameObject.GetComponent<TerminalScript>().activationUI.SetActive(false);
+            closestTerminal = null;
+        }
     }
 }

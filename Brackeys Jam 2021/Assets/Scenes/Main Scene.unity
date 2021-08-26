@@ -5326,7 +5326,7 @@ PrefabInstance:
     - target: {fileID: 7148147979690635588, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
       propertyPath: startingLevel
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7554144555630169603, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
@@ -5744,6 +5744,12 @@ PrefabInstance:
       propertyPath: ammoSlider
       value: 
       objectReference: {fileID: 847656931}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: messageCanvas
+      value: 
+      objectReference: {fileID: 5669340886045558032, guid: 0f548d903ad604ef39500631440637e3,
+        type: 3}
     - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: fireRateSlider

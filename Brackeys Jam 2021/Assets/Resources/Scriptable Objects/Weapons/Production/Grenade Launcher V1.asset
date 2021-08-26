@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe1e2ef5cf43c456eb96c404e0f539de, type: 3}
-  m_Name: Grenade Launcher
+  m_Name: Grenade Launcher V1
   m_EditorClassIdentifier: 
   _accuracy: 100
   _projectileNumber: 1
   _reloadSpeed: 2
   _fireRate: 2
-  _clipSize: 4
+  _clipSize: 0
   _maxClipSize: 4
   _spreadAngle: 0
   _power: 15
   weaponImage: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: 88a55aea023c944d89e481fc181e8e1a, type: 2}
+  projectileType: {fileID: 11400000, guid: 55d23d4124a2b4f4b8aba629252d5fae, type: 2}
   prefab: {fileID: 0}

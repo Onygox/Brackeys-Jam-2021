@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public MapManager mapManager;
     [HideInInspector] public EnemyManager enemyManager;
+    private int levelInt;
 
     public CinemachineVirtualCamera vcam;
 
@@ -29,9 +30,21 @@ public class GameManager : MonoBehaviour
         enemyManager = transform.parent.gameObject.GetComponentInChildren<EnemyManager>();
 
         StartGame(0);
+        
     }
 
     void StartGame(int level) {
-        mapManager.CreateMap(PersistentManager.Instance.maps[level]);
+        // mapManager.CreateMap(PersistentManager.Instance.maps[level]);
+        levelInt = level;
+        StartCoroutine("StartGameRoutine");
+    }
+
+    IEnumerator StartGameRoutine() {
+        yield return new WaitForSeconds(0.1f);
+        mapManager.CreateMap(PersistentManager.Instance.maps[levelInt]);
+    }
+
+    public void RestartCurrentScene() {
+        PersistentManager.Instance.RestartCurrentScene();
     }
 }

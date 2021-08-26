@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class HealthComponent : MonoBehaviour
 {
-    [SerializeField] private Slider healthSlider;
+    public Slider healthSlider;
+    private PlayerScript playerScript;
 
     [SerializeField] private int _health;
     public int Health {
@@ -30,11 +31,25 @@ public class HealthComponent : MonoBehaviour
         }
     }
 
+    void Start() {
+        if (GetComponent<PlayerScript>()) playerScript = GetComponent<PlayerScript>();
+    }
+
     public void TakeDamage(int damageTaken) {
         Health -= damageTaken;
+        if (playerScript != null) GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
     }
 
     void OnDeath() {
+        if (playerScript is null) {
+            GameObject thisParentObject = transform.parent.gameObject;
+            Enemy thisEnemy = thisParentObject.GetComponentInChildren<Enemy>();
+            if (GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
+                GameManager.Instance.enemyManager.currentEnemies.Remove(thisEnemy);
+            }
+            Destroy(thisParentObject);
+        } else {
 
+        }
     }
 }

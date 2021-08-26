@@ -6,15 +6,23 @@ public class PlayerScript : MonoBehaviour
 {
     //put movement and visual scripting in here
 
-    float baseSpeed = 2.0f;
+    [SerializeField] float baseSpeed = 2.7f;
     Vector3 velocity;
     private Rigidbody2D thisBody;
     public CircleCollider2D thisCollider;
     public GameObject lookTarget;
+    public HealthComponent playerHealthComponent;
+    public ShootingBehaviour playerShootingBehaviour;
 
     void Start() {
         thisBody = GetComponent<Rigidbody2D>();
         thisCollider = GetComponentInChildren<CircleCollider2D>();
+        playerHealthComponent = GetComponent<HealthComponent>();
+        playerShootingBehaviour = GetComponent<ShootingBehaviour>();
+        playerHealthComponent.healthSlider = GameManager.Instance.uiManager.playerHealthSlider;
+        playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
+        GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
+        playerHealthComponent.Health = GameManager.Instance.playerManager.currentPlayerHealthVar.Value;
     }
 
     void Update() {
@@ -25,20 +33,30 @@ public class PlayerScript : MonoBehaviour
 
         lookTarget.transform.position = transform.position + velocity;
 
-        if (Input.GetButtonDown("Fire Horizontal")) {
-            ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
-        }
+        if (playerShootingBehaviour.currentWeapon.automatic) {
+            if (Input.GetButton("Fire Horizontal")) {
+                ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
+            }
 
-        if (Input.GetButtonDown("Fire Vertical")) {
-            ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
-        }
+            if (Input.GetButton("Fire Vertical")) {
+                ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
+            }
+        } else {
+            if (Input.GetButtonDown("Fire Horizontal")) {
+                ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
+            }
 
-        if (Input.GetButtonDown("Reload")) {
-            if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
-                GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
-                StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
+            if (Input.GetButtonDown("Fire Vertical")) {
+                ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
             }
         }
+
+        // if (Input.GetButtonDown("Reload")) {
+        //     if (GameManager.Instance.playerManager.playerShootingBehaviour.reloadTime >= GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ReloadSpeed &&
+        //         GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize < GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize) {
+        //         StartCoroutine(GameManager.Instance.playerManager.playerShootingBehaviour.ReloadWeaponRoutine());
+        //     }
+        // }
     }
 
     private void ShootWeapon(Vector3 direction) {
@@ -60,8 +78,8 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        GameManager.Instance.playerManager.playerShootingBehaviour.ShootWeapon(new Vector3(0, 0, startingZRotation));
-        GameManager.Instance.uiManager.ammoSlider.value = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize;
-        GameManager.Instance.uiManager.ammoText.text = GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + GameManager.Instance.playerManager.playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
+        playerShootingBehaviour.ShootWeapon(transform.position + (direction/2), new Vector3(0, 0, startingZRotation));
+        GameManager.Instance.uiManager.ammoSlider.value = playerShootingBehaviour.currentWeapon.ClipSize;
+        GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
     }
 }

@@ -7,12 +7,12 @@ public class EnemyScript : Enemy
 {
     SAP2DAgent agent;
     SpriteRenderer thisRenderer;
-    // Rigidbody2D thisBody;
-    public float radius;
+    public float radius, minRadius, maxRadius;
     float timeBetweenShots;
-    bool hasBeenSeen;
+    bool hasBeenSeen, isActive;
     ShootingBehaviour sb;
     public GameObject aim;
+    RotateTowardsPlayer rtp;
     protected override void Start() {
 
         base.Start();
@@ -20,21 +20,31 @@ public class EnemyScript : Enemy
         agent = GetComponent<SAP2DAgent>();
         thisRenderer = GetComponentInChildren<SpriteRenderer>();
         sb = GetComponentInChildren<ShootingBehaviour>();
-        // thisBody = GetComponentInChildren<Rigidbody2D>();
+        rtp = aim.GetComponent<RotateTowardsPlayer>();
         agent.Target = GameManager.Instance.playerManager.playerScript.gameObject.transform;
         agent.CanMove = false;
+        isActive = false;
         hasBeenSeen = false;
         timeBetweenShots = 0;
         StartCoroutine("ShootTowardPlayer");
+        StartCoroutine("MakeActive");
     }
 
     void Update() {
+        if (!isActive) return;
+
         if (IsVisible()) hasBeenSeen = true;
 
         if (hasBeenSeen) {
-            if (IsInRange()) {
-                agent.CanMove = false;
+            if (rtp.PlayerIsVisible()) {
+                radius = maxRadius;
+                if (IsInRange()) {
+                    agent.CanMove = false;
+                } else {
+                    agent.CanMove = true;
+                }
             } else {
+                radius = Mathf.Clamp(radius-0.01f, minRadius, maxRadius);
                 agent.CanMove = true;
             }
         }
@@ -43,18 +53,23 @@ public class EnemyScript : Enemy
     IEnumerator ShootTowardPlayer() {
         while (true) {
             yield return new WaitForSeconds(0.1f);
-            if (IsInRange()) {
+            if (IsInRange() && rtp.PlayerIsVisible()) {
                 timeBetweenShots+=0.1f;
                 if (timeBetweenShots >= sb.currentWeapon.FireRate) {
-                    sb.ShootWeapon(aim.transform.rotation.eulerAngles);
+                    sb.ShootWeapon(transform.position, aim.transform.rotation.eulerAngles);
                     timeBetweenShots = 0;
                 }
             }
         }
     }
 
+    IEnumerator MakeActive() {
+        yield return new WaitForSeconds(0.2f);
+        isActive = true;
+    }
+
     public bool IsVisible() {
-        //Check Visibility
+        //Check Visibility in main camera viewport
 
         Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
         bool onScreen = screenPos.x > 0f && screenPos.x < Screen.width && screenPos.y > 0f && screenPos.y < Screen.height;
@@ -63,6 +78,6 @@ public class EnemyScript : Enemy
     }
 
     public bool IsInRange() {
-        return (Vector3.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
+        return (Vector2.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
     }
 }

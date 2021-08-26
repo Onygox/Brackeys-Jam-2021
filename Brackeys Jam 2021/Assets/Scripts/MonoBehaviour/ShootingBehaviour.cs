@@ -15,7 +15,7 @@ public class ShootingBehaviour : MonoBehaviour
         ReloadWeapon();
     }
 
-    public void ShootWeapon(Vector3 direction) {
+    public void ShootWeapon(Vector3 location, Vector3 direction) {
 
         if (timeSinceLastShot < currentWeapon.FireRate) {
             return;
@@ -31,7 +31,12 @@ public class ShootingBehaviour : MonoBehaviour
 
         StopCoroutine("CoolDown");
 
-        currentWeapon.Shoot(transform.position + direction/2, direction, this.gameObject);
+        currentWeapon.Shoot(location, direction, this.gameObject);
+
+        if (isPlayer && currentWeapon.ClipSize <= 0) {
+            //change weapon automatically on clip empty
+            ChangeWeapons(PersistentManager.Instance.weaponLibrary[Mathf.FloorToInt(Random.Range(0, PersistentManager.Instance.weaponLibrary.Length))]);
+        }
 
         StartCoroutine("CoolDown");
         
@@ -42,23 +47,27 @@ public class ShootingBehaviour : MonoBehaviour
         while (timeSinceLastShot <= currentWeapon.FireRate) {
             yield return new WaitForSeconds(0.1f);
             timeSinceLastShot += 0.1f;
-            if (isPlayer) GameManager.Instance.uiManager.fireRateSlider.value = ExtensionMethods.Remap(timeSinceLastShot, 0.0f, currentWeapon.FireRate, 0.0f, 1.0f);
+            if (isPlayer) {
+                GameManager.Instance.uiManager.fireRateSlider.value = ExtensionMethods.Remap(timeSinceLastShot, 0.0f, currentWeapon.FireRate, 0.0f, 1.0f);
+            }
         }
     }
 
-    public IEnumerator ReloadWeaponRoutine() {
-        reloadTime = 0;
-        GameManager.Instance.uiManager.ammoText.text = "Reloading";
-        while (reloadTime <= currentWeapon.ReloadSpeed) {
-            yield return new WaitForSeconds(0.1f);
-            reloadTime += 0.1f;
-            if (isPlayer) GameManager.Instance.uiManager.reloadTimeSlider.value = ExtensionMethods.Remap(reloadTime, 0.0f, currentWeapon.ReloadSpeed, 0.0f, 1.0f);
-        }
-        ReloadWeapon();
-    }
+    // public IEnumerator ReloadWeaponRoutine() {
+    //     reloadTime = 0;
+    //     GameManager.Instance.uiManager.ammoText.text = "Reloading";
+    //     while (reloadTime <= currentWeapon.ReloadSpeed) {
+    //         yield return new WaitForSeconds(0.1f);
+    //         reloadTime += 0.1f;
+    //         if (isPlayer) GameManager.Instance.uiManager.reloadTimeSlider.value = ExtensionMethods.Remap(reloadTime, 0.0f, currentWeapon.ReloadSpeed, 0.0f, 1.0f);
+    //     }
+    //     ReloadWeapon();
+    // }
 
     public void ChangeWeapons(Weapon newWeapon) {
         currentWeapon = newWeapon;
+        GameManager.Instance.uiManager.currentWeaponText.text = "Current Weapon: " + currentWeapon.name;
+        ReloadWeapon();
     }
 
     public void ReloadWeapon() {

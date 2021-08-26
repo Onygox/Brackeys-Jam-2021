@@ -9,14 +9,16 @@ public class UIManager : MonoBehaviour
     public Slider musicSlider, sfxSlider;
     List<string> weaponNames = new List<string>();
     public TMP_Dropdown weaponSelector;
-    public Slider ammoSlider, fireRateSlider, reloadTimeSlider;
-    public TextMeshProUGUI ammoText;
+    public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
+    public TextMeshProUGUI ammoText, currentWeaponText;
+    public int pistolIndex = 0;
 
-    void Start()
-    {
+    void Start() {
         if (weaponSelector != null) {
-            foreach(Weapon w in PersistentManager.Instance.weaponLibrary) {
-                weaponNames.Add(w.name);
+
+            for(int i = 0; i < PersistentManager.Instance.weaponLibrary.Length; i++) {
+                weaponNames.Add(PersistentManager.Instance.weaponLibrary[i].name);
+                if (PersistentManager.Instance.weaponLibrary[i].name == "Pistol") pistolIndex = i;
             }
 
             weaponSelector.ClearOptions();

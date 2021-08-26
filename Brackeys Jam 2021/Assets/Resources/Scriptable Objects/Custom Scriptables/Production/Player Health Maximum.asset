@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d49174849df234d3bbf69ace6f96634a, type: 3}
   m_Name: Player Health Maximum
   m_EditorClassIdentifier: 
-  libraryIndex: 0
-  _value: 10
-  _defaultValue: 10
+  libraryIndex: 3
+  _saveDataPath: maximumplayerhealthdata
+  onVariableChange: {fileID: 0}
+  _value: 100
+  _defaultValue: 100
   isClamped: 0
   lowClampValue: 0
   highClampValue: 0
-  _saveDataPath: maximumplayerhealthdata
-  onVariableChange: {fileID: 0}

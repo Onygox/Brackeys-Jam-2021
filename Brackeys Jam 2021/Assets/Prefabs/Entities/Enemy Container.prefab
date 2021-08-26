@@ -131,6 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  layersToSee:
+    serializedVersion: 2
+    m_Bits: 2304
 --- !u!1 &3114597783198519192
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
+  minRadius: 1
+  maxRadius: 5
   aim: {fileID: 2238099249555461040}
 --- !u!114 &7088741636227333856
 MonoBehaviour:
@@ -257,6 +262,7 @@ GameObject:
   - component: {fileID: 6628836540809973198}
   - component: {fileID: 8434190325823566668}
   - component: {fileID: 8632227309798772969}
+  - component: {fileID: 1597706705030957724}
   m_Layer: 9
   m_Name: Enemy Body
   m_TagString: Untagged
@@ -311,7 +317,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -330,8 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 2342446500217199252}
-  _health: 25
-  _maxHealth: 25
+  _health: 50
+  _maxHealth: 50
 --- !u!114 &8632227309798772969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,8 +350,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c684435e9d0421aa1ed3c409326501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reloadTime: 1
+  reloadTime: 2
   currentWeapon: {fileID: 11400000, guid: 16a056abda5774bd2ad4682d80c2048f, type: 2}
+--- !u!114 &1597706705030957724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755589557285454953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ac64e123b7aaa40adecd5611222db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Config: {fileID: 11400000, guid: b326ffdf8cda603499980307d04a352b, type: 2}
 --- !u!1 &6218640342642587557
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +585,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 781472f46ddf94359910781c4792c93c, type: 3}
-  m_Color: {r: 0.8301887, g: 0.08223567, b: 0.08223567, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -680,7 +699,7 @@ GameObject:
   - component: {fileID: 2802890062893878489}
   - component: {fileID: 2342446500217199252}
   m_Layer: 9
-  m_Name: Slider
+  m_Name: EnemyHealthSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -59,7 +59,26 @@ public class Projectile : ScriptableObject
             _startingSpeed = value;
         }
     }
-    public bool homing, bouncing;
+    [Header("These values are only important if the 'homing' bool is set to true")]
+    [SerializeField] private float _homingSpeed;
+    public float HomingSpeed {
+        get {
+            return _homingSpeed;
+        }
+        set {
+            _homingSpeed = value;
+        }
+    }
+    [SerializeField] private float _homingAccuracy;
+    public float HomingAccuracy {
+        get {
+            return _homingAccuracy;
+        }
+        set {
+            _homingAccuracy = value;
+        }
+    }
+    public bool homing, bouncing, friendlyDamage;
     public GameObject prefab;
     public Sprite projectileImage;
     public Vector3 projectileSize;
@@ -78,8 +97,11 @@ public class Projectile : ScriptableObject
         ps.enemiesToPierce = EnemiesToPierce;
         ps.deceleration = Deceleration;
         ps.startingSpeed = StartingSpeed;
+        ps.homingSpeed = HomingSpeed;
+        ps.homingAccuracy = HomingAccuracy;
         ps.homing = homing;
         ps.bouncing = bouncing;
+        ps.friendlyDamage = friendlyDamage;
 
         CircleCollider2D bc = newProjectile.AddComponent<CircleCollider2D>();
         bc.isTrigger = !bouncing;

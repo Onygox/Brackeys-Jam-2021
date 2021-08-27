@@ -33,6 +33,7 @@ public class EnemyScript : Enemy
 
         StartCoroutine("ShootTowardPlayer");
         StartCoroutine("MakeActive");
+        StartCoroutine("PlayFootstepNoises");
     }
 
     void Update() {
@@ -95,5 +96,14 @@ public class EnemyScript : Enemy
 
     public bool IsInRange() {
         return (Vector2.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
+    }
+
+    public IEnumerator PlayFootstepNoises() {
+        while (true) {
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.4f));
+            if (IsVisible() && !IsInRange()) {
+                PersistentManager.Instance.soundManager.PlayRandomEnemyFootstepSound();
+            }
+        }
     }
 }

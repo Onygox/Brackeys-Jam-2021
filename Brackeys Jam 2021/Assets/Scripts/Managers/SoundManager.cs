@@ -37,4 +37,19 @@ public class SoundManager : MonoBehaviour
 
         Destroy(newSound, newClip.length);
     }
+
+    public void PlayRandomEnemyFootstepSound() {
+        AudioClip randomFootstep = PersistentManager.Instance.enemyFootstepLibrary[Mathf.FloorToInt(Random.Range(0, PersistentManager.Instance.enemyFootstepLibrary.Length))];
+        
+        GameObject newSound = Instantiate(soundObject);
+        AudioSource soundSource = newSound.GetComponent<AudioSource>();
+        AudioClip newClip = randomFootstep;
+
+        soundSource.volume = 0.4f * PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
+        soundSource.pitch += Random.Range(-0.2f, 0.2f);
+
+        soundSource.PlayOneShot(newClip);
+
+        Destroy(newSound, newClip.length);
+    }
 }

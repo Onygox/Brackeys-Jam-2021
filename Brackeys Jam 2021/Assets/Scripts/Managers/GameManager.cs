@@ -75,9 +75,29 @@ public class GameManager : MonoBehaviour
             //otherwise, go to the end game scene
             uiManager.winCanvas.SetActive(true);
 
+            if (levelInt < PersistentManager.Instance.maps.Length - 1) {
+                StartCoroutine(LoadSceneWithDelay(levelInt+1, 2.0f));
+            } else {
+                StartCoroutine(LoadEndSceneWithDelay());
+            }
+
         } else {
             uiManager.deathCanvas.SetActive(true);
         }
 
+    }
+
+    IEnumerator LoadSceneWithDelay(int levelIndex, float delayFloat) {
+        yield return new WaitForSeconds(delayFloat);
+        StartGame(levelIndex);
+    }
+
+    IEnumerator LoadEndSceneWithDelay() {
+        yield return new WaitForSeconds(2.0f);
+        PersistentManager.Instance.LoadSceneByIndex(2);
+    }
+
+    public bool GameIsOver() {
+        return (uiManager.deathCanvas.activeSelf || uiManager.winCanvas.activeSelf);
     }
 }

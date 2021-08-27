@@ -30,39 +30,38 @@ public class PlayerScript : MonoBehaviour
 
     void Update() {
 
-        if (!GameManager.Instance.uiManager.deathCanvas.activeSelf && !GameManager.Instance.uiManager.winCanvas.activeSelf) {
+        if (GameManager.Instance.GameIsOver()) return;
 
-            velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
-            if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
+        if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
 
-            lookTarget.transform.position = transform.position + velocity;
+        lookTarget.transform.position = transform.position + velocity;
 
-            if (playerShootingBehaviour.currentWeapon.automatic) {
-                if (Input.GetButton("Fire Horizontal")) {
-                    ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
-                }
-
-                if (Input.GetButton("Fire Vertical")) {
-                    ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
-                }
-            } else {
-                if (Input.GetButtonDown("Fire Horizontal")) {
-                    ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
-                }
-
-                if (Input.GetButtonDown("Fire Vertical")) {
-                    ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
-                }
+        if (playerShootingBehaviour.currentWeapon.automatic) {
+            if (Input.GetButton("Fire Horizontal")) {
+                ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
             }
 
-            if (Input.GetButtonDown("Activate")) {
-                if (aAura.closestTerminal != null && !aAura.closestTerminal.hasBeenActivated) {
-                    aAura.closestTerminal.Activate();
-                }
+            if (Input.GetButton("Fire Vertical")) {
+                ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
             }
-            
+        } else {
+            if (Input.GetButtonDown("Fire Horizontal")) {
+                ShootWeapon(new Vector3(Input.GetAxis("Fire Horizontal"), 0, 0));
+            }
+
+            if (Input.GetButtonDown("Fire Vertical")) {
+                ShootWeapon(new Vector3(0, Input.GetAxis("Fire Vertical"), 0));
+            }
         }
+
+        if (Input.GetButtonDown("Activate")) {
+            if (aAura.closestTerminal != null && !aAura.closestTerminal.hasBeenActivated) {
+                aAura.closestTerminal.Activate();
+            }
+        }
+        
     }
 
     private void ShootWeapon(Vector3 direction) {

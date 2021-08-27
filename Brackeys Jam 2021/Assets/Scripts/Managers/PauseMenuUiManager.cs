@@ -22,6 +22,9 @@ public class PauseMenuUiManager : MonoBehaviour
     }
 
     public void PauseGame() {
+
+        if (GameManager.Instance.GameIsOver()) return;
+
         gameIsPaused = true;
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
@@ -29,6 +32,9 @@ public class PauseMenuUiManager : MonoBehaviour
         PersistentManager.Instance.musicManager.OnPauseGame();
     }
     public void ResumeGame() {
+
+        if (GameManager.Instance.GameIsOver()) return;
+        
         gameIsPaused = false;
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;

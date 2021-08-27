@@ -16,12 +16,26 @@ MonoBehaviour:
   _projectileNumber: 3
   _reloadSpeed: 2.5
   _fireRate: 2.5
-  _clipSize: 3
+  _clipSize: 2
   _maxClipSize: 3
   _spreadAngle: 90
   _power: 15
   _recoil: 0
   weaponImage: {fileID: 0}
+  sound:
+    name: 
+    clips:
+    - {fileID: 8300000, guid: e953173a67e5745ef9a32a30ab3e4c2d, type: 3}
+    - {fileID: 8300000, guid: d81663ba9c17f494aa1d35442fcd1a05, type: 3}
+    - {fileID: 8300000, guid: 164d66b4ec7b94f9d9d730adbaeeddd7, type: 3}
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0.115
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: 909013c8056174e15b22cf5b56941e66, type: 2}

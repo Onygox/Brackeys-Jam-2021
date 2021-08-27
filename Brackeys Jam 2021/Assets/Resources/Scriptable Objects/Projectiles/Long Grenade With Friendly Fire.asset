@@ -19,6 +19,21 @@ MonoBehaviour:
   _deceleration: 0.975
   _startingSpeed: 15
   _knockback: 6
+  hasExplosionSound: 1
+  explosionSound:
+    name: 
+    clips:
+    - {fileID: 8300000, guid: a13fd8d147ed649ed840f7b66987d61f, type: 3}
+    - {fileID: 8300000, guid: 98c4397fef1b941368a639f99ee1c605, type: 3}
+    - {fileID: 8300000, guid: b2f14ee9a5f8744e780e7eb80ccb07a4, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0.207
+    loop: 0
+    spatialBlend: 1
+    maxDistance: 30
+    rollOffMode: 1
+    source: {fileID: 0}
   _homingSpeed: 0
   _homingAccuracy: 0
   homing: 0

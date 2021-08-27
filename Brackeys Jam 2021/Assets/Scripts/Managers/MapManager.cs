@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
     List<GameObject> mapObjects = new List<GameObject>();
     SAP2DPathfinder pathfinder;
     public List<Obstacle> destructableObjects = new List<Obstacle>();
+    public GameObject floorContainer;
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
 		Vector2Int.left,Vector2Int.up,
@@ -48,6 +49,10 @@ public class MapManager : MonoBehaviour
 
                     GameObject associatedPrefab = Instantiate(tileBase.associatedPrefab) as GameObject;
 
+                    if (associatedPrefab.GetComponentInChildren<SpriteRenderer>()) {
+                        associatedPrefab.GetComponentInChildren<SpriteRenderer>().sprite = tileBase.sprite;
+                    }
+
                     if (associatedPrefab.GetComponentInChildren<PlayerScript>()) {
                         GameManager.Instance.playerManager.playerScript = associatedPrefab.GetComponentInChildren<PlayerScript>();
                         GameManager.Instance.playerManager.playerScript.playerShootingBehaviour = associatedPrefab.GetComponentInChildren<ShootingBehaviour>();
@@ -63,8 +68,15 @@ public class MapManager : MonoBehaviour
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);
                     associatedPrefab.name = name + " - " + associatedPrefab.transform.position;
 
+                    //put floor beneath every tile
+                    if (associatedPrefab != floorContainer) {
+                        Instantiate(floorContainer, associatedPrefab.transform.position, Quaternion.identity);
+                    }
+
                     mapObjects.Add(associatedPrefab);
-				}
+				} else {
+                    Instantiate(floorContainer, new Vector2(vecInt.x+.5f,vecInt.y+.5f), Quaternion.identity);
+                }
     	
             }
         }

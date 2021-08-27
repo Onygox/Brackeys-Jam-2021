@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 7126171820913818046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0540541, y: 1.0508467, z: 1}
   m_Children: []
   m_Father: {fileID: 5427890385747386244}
   m_RootOrder: 0
@@ -70,11 +70,12 @@ SpriteRenderer:
   m_SortingLayerID: 742452531
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b178fd015b01f41f6b66a8ee9e14cc64, type: 3}
-  m_Color: {r: 0.41509432, g: 0.40922034, b: 0.40922034, a: 1}
+  m_Sprite: {fileID: -5386191035879296584, guid: ca549556cffa947fbbcde74c8ff93eaa,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -206,3 +207,5 @@ MonoBehaviour:
   indestructible: 0
   _health: 10
   _maxHealth: 0
+  damageReceivedMultiplier: {fileID: 0}
+  damageReceivedMessage: {fileID: 0}

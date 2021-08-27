@@ -27,10 +27,8 @@ public class EnemyManager : MonoBehaviour
     IEnumerator SpawnEnemiesPeriodically() {
         while (true) {
             yield return new WaitForSeconds(spawnDelay);
-            if (currentSpawners.Count > 0){
-                SpawnEnemyAtRandomSpawner();
-                spawnDelay = Random.Range(3.0f, 10.0f);
-            }
+            SpawnEnemyAtRandomSpawner();
+            spawnDelay = Random.Range(3.0f, 10.0f);
         }
     }
 }

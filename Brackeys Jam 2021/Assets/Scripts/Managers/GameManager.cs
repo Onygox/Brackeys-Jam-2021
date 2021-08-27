@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public MapManager mapManager;
     [HideInInspector] public EnemyManager enemyManager;
+    // public bool playerCanBeKilled;
     private int levelInt;
     public int startingLevel = 0;
 
@@ -75,6 +76,12 @@ public class GameManager : MonoBehaviour
             //otherwise, go to the end game scene
             uiManager.winCanvas.SetActive(true);
 
+            for(int i = enemyManager.currentEnemies.Count - 1; i>=0;i--) {
+                Destroy(enemyManager.currentEnemies[i].gameObject);
+            }
+
+            enemyManager.currentEnemies.Clear();
+
             if (levelInt < PersistentManager.Instance.maps.Length - 1) {
                 StartCoroutine(LoadSceneWithDelay(levelInt+1, 2.0f));
             } else {
@@ -89,6 +96,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadSceneWithDelay(int levelIndex, float delayFloat) {
         yield return new WaitForSeconds(delayFloat);
+        uiManager.winCanvas.SetActive(false);
         StartGame(levelIndex);
     }
 

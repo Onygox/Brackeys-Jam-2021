@@ -71,6 +71,7 @@ public class HealthComponent : MonoBehaviour
     }
 
     void OnDeath() {
+        GameManager.Instance.mapManager.mapObjects.Remove(this.gameObject);
         if (playerScript is null) {
             Enemy thisEnemy = GetComponent<Enemy>();
             if (thisEnemy != null && GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {

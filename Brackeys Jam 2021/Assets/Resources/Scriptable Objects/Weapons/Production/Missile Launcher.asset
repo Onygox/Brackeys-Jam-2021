@@ -16,12 +16,24 @@ MonoBehaviour:
   _projectileNumber: 1
   _reloadSpeed: 2.7
   _fireRate: 2
-  _clipSize: 3
+  _clipSize: 0
   _maxClipSize: 3
   _spreadAngle: 45
   _power: 16
   _recoil: 0
   weaponImage: {fileID: 0}
+  sound:
+    name: Missile
+    clips:
+    - {fileID: 8300000, guid: d78435161a2294a73a76fdd32b90e924, type: 3}
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0.119
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: ba89e0349bc0548199fcb51f2b9bbabe, type: 2}

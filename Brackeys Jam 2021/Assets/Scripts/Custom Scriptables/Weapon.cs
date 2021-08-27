@@ -92,6 +92,7 @@ public class Weapon : ScriptableObject
     }
 
     public Sprite weaponImage;
+    public Sound sound;
     public bool automatic;
     public GameEvent onShootEvent;
     public Projectile projectileType;

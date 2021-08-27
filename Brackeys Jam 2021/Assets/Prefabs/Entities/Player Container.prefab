@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 6079519866926023024}
   - component: {fileID: 6081203308721728618}
   - component: {fileID: 4374716101602720705}
+  - component: {fileID: 313761139770133929}
   m_Layer: 11
   m_Name: Player Container
   m_TagString: Untagged
@@ -220,6 +221,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &313761139770133929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469068319573537018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d46e2e7140e24fe9a875c3466d4e241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Change Weapon
+    clips:
+    - {fileID: 8300000, guid: a179038eb10e14a5f9c5bdeb072853dd, type: 3}
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0.268
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
+  - name: Out Of Ammo
+    clips:
+    - {fileID: 8300000, guid: 03570a04133e64657b9386ba00e27879, type: 3}
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0.186
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0

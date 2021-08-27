@@ -15,6 +15,7 @@ public class ProjectileScript : MonoBehaviour
     public Transform target;
     private Vector3 vectorToTarget;
     [SerializeField] public GameObject homingAimTarget;
+    public Sound explosionSound;
 
     void Start() {
         StartCoroutine("EndLife");
@@ -49,41 +50,19 @@ public class ProjectileScript : MonoBehaviour
 
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
 
-        if (collider.gameObject != owner) {
-            //if owned by player, hit the first enemy
-            //if not owned by player, do not hit enemies
-            if ((collider.gameObject.layer == enemyLayer && owner == playerObject)||
-                (collider.gameObject.layer == playerLayer)) {
-                
-                DisplayRadius();
-
-                DealDamage(radius, damage);
-
-                enemiesHit++;
-
-                if (enemiesHit >= enemiesToPierce) {
-                    Destroy(gameObject);
-                }
-                
-            } else if (!bouncing && collider.gameObject.layer == environmentLayer) {
-
-                DisplayRadius();
-
-                DealDamage(radius, damage);
-
-                Destroy(gameObject);
-
-            }
-        } else if (friendlyDamage) {
+        if (collider.gameObject != owner)
+        {
+            OnBulletHit(collider.gameObject, playerObject);
+        }
+        else if (friendlyDamage)
+        {
             DisplayRadius();
-
             DealDamage(radius, damage);
 
             enemiesHit++;
 
-            if (enemiesHit >= enemiesToPierce) {
+            if (enemiesHit >= enemiesToPierce)
                 Destroy(gameObject);
-            }
         }
 
     }
@@ -93,38 +72,48 @@ public class ProjectileScript : MonoBehaviour
         GameObject playerObject = GameManager.Instance.playerManager.playerScript.gameObject;
         Debug.Log("Hit " + collider.gameObject);
 
-        if (collider.gameObject != owner) {
+        if (collider.gameObject != owner)
+        {
             //if owned by player, hit the first enemy
             //if not owned by player, no not hit enemies
-            if ((collider.gameObject.layer == enemyLayer && owner == playerObject) || collider.gameObject.layer == playerLayer) {
-                
-                DisplayRadius();
-
-                DealDamage(radius, damage);
-
-                enemiesHit++;
-
-                if (enemiesHit >= enemiesToPierce) {
-                    Destroy(gameObject);
-                }
-                
-            } else if (!bouncing && collider.gameObject.layer == environmentLayer) {
-
-                DisplayRadius();
-
-                DealDamage(radius, damage);
-
-                Destroy(gameObject);
-
-            }
+            OnBulletHit(collider.gameObject, playerObject);
         }
+    }
 
+    private void OnBulletHit(GameObject collider, GameObject playerObject)
+    {
+        //if owned by player, hit the first enemy
+        //if not owned by player, do not hit enemies
+        if ((collider.layer == enemyLayer && owner == playerObject) || collider.layer == playerLayer)
+        {
+            DisplayRadius();
+            DealDamage(radius, damage);
+
+            enemiesHit++;
+
+            if (enemiesHit >= enemiesToPierce)
+                Destroy(gameObject);
+        }
+        else if (!bouncing && collider.layer == environmentLayer)
+        {
+            DisplayRadius();
+            DealDamage(radius, damage);
+            Destroy(gameObject);
+        }
     }
 
     void DisplayRadius() {
         GameObject gizmo = Instantiate(radiusIndicator);
         gizmo.transform.position = transform.position;
         gizmo.transform.localScale = Vector3.one*(radius*2);
+
+        if (explosionSound != null)
+        {
+            AudioSource source = gizmo.AddComponent<AudioSource>();
+            AudioPlayer.SetUpSound(explosionSound, source);
+            AudioPlayer.PlaySFX(explosionSound);
+        }
+
         Destroy(gizmo, 2);
     }
 

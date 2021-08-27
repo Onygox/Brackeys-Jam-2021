@@ -22,6 +22,18 @@ MonoBehaviour:
   _power: 20
   _recoil: 5
   weaponImage: {fileID: 0}
+  sound:
+    name: 
+    clips:
+    - {fileID: 8300000, guid: 097bb57c86e944a2b97988728966c155, type: 3}
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0.106
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: 349160946117447ebaed742031f3e922, type: 2}

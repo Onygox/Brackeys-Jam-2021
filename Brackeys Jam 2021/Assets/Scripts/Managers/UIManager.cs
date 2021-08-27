@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class UIManager : MonoBehaviour
     public TMP_Dropdown weaponSelector;
     public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
     public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText;
-    public GameObject messageCanvas;
+    public GameObject messageCanvas, deathCanvas, winCanvas;
     public int pistolIndex = 0;
 
     void Start() {
@@ -25,12 +26,32 @@ public class UIManager : MonoBehaviour
             weaponSelector.ClearOptions();
             weaponSelector.AddOptions(weaponNames);
         }
+
+        // Invoke("Initialize", 0.1f);
     }
+
+    // void Initialize() {
+    //     if (musicSlider) {
+    //         musicSlider.value = PersistentManager.Instance.volumeManager.musicVolumeVar.Value;
+    //     }
+
+    //     if (sfxSlider) {
+    //         sfxSlider.value = PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
+    //     }
+    // }
 
     public void SendFleetingMessage(Vector3 location, string messageText, float destroyDelay = 3.0f) {
         GameObject temporaryMessage = Instantiate(messageCanvas);
         temporaryMessage.transform.position = location;
         temporaryMessage.GetComponentInChildren<TextMeshProUGUI>().text = messageText;
         Destroy(temporaryMessage, destroyDelay);
+    }
+
+    public void SetGlobalSFXVolume(float newValue) {
+        PersistentManager.Instance.volumeManager.sfxVolumeVar.Value = newValue;
+    }
+
+    public void SetGlobalMusicVolume(float newValue) {
+        PersistentManager.Instance.volumeManager.musicVolumeVar.Value = newValue;
     }
 }

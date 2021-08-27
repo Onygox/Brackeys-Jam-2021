@@ -91,7 +91,7 @@ public class Weapon : ScriptableObject
         }
     }
 
-    public Sprite weaponImage;
+    public Sprite[] weaponImages;
     public Sound sound;
     public bool automatic;
     public GameEvent onShootEvent;

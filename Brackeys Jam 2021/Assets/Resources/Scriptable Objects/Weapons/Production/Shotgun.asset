@@ -16,12 +16,16 @@ MonoBehaviour:
   _projectileNumber: 26
   _reloadSpeed: 1.5
   _fireRate: 1.5
-  _clipSize: 4
+  _clipSize: 2
   _maxClipSize: 6
   _spreadAngle: 40
   _power: 20
   _recoil: 5
-  weaponImage: {fileID: 0}
+  weaponImages:
+  - {fileID: 7186296940658499062, guid: f99d63a8a5f5543628ab8d86d75adf4a, type: 3}
+  - {fileID: -1394137177751582354, guid: f99d63a8a5f5543628ab8d86d75adf4a, type: 3}
+  - {fileID: 8848333699825484883, guid: f99d63a8a5f5543628ab8d86d75adf4a, type: 3}
+  - {fileID: -3757356263778513421, guid: f99d63a8a5f5543628ab8d86d75adf4a, type: 3}
   sound:
     name: 
     clips:

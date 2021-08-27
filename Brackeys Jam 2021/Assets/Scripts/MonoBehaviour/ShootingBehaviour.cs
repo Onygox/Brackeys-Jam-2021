@@ -100,6 +100,9 @@ public class ShootingBehaviour : MonoBehaviour
         currentWeapon.Reload();
         timeSinceLastShot = Mathf.CeilToInt(currentWeapon.FireRate);
         reloadTime = Mathf.CeilToInt(currentWeapon.ReloadSpeed);
-        if (isPlayer) GameManager.Instance.playerManager.OnWeaponReload();
+        if (isPlayer) {
+            GameManager.Instance.playerManager.OnWeaponReload();
+            if (GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) GameManager.Instance.playerManager.playerScript.gunSprite.sprite = GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages[0];
+        }
     }
 }

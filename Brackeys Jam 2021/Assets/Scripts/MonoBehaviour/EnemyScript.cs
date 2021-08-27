@@ -33,9 +33,12 @@ public class EnemyScript : Enemy
 
         StartCoroutine("ShootTowardPlayer");
         StartCoroutine("MakeActive");
+        StartCoroutine("PlayFootstepNoises");
     }
 
     void Update() {
+        if (GameManager.Instance.GameIsOver()) return;
+
         if (!isActive) {
             hc.indestructible = true;
             return;
@@ -66,7 +69,7 @@ public class EnemyScript : Enemy
     IEnumerator ShootTowardPlayer() {
         while (true) {
             yield return new WaitForSeconds(0.1f);
-            if (IsInRange() && rtp.PlayerIsVisible()) {
+            if (IsInRange() && rtp.PlayerIsVisible() && !GameManager.Instance.GameIsOver()) {
                 timeBetweenShots+=0.1f;
                 if (timeBetweenShots >= sb.currentWeapon.FireRate) {
                     Vector2 normalizedDirection = rtp.vectorToTarget.normalized;
@@ -93,5 +96,14 @@ public class EnemyScript : Enemy
 
     public bool IsInRange() {
         return (Vector2.Distance(transform.position, GameManager.Instance.playerManager.playerScript.gameObject.transform.position) <= radius);
+    }
+
+    public IEnumerator PlayFootstepNoises() {
+        while (true) {
+            yield return new WaitForSeconds(Random.Range(0.2f, 0.4f));
+            if (IsVisible() && !IsInRange()) {
+                PersistentManager.Instance.soundManager.PlayRandomEnemyFootstepSound();
+            }
+        }
     }
 }

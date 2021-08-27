@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject lookTarget;
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
+    public SpriteRenderer gunSprite;
     bool isRecoiling;
     ActivationAura aAura;
 
@@ -26,9 +27,13 @@ public class PlayerScript : MonoBehaviour
         playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         playerHealthComponent.Health = GameManager.Instance.playerManager.currentPlayerHealthVar.Value;
+
+        StartCoroutine(PlayFootstepNoises());
     }
 
     void Update() {
+
+        if (GameManager.Instance.GameIsOver()) return;
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
@@ -59,6 +64,7 @@ public class PlayerScript : MonoBehaviour
                 aAura.closestTerminal.Activate();
             }
         }
+        
     }
 
     private void ShootWeapon(Vector3 direction) {
@@ -67,13 +73,16 @@ public class PlayerScript : MonoBehaviour
         switch (direction.x) {
 
             case 1:
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = playerShootingBehaviour.currentWeapon.weaponImages[0];
                 startingZRotation = 270;
                 break;
             case -1:
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = playerShootingBehaviour.currentWeapon.weaponImages[1];
                 startingZRotation = 90;
                 break;
             case 0:
                 startingZRotation = direction.y > 0 ? 0 : 180;
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = direction.y > 0 ? playerShootingBehaviour.currentWeapon.weaponImages[2] : playerShootingBehaviour.currentWeapon.weaponImages[3];
                 break;
             default:
                 break;
@@ -100,6 +109,15 @@ public class PlayerScript : MonoBehaviour
     public void GetKnockedBack(Vector2 direction, float strength, float delay = 0.7f) {
         StopCoroutine(RecoilRoutine(direction, strength, delay));
         StartCoroutine(RecoilRoutine(direction, strength, delay));
+    }
+
+    public IEnumerator PlayFootstepNoises() {
+        while (true) {
+            yield return new WaitForSeconds(0.25f * GameManager.Instance.playerManager.playerMovementSpeedVar.Value);
+            if (thisBody.velocity.x != 0 || thisBody.velocity.y != 0) {
+                PersistentManager.Instance.soundManager.PlayRandomPlayerFootstepSound();
+            }
+        }
     }
 
 }

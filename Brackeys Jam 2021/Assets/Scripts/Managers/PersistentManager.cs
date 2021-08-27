@@ -9,10 +9,13 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public SoundManager soundManager;
     [HideInInspector] public VolumeManager volumeManager;
+    [HideInInspector] public MusicManager musicManager;
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
     [HideInInspector] public TerminalEffect[] terminalEffectLibrary;
     [HideInInspector] public AudioClip[] audioLibrary;
+    public AudioClip[] playerFootstepLibrary;
+    [HideInInspector] public AudioClip[] enemyFootstepLibrary;
     [HideInInspector] public Weapon[] weaponLibrary;
     public GameObject[] maps;
 
@@ -25,6 +28,8 @@ public class PersistentManager : MonoBehaviour
 
         scriptableLibrary = Resources.LoadAll<CustomScriptable>("Scriptable Objects/Custom Scriptables/Production") as CustomScriptable[];
         audioLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Production") as AudioClip[];
+        playerFootstepLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Player Footsteps") as AudioClip[];
+        enemyFootstepLibrary = Resources.LoadAll<AudioClip>("Sound Effects/Enemy Footsteps") as AudioClip[];
         weaponLibrary = Resources.LoadAll<Weapon>("Scriptable Objects/Weapons/Production") as Weapon[];
         terminalEffectLibrary = Resources.LoadAll<TerminalEffect>("Scriptable Objects/Terminal Effects") as TerminalEffect[];
 
@@ -37,7 +42,16 @@ public class PersistentManager : MonoBehaviour
 
     void Start() {
         soundManager = GetComponentInChildren<SoundManager>();
-        volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
+        musicManager = GetComponentInChildren<MusicManager>();
+        volumeManager = GetComponentInChildren<VolumeManager>();
+
+        // if (GameManager.Instance.uiManager.musicSlider) {
+        //     GameManager.Instance.uiManager.musicSlider.value = volumeManager.musicVolumeVar.Value;
+        // }
+
+        // if (GameManager.Instance.uiManager.sfxSlider) {
+        //     GameManager.Instance.uiManager.sfxSlider.value = volumeManager.sfxVolumeVar.Value;
+        // }
     }
 
     public CustomScriptable FindVariableBySavePath(string varSavePath) {
@@ -53,5 +67,9 @@ public class PersistentManager : MonoBehaviour
 
     public void RestartCurrentScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadSceneByIndex(int sceneIndex) {
+        SceneManager.LoadScene(sceneIndex);
     }
 }

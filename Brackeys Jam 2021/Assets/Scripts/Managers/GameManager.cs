@@ -14,6 +14,18 @@ public class GameManager : MonoBehaviour
     private int levelInt;
     public int startingLevel = 0;
 
+    private int numberOfActiveTerminals = 0;
+
+    public int NumberOfActiveTerminals {
+        get {
+            return numberOfActiveTerminals;
+        }
+        set {
+             numberOfActiveTerminals = value;
+             if (numberOfActiveTerminals >= mapManager.terminalsInLevel.Count) EndGame(true);
+        }
+    }
+
     public CinemachineVirtualCamera vcam;
 
     void Awake() {
@@ -54,5 +66,18 @@ public class GameManager : MonoBehaviour
     public void RestartCurrentScene() {
         Time.timeScale = 1;
         PersistentManager.Instance.RestartCurrentScene();
+    }
+
+    public void EndGame(bool win) {
+
+        if (win) {
+            //if the current level is less than the total number of levels, progress to the next one
+            //otherwise, go to the end game scene
+            uiManager.winCanvas.SetActive(true);
+
+        } else {
+            uiManager.deathCanvas.SetActive(true);
+        }
+
     }
 }

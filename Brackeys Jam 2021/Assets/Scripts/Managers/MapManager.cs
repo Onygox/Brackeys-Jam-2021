@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
     List<GameObject> mapObjects = new List<GameObject>();
     SAP2DPathfinder pathfinder;
     public List<Obstacle> destructableObjects = new List<Obstacle>();
+    public List<TerminalScript> terminalsInLevel = new List<TerminalScript>();
     public GameObject floorContainer;
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
@@ -65,6 +66,10 @@ public class MapManager : MonoBehaviour
                     
                     if (associatedPrefab.GetComponentInChildren<Obstacle>()) {
                         destructableObjects.Add(associatedPrefab.GetComponentInChildren<Obstacle>());
+                    }
+
+                    if (associatedPrefab.GetComponentInChildren<TerminalScript>()) {
+                        terminalsInLevel.Add(associatedPrefab.GetComponentInChildren<TerminalScript>());
                     }
 
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);

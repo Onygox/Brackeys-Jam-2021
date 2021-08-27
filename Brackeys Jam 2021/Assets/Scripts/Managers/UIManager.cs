@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public TMP_Dropdown weaponSelector;
     public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
     public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText;
-    public GameObject messageCanvas;
+    public GameObject messageCanvas, deathCanvas, winCanvas;
     public int pistolIndex = 0;
 
     void Start() {

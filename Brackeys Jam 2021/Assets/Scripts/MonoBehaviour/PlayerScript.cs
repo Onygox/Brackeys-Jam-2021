@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject lookTarget;
     public HealthComponent playerHealthComponent;
     public ShootingBehaviour playerShootingBehaviour;
+    public SpriteRenderer gunSprite;
     bool isRecoiling;
     ActivationAura aAura;
 
@@ -72,13 +73,16 @@ public class PlayerScript : MonoBehaviour
         switch (direction.x) {
 
             case 1:
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = playerShootingBehaviour.currentWeapon.weaponImages[0];
                 startingZRotation = 270;
                 break;
             case -1:
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = playerShootingBehaviour.currentWeapon.weaponImages[1];
                 startingZRotation = 90;
                 break;
             case 0:
                 startingZRotation = direction.y > 0 ? 0 : 180;
+                if (playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) gunSprite.sprite = direction.y > 0 ? playerShootingBehaviour.currentWeapon.weaponImages[2] : playerShootingBehaviour.currentWeapon.weaponImages[3];
                 break;
             default:
                 break;

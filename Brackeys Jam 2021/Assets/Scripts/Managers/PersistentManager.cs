@@ -64,4 +64,8 @@ public class PersistentManager : MonoBehaviour
     public void RestartCurrentScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void LoadSceneByIndex(int sceneIndex) {
+        SceneManager.LoadScene(sceneIndex);
+    }
 }

@@ -40,6 +40,7 @@ public class PauseMenuUiManager : MonoBehaviour
 
     }
     public void QuitGame() {
-        Application.Quit();
+        // Application.Quit();
+        PersistentManager.Instance.LoadSceneByIndex(0);
     }
 }

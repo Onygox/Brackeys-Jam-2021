@@ -37,6 +37,7 @@ public class MapManager : MonoBehaviour
 		grid = mapObject.GetComponent<Grid>();
 
         TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        GameObject gameObjectHolder = new GameObject("Gameobject Holder");
 
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {
@@ -48,6 +49,7 @@ public class MapManager : MonoBehaviour
 					string name = tileBase.name;
 
                     GameObject associatedPrefab = Instantiate(tileBase.associatedPrefab) as GameObject;
+                    associatedPrefab.transform.SetParent(gameObjectHolder.transform);
 
                     if (associatedPrefab.GetComponentInChildren<SpriteRenderer>()) {
                         associatedPrefab.GetComponentInChildren<SpriteRenderer>().sprite = tileBase.sprite;
@@ -69,13 +71,15 @@ public class MapManager : MonoBehaviour
                     associatedPrefab.name = name + " - " + associatedPrefab.transform.position;
 
                     //put floor beneath every tile
-                    if (associatedPrefab != floorContainer) {
-                        Instantiate(floorContainer, associatedPrefab.transform.position, Quaternion.identity);
+                    if (!associatedPrefab.name.Contains("Floor")) {
+                        GameObject floor = Instantiate(floorContainer, associatedPrefab.transform.position, Quaternion.identity);
+                        floor.transform.SetParent(gameObjectHolder.transform);
                     }
 
                     mapObjects.Add(associatedPrefab);
 				} else {
-                    Instantiate(floorContainer, new Vector2(vecInt.x+.5f,vecInt.y+.5f), Quaternion.identity);
+                    GameObject floor = Instantiate(floorContainer, new Vector2(vecInt.x+.5f,vecInt.y+.5f), Quaternion.identity);
+                    floor.transform.SetParent(gameObjectHolder.transform);
                 }
     	
             }

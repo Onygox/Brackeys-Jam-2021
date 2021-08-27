@@ -176,6 +176,18 @@ TextureImporter:
   - first:
       213: 5646055809991127436
     second: TileKey_Transparent_57
+  - first:
+      213: -1238449969192778129
+    second: TileKey_Transparent_58
+  - first:
+      213: 1996359297499887455
+    second: TileKey_Transparent_59
+  - first:
+      213: 7144676492998063051
+    second: TileKey_Transparent_60
+  - first:
+      213: 50227009415234798
+    second: TileKey_Transparent_61
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -353,7 +365,7 @@ TextureImporter:
         serializedVersion: 2
         x: 6333
         y: 4370
-        width: 624
+        width: 336
         height: 336
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -437,7 +449,7 @@ TextureImporter:
         serializedVersion: 2
         x: 7711
         y: 4365
-        width: 624
+        width: 312
         height: 312
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1275,10 +1287,10 @@ TextureImporter:
       name: TileKey_Transparent_47
       rect:
         serializedVersion: 2
-        x: 5957
-        y: 200
-        width: 311
-        height: 311
+        x: 7746
+        y: 570
+        width: 283
+        height: 283
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1498,6 +1510,90 @@ TextureImporter:
       bones: []
       spriteID: c813d8858d1da5e40800000000000000
       internalID: 5646055809991127436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileKey_Transparent_58
+      rect:
+        serializedVersion: 2
+        x: 7747
+        y: 875
+        width: 283
+        height: 276
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66cb2a805420dee0800000000000000
+      internalID: -1238449969192778129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileKey_Transparent_59
+      rect:
+        serializedVersion: 2
+        x: 7748
+        y: 1178
+        width: 283
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f577783343e74bb10800000000000000
+      internalID: 1996359297499887455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileKey_Transparent_60
+      rect:
+        serializedVersion: 2
+        x: 6631
+        y: 4370
+        width: 336
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc3bb309a6df62360800000000000000
+      internalID: 7144676492998063051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TileKey_Transparent_61
+      rect:
+        serializedVersion: 2
+        x: 8023
+        y: 4365
+        width: 312
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee4435ee23172b000800000000000000
+      internalID: 50227009415234798
       vertices: []
       indices: 
       edges: []

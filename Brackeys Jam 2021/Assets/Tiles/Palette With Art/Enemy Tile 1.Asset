@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9469043eb9cf40e0b6bafc2c0193eab, type: 3}
   m_Name: Enemy Tile 1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 781472f46ddf94359910781c4792c93c, type: 3}
-  m_Color: {r: 0.764151, g: 0.16220188, b: 0.16220188, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 43552d1ba830b41f2a287bcfb6c59dd3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -31,12 +31,11 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 3140171049811110294, guid: 53d517244e5874dcbbb4f62d41cb1a82,
-    type: 3}
+  m_InstancedGameObject: {fileID: 0}
   m_Flags: 0
   m_ColliderType: 1
   m_Sprites:
-  - {fileID: 21300000, guid: 781472f46ddf94359910781c4792c93c, type: 3}
-  m_Preview: {fileID: 21300000, guid: 781472f46ddf94359910781c4792c93c, type: 3}
+  - {fileID: 21300000, guid: 43552d1ba830b41f2a287bcfb6c59dd3, type: 3}
+  m_Preview: {fileID: 21300000, guid: 43552d1ba830b41f2a287bcfb6c59dd3, type: 3}
   associatedPrefab: {fileID: 3140171049811110294, guid: 53d517244e5874dcbbb4f62d41cb1a82,
     type: 3}

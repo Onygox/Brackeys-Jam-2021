@@ -5369,7 +5369,7 @@ PrefabInstance:
     - target: {fileID: 7148147979690635588, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
       propertyPath: startingLevel
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7554144555630169603, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
@@ -5391,6 +5391,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1060516325}
     m_Modifications:
+    - target: {fileID: 471747816084251795, guid: 4a97a378640954db7acb949867a06a4b,
+        type: 3}
+      propertyPath: floorContainer
+      value: 
+      objectReference: {fileID: 3947897703596192339, guid: 40aed407f71504378bb94cff058fa3a1,
+        type: 3}
     - target: {fileID: 4767349904217665625, guid: 4a97a378640954db7acb949867a06a4b,
         type: 3}
       propertyPath: m_Name
@@ -5540,6 +5546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Terminal Test Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920231027048529116, guid: 7b787de3defe54da3847eeadf57a1e8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b787de3defe54da3847eeadf57a1e8e, type: 3}
@@ -6136,7 +6147,7 @@ PrefabInstance:
         type: 3}
       propertyPath: maps.Array.data[2]
       value: 
-      objectReference: {fileID: 1920231027048529116, guid: 43ac11efd2c3c42c188ef1460a801b0a,
+      objectReference: {fileID: 603758081413522748, guid: a12fe9b9c4c0a4401a156644968b4708,
         type: 3}
     - target: {fileID: 2742268888315448223, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
         type: 3}

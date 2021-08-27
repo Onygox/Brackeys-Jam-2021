@@ -51,7 +51,7 @@ public class MapManager : MonoBehaviour
                     GameObject associatedPrefab = Instantiate(tileBase.associatedPrefab) as GameObject;
                     associatedPrefab.transform.SetParent(gameObjectHolder.transform);
 
-                    if (associatedPrefab.GetComponentInChildren<SpriteRenderer>()) {
+                    if (associatedPrefab.name.Contains("Wall")) {
                         associatedPrefab.GetComponentInChildren<SpriteRenderer>().sprite = tileBase.sprite;
                     }
 

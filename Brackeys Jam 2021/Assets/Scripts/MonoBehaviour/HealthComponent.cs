@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -32,6 +33,7 @@ public class HealthComponent : MonoBehaviour
         }
     }
     public ScriptableFloat damageReceivedMultiplier;
+    public GameObject damageReceivedMessage;
 
     void Start() {
 
@@ -45,12 +47,27 @@ public class HealthComponent : MonoBehaviour
     public void TakeDamage(int damageTaken) {
 
         if (indestructible) return;
+
+        
+
         if (playerScript != null) {
             Health -= Mathf.FloorToInt(damageTaken*damageReceivedMultiplier.Value);
             GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
+            if (damageReceivedMessage) {
+                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
+                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
+                Destroy(fleetingDamageMessage, 1.0f);
+            }
         } else {
             Health -= damageTaken;
+            if (damageReceivedMessage) {
+                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
+                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken).ToString();
+                Destroy(fleetingDamageMessage, 1.0f);
+            }    
         }
+
+        
     }
 
     void OnDeath() {

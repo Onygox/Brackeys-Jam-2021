@@ -202,6 +202,8 @@ MonoBehaviour:
   _maxHealth: 100
   damageReceivedMultiplier: {fileID: 11400000, guid: 4e0b5489b4a8d4962969dfdc27d6a646,
     type: 2}
+  damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
+    type: 3}
 --- !u!58 &4374716101602720705
 CircleCollider2D:
   m_ObjectHideFlags: 0

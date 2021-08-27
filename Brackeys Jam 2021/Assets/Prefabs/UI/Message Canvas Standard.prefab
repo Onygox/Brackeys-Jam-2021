@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5456160340320927916}
   - component: {fileID: 2087238855330527386}
   - component: {fileID: 1239735735326522650}
-  m_Layer: 9
+  m_Layer: 5
   m_Name: Message Canvas Standard
   m_TagString: Untagged
   m_Icon: {fileID: 0}

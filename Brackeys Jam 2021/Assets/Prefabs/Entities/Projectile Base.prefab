@@ -46,26 +46,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  enemiesToPierce: 0
+  enemiesHit: 0
   environmentLayer: 8
   enemyLayer: 9
   playerLayer: 11
-  enemiesToPierce: 0
-  enemiesHit: 0
   lifetime: 0
   radius: 0
   deceleration: 0
   startingSpeed: 0
   homingSpeed: 0
   homingAccuracy: 0
+  knockback: 0
   homing: 0
   bouncing: 0
   friendlyDamage: 0
+  targetOwner: 0
   radiusIndicator: {fileID: 1956901694331190508, guid: f4df3709647d647b48ad000dac5de010,
     type: 3}
   owner: {fileID: 0}
   target: {fileID: 0}
   homingAimTarget: {fileID: 3768134530846046034, guid: 474edf2088407464282675b8d1353b09,
     type: 3}
+  explosionSound:
+    name: 
+    clips: []
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
 --- !u!50 &4938746224974453874
 Rigidbody2D:
   serializedVersion: 4
@@ -136,7 +149,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -154,8 +167,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1668656907
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a3e6004fa570c4901b2be4e5a901e06f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -13,6 +13,7 @@ public class MapManager : MonoBehaviour
     List<GameObject> mapObjects = new List<GameObject>();
     SAP2DPathfinder pathfinder;
     public List<Obstacle> destructableObjects = new List<Obstacle>();
+    public GameObject floorContainer;
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
 		Vector2Int.left,Vector2Int.up,
@@ -36,6 +37,7 @@ public class MapManager : MonoBehaviour
 		grid = mapObject.GetComponent<Grid>();
 
         TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
+        GameObject gameObjectHolder = new GameObject("Gameobject Holder");
 
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {
@@ -47,6 +49,11 @@ public class MapManager : MonoBehaviour
 					string name = tileBase.name;
 
                     GameObject associatedPrefab = Instantiate(tileBase.associatedPrefab) as GameObject;
+                    associatedPrefab.transform.SetParent(gameObjectHolder.transform);
+
+                    if (associatedPrefab.GetComponentInChildren<SpriteRenderer>()) {
+                        associatedPrefab.GetComponentInChildren<SpriteRenderer>().sprite = tileBase.sprite;
+                    }
 
                     if (associatedPrefab.GetComponentInChildren<PlayerScript>()) {
                         GameManager.Instance.playerManager.playerScript = associatedPrefab.GetComponentInChildren<PlayerScript>();
@@ -63,8 +70,17 @@ public class MapManager : MonoBehaviour
 					associatedPrefab.transform.position = new Vector2(vecInt.x+.5f,vecInt.y+.5f);
                     associatedPrefab.name = name + " - " + associatedPrefab.transform.position;
 
+                    //put floor beneath every tile
+                    if (!associatedPrefab.name.Contains("Floor")) {
+                        GameObject floor = Instantiate(floorContainer, associatedPrefab.transform.position, Quaternion.identity);
+                        floor.transform.SetParent(gameObjectHolder.transform);
+                    }
+
                     mapObjects.Add(associatedPrefab);
-				}
+				} else {
+                    GameObject floor = Instantiate(floorContainer, new Vector2(vecInt.x+.5f,vecInt.y+.5f), Quaternion.identity);
+                    floor.transform.SetParent(gameObjectHolder.transform);
+                }
     	
             }
         }

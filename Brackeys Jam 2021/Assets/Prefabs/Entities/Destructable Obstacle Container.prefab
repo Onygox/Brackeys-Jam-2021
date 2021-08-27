@@ -125,6 +125,8 @@ MonoBehaviour:
   indestructible: 0
   _health: 10
   _maxHealth: 0
+  damageReceivedMultiplier: {fileID: 0}
+  damageReceivedMessage: {fileID: 0}
 --- !u!1 &7281048154269473312
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,8 +197,9 @@ SpriteRenderer:
   m_SortingLayerID: 742452531
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b178fd015b01f41f6b66a8ee9e14cc64, type: 3}
-  m_Color: {r: 0.6886792, g: 0.6626756, b: 0.5035155, a: 1}
+  m_Sprite: {fileID: 5646055809991127436, guid: ca549556cffa947fbbcde74c8ff93eaa,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

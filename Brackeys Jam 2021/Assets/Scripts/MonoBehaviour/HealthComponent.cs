@@ -82,7 +82,7 @@ public class HealthComponent : MonoBehaviour
             }
             Destroy(gameObject);
         } else {
-
+            GameManager.Instance.EndGame(false);
         }
     }
 }

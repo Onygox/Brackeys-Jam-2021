@@ -5369,7 +5369,7 @@ PrefabInstance:
     - target: {fileID: 7148147979690635588, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
       propertyPath: startingLevel
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7554144555630169603, guid: 69a8ab30957f848f3bb6dcf73d79cbd2,
         type: 3}
@@ -6671,13 +6671,13 @@ PrefabInstance:
         type: 3}
       propertyPath: maps.Array.data[0]
       value: 
-      objectReference: {fileID: 4233557397807915140, guid: e4f028ea56d3745179c79466b79a7f85,
+      objectReference: {fileID: 1920231027048529116, guid: 7b787de3defe54da3847eeadf57a1e8e,
         type: 3}
     - target: {fileID: 2742268888315448223, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
         type: 3}
       propertyPath: maps.Array.data[1]
       value: 
-      objectReference: {fileID: 1920231027048529116, guid: 7b787de3defe54da3847eeadf57a1e8e,
+      objectReference: {fileID: 1920231027048529116, guid: 5f5adcc5f1f598149a8d3dd3d34b4db6,
         type: 3}
     - target: {fileID: 2742268888315448223, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
         type: 3}

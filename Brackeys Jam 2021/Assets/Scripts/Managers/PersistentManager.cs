@@ -41,13 +41,13 @@ public class PersistentManager : MonoBehaviour
         musicManager = GetComponentInChildren<MusicManager>();
         volumeManager = GetComponentInChildren<VolumeManager>();
 
-        if (GameManager.Instance.uiManager.musicSlider) {
-            GameManager.Instance.uiManager.musicSlider.value = volumeManager.musicVolumeVar.Value;
-        }
+        // if (GameManager.Instance.uiManager.musicSlider) {
+        //     GameManager.Instance.uiManager.musicSlider.value = volumeManager.musicVolumeVar.Value;
+        // }
 
-        if (GameManager.Instance.uiManager.sfxSlider) {
-            GameManager.Instance.uiManager.sfxSlider.value = volumeManager.sfxVolumeVar.Value;
-        }
+        // if (GameManager.Instance.uiManager.sfxSlider) {
+        //     GameManager.Instance.uiManager.sfxSlider.value = volumeManager.sfxVolumeVar.Value;
+        // }
     }
 
     public CustomScriptable FindVariableBySavePath(string varSavePath) {

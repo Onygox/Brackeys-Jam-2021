@@ -9,7 +9,7 @@ public class PauseMenuUiManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject optionsFileSystem;
     public GameObject pauseMenuUi;
-    public GameObject musicManager;
+    // public GameObject musicManager;
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
             if (gameIsPaused){
@@ -25,7 +25,8 @@ public class PauseMenuUiManager : MonoBehaviour
         gameIsPaused = true;
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
-        musicManager.GetComponent<MusicManager>().OnPauseGame();
+        // musicManager.GetComponent<MusicManager>().OnPauseGame();
+        PersistentManager.Instance.musicManager.OnPauseGame();
     }
     public void ResumeGame() {
         gameIsPaused = false;
@@ -36,11 +37,19 @@ public class PauseMenuUiManager : MonoBehaviour
         // make sure to disable options ui and enable default ui
         pauseMenuUi.SetActive(true);
         optionsMenu.SetActive(false);
-        musicManager.GetComponent<MusicManager>().OnResumeGame();
+        // musicManager.GetComponent<MusicManager>().OnResumeGame();
+        PersistentManager.Instance.musicManager.OnResumeGame();
 
     }
     public void QuitGame() {
         // Application.Quit();
+        gameIsPaused = false;
         PersistentManager.Instance.LoadSceneByIndex(0);
+    }
+
+    public void RestartGame() {
+        // Application.Quit();
+        gameIsPaused = false;
+        PersistentManager.Instance.RestartCurrentScene();
     }
 }

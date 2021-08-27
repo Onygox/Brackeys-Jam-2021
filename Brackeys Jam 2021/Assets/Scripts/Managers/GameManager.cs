@@ -46,11 +46,13 @@ public class GameManager : MonoBehaviour
     }
 
     IEnumerator StartGameRoutine() {
+        Time.timeScale = 1;
         yield return new WaitForSeconds(0.1f);
         mapManager.CreateMap(PersistentManager.Instance.maps[levelInt]);
     }
 
     public void RestartCurrentScene() {
+        Time.timeScale = 1;
         PersistentManager.Instance.RestartCurrentScene();
     }
 }

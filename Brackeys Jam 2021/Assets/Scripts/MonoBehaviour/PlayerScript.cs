@@ -26,6 +26,8 @@ public class PlayerScript : MonoBehaviour
         playerHealthComponent.MaxHealth = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         GameManager.Instance.playerManager.currentPlayerHealthVar.Value = GameManager.Instance.playerManager.maxPlayerHealthVar.Value;
         playerHealthComponent.Health = GameManager.Instance.playerManager.currentPlayerHealthVar.Value;
+
+        StartCoroutine(PlayFootstepNoises());
     }
 
     void Update() {
@@ -103,6 +105,15 @@ public class PlayerScript : MonoBehaviour
     public void GetKnockedBack(Vector2 direction, float strength, float delay = 0.7f) {
         StopCoroutine(RecoilRoutine(direction, strength, delay));
         StartCoroutine(RecoilRoutine(direction, strength, delay));
+    }
+
+    public IEnumerator PlayFootstepNoises() {
+        while (true) {
+            yield return new WaitForSeconds(0.25f * GameManager.Instance.playerManager.playerMovementSpeedVar.Value);
+            if (thisBody.velocity.x != 0 || thisBody.velocity.y != 0) {
+                PersistentManager.Instance.soundManager.PlayRandomPlayerFootstepSound();
+            }
+        }
     }
 
 }

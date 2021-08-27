@@ -1,0 +1,299 @@
+<drawingAnimations>
+ <drawingAnimation spritesheet="sheet_Top" name="lshoot_Top">
+  <drawing node="Character_FHair" name="5-FHair" drwId="1"/>
+  <drawing node="Character_LEyebrow" name="3-REyebrow" drwId="2"/>
+  <drawing node="Character_LPupil" name="4-RPupil" drwId="3"/>
+  <drawing node="Character_LEyewhite" name="2-REyewhite" drwId="4"/>
+  <drawing node="Character_REyebrow" name="3-REyebrow" drwId="5"/>
+  <drawing node="Character_RPupil" name="4-RPupil" drwId="6"/>
+  <drawing node="Character_REyewhite" name="2-REyewhite" drwId="7"/>
+  <drawing node="Character_Nose" name="8-Nose" drwId="8"/>
+  <drawing node="Character_Mouth" name="7-Mouth" drwId="9"/>
+  <drawing node="Character_BEar_1" name="9-BEar" drwId="10"/>
+  <drawing node="Character_HeadShape" name="1-HeadShape" drwId="11">
+   <drw skinId="0" frame="1" repeat="7" name="1-HeadShape-1.png"/>
+  </drawing>
+  <drawing node="Character_BEar" name="9-BEar" drwId="12"/>
+  <drawing node="Character_BHair" name="6-BHair" drwId="13"/>
+  <drawing node="Character_LHand" name="22-LHand" drwId="14">
+   <drw skinId="0" frame="1" repeat="7" name="22-LHand-1.png"/>
+  </drawing>
+  <drawing node="Character_LWrist" name="23-LWrist" drwId="15">
+   <drw skinId="0" frame="1" repeat="7" name="23-LWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_LBicep" name="24-LBicep" drwId="16">
+   <drw skinId="0" frame="1" repeat="7" name="24-LBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_Neck" name="12-Neck" drwId="17">
+   <drw skinId="0" frame="1" repeat="7" name="12-Neck-1.png"/>
+  </drawing>
+  <drawing node="Character_Chest" name="10-Chest" drwId="18">
+   <drw skinId="0" frame="1" repeat="7" name="10-Chest-1.png"/>
+  </drawing>
+  <drawing node="Character_Waist" name="11-Waist" drwId="19">
+   <drw skinId="0" frame="1" repeat="7" name="11-Waist-1.png"/>
+  </drawing>
+  <drawing node="Character_RHand" name="21-RHand" drwId="20">
+   <drw skinId="0" frame="1" repeat="7" name="21-RHand-1.png"/>
+  </drawing>
+  <drawing node="Character_RWrist" name="20-RWrist" drwId="21">
+   <drw skinId="0" frame="1" repeat="7" name="20-RWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_RBicep" name="19-RBicep" drwId="22">
+   <drw skinId="0" frame="1" repeat="7" name="19-RBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_LFoot" name="16-LFoot" drwId="23">
+   <drw skinId="0" frame="1" repeat="7" name="16-LFoot-1.png"/>
+  </drawing>
+  <drawing node="Character_LShin" name="17-LShin" drwId="24">
+   <drw skinId="0" frame="1" repeat="7" name="17-LShin-1.png"/>
+  </drawing>
+  <drawing node="Character_LKneepad" name="34-LKneepad" drwId="25">
+   <drw skinId="0" frame="1" repeat="7" name="34-LKneepad-1.png"/>
+  </drawing>
+  <drawing node="Character_LThigh" name="18-LThigh" drwId="26">
+   <drw skinId="0" frame="1" repeat="7" name="18-LThigh-1.png"/>
+  </drawing>
+  <drawing node="Character_RFoot" name="15-RFoot" drwId="27">
+   <drw skinId="0" frame="1" repeat="7" name="15-RFoot-1.png"/>
+  </drawing>
+  <drawing node="Character_RShin" name="14-RShin" drwId="28">
+   <drw skinId="0" frame="1" repeat="7" name="14-RShin-1.png"/>
+  </drawing>
+  <drawing node="Character_RKneepad" name="32-RKneepad" drwId="29">
+   <drw skinId="0" frame="1" repeat="7" name="32-RKneepad-1.png"/>
+  </drawing>
+  <drawing node="Character_RThigh" name="13-RThigh" drwId="30">
+   <drw skinId="0" frame="1" repeat="7" name="13-RThigh-1.png"/>
+  </drawing>
+ </drawingAnimation>
+ <drawingAnimation spritesheet="sheet_Top" name="lidle_Top">
+  <drawing node="Character_FHair" name="5-FHair" drwId="1"/>
+  <drawing node="Character_LEyebrow" name="3-REyebrow" drwId="2"/>
+  <drawing node="Character_LPupil" name="4-RPupil" drwId="3"/>
+  <drawing node="Character_LEyewhite" name="2-REyewhite" drwId="4"/>
+  <drawing node="Character_REyebrow" name="3-REyebrow" drwId="5"/>
+  <drawing node="Character_RPupil" name="4-RPupil" drwId="6"/>
+  <drawing node="Character_REyewhite" name="2-REyewhite" drwId="7"/>
+  <drawing node="Character_Nose" name="8-Nose" drwId="8"/>
+  <drawing node="Character_Mouth" name="7-Mouth" drwId="9"/>
+  <drawing node="Character_BEar_1" name="9-BEar" drwId="10"/>
+  <drawing node="Character_HeadShape" name="1-HeadShape" drwId="11">
+   <drw skinId="0" frame="1" repeat="47" name="1-HeadShape-1.png"/>
+  </drawing>
+  <drawing node="Character_BEar" name="9-BEar" drwId="12"/>
+  <drawing node="Character_BHair" name="6-BHair" drwId="13"/>
+  <drawing node="Character_LHand" name="22-LHand" drwId="14">
+   <drw skinId="0" frame="1" repeat="47" name="22-LHand-1.png"/>
+  </drawing>
+  <drawing node="Character_LWrist" name="23-LWrist" drwId="15">
+   <drw skinId="0" frame="1" repeat="47" name="23-LWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_LBicep" name="24-LBicep" drwId="16">
+   <drw skinId="0" frame="1" repeat="47" name="24-LBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_Neck" name="12-Neck" drwId="17">
+   <drw skinId="0" frame="1" repeat="47" name="12-Neck-1.png"/>
+  </drawing>
+  <drawing node="Character_Chest" name="10-Chest" drwId="18">
+   <drw skinId="0" frame="1" repeat="47" name="10-Chest-1.png"/>
+  </drawing>
+  <drawing node="Character_Waist" name="11-Waist" drwId="19">
+   <drw skinId="0" frame="1" repeat="47" name="11-Waist-1.png"/>
+  </drawing>
+  <drawing node="Character_RHand" name="21-RHand" drwId="20">
+   <drw skinId="0" frame="1" repeat="47" name="21-RHand-1.png"/>
+  </drawing>
+  <drawing node="Character_RWrist" name="20-RWrist" drwId="21">
+   <drw skinId="0" frame="1" repeat="47" name="20-RWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_RBicep" name="19-RBicep" drwId="22">
+   <drw skinId="0" frame="1" repeat="47" name="19-RBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_LFoot" name="16-LFoot" drwId="23">
+   <drw skinId="0" frame="1" repeat="47" name="16-LFoot-1.png"/>
+  </drawing>
+  <drawing node="Character_LShin" name="17-LShin" drwId="24">
+   <drw skinId="0" frame="1" repeat="47" name="17-LShin-1.png"/>
+  </drawing>
+  <drawing node="Character_LKneepad" name="34-LKneepad" drwId="25">
+   <drw skinId="0" frame="1" repeat="47" name="34-LKneepad-1.png"/>
+  </drawing>
+  <drawing node="Character_LThigh" name="18-LThigh" drwId="26">
+   <drw skinId="0" frame="1" repeat="47" name="18-LThigh-1.png"/>
+  </drawing>
+  <drawing node="Character_RFoot" name="15-RFoot" drwId="27">
+   <drw skinId="0" frame="1" repeat="47" name="15-RFoot-1.png"/>
+  </drawing>
+  <drawing node="Character_RShin" name="14-RShin" drwId="28">
+   <drw skinId="0" frame="1" repeat="47" name="14-RShin-1.png"/>
+  </drawing>
+  <drawing node="Character_RKneepad" name="32-RKneepad" drwId="29">
+   <drw skinId="0" frame="1" repeat="47" name="32-RKneepad-1.png"/>
+  </drawing>
+  <drawing node="Character_RThigh" name="13-RThigh" drwId="30">
+   <drw skinId="0" frame="1" repeat="47" name="13-RThigh-1.png"/>
+  </drawing>
+ </drawingAnimation>
+ <drawingAnimation spritesheet="sheet_Top" name="lwalk_Top">
+  <drawing node="Character_FHair" name="5-FHair" drwId="1"/>
+  <drawing node="Character_LEyebrow" name="3-REyebrow" drwId="2"/>
+  <drawing node="Character_LPupil" name="4-RPupil" drwId="3"/>
+  <drawing node="Character_LEyewhite" name="2-REyewhite" drwId="4"/>
+  <drawing node="Character_REyebrow" name="3-REyebrow" drwId="5"/>
+  <drawing node="Character_RPupil" name="4-RPupil" drwId="6"/>
+  <drawing node="Character_REyewhite" name="2-REyewhite" drwId="7"/>
+  <drawing node="Character_Nose" name="8-Nose" drwId="8"/>
+  <drawing node="Character_Mouth" name="7-Mouth" drwId="9"/>
+  <drawing node="Character_BEar_1" name="9-BEar" drwId="10"/>
+  <drawing node="Character_HeadShape" name="1-HeadShape" drwId="11">
+   <drw skinId="0" frame="1" repeat="17" name="1-HeadShape-1.png"/>
+  </drawing>
+  <drawing node="Character_BEar" name="9-BEar" drwId="12"/>
+  <drawing node="Character_BHair" name="6-BHair" drwId="13"/>
+  <drawing node="Character_LHand" name="22-LHand" drwId="14">
+   <drw skinId="0" frame="1" repeat="17" name="22-LHand-1.png"/>
+  </drawing>
+  <drawing node="Character_LWrist" name="23-LWrist" drwId="15">
+   <drw skinId="0" frame="1" repeat="17" name="23-LWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_LBicep" name="24-LBicep" drwId="16">
+   <drw skinId="0" frame="1" repeat="17" name="24-LBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_Neck" name="12-Neck" drwId="17">
+   <drw skinId="0" frame="1" repeat="17" name="12-Neck-1.png"/>
+  </drawing>
+  <drawing node="Character_Chest" name="10-Chest" drwId="18">
+   <drw skinId="0" frame="1" repeat="17" name="10-Chest-4.png"/>
+  </drawing>
+  <drawing node="Character_Waist" name="11-Waist" drwId="19">
+   <drw skinId="0" frame="1" repeat="17" name="11-Waist-4.png"/>
+  </drawing>
+  <drawing node="Character_RHand" name="21-RHand" drwId="20">
+   <drw skinId="0" frame="1" repeat="17" name="21-RHand-1.png"/>
+  </drawing>
+  <drawing node="Character_RWrist" name="20-RWrist" drwId="21">
+   <drw skinId="0" frame="1" repeat="17" name="20-RWrist-1.png"/>
+  </drawing>
+  <drawing node="Character_RBicep" name="19-RBicep" drwId="22">
+   <drw skinId="0" frame="1" repeat="17" name="19-RBicep-1.png"/>
+  </drawing>
+  <drawing node="Character_LFoot" name="16-LFoot" drwId="23">
+   <drw skinId="0" frame="1" repeat="17" name="16-LFoot-4.png"/>
+  </drawing>
+  <drawing node="Character_LShin" name="17-LShin" drwId="24">
+   <drw skinId="0" frame="1" repeat="17" name="17-LShin-1.png"/>
+  </drawing>
+  <drawing node="Character_LKneepad" name="34-LKneepad" drwId="25">
+   <drw skinId="0" frame="1" repeat="17" name="34-LKneepad-1.png"/>
+  </drawing>
+  <drawing node="Character_LThigh" name="18-LThigh" drwId="26">
+   <drw skinId="0" frame="1" repeat="17" name="18-LThigh-1.png"/>
+  </drawing>
+  <drawing node="Character_RFoot" name="15-RFoot" drwId="27">
+   <drw skinId="0" frame="1" repeat="17" name="15-RFoot-4.png"/>
+  </drawing>
+  <drawing node="Character_RShin" name="14-RShin" drwId="28">
+   <drw skinId="0" frame="1" repeat="17" name="14-RShin-1.png"/>
+  </drawing>
+  <drawing node="Character_RKneepad" name="32-RKneepad" drwId="29">
+   <drw skinId="0" frame="1" repeat="17" name="32-RKneepad-3.png"/>
+  </drawing>
+  <drawing node="Character_RThigh" name="13-RThigh" drwId="30">
+   <drw skinId="0" frame="1" repeat="17" name="13-RThigh-1.png"/>
+  </drawing>
+ </drawingAnimation>
+ <drawingAnimation spritesheet="sheet_Top" name="fwalk_Top">
+  <drawing node="Character_FHair" name="5-FHair" drwId="1"/>
+  <drawing node="Character_LEyebrow" name="3-REyebrow" drwId="2"/>
+  <drawing node="Character_LPupil" name="4-RPupil" drwId="3"/>
+  <drawing node="Character_LEyewhite" name="2-REyewhite" drwId="4"/>
+  <drawing node="Character_REyebrow" name="3-REyebrow" drwId="5"/>
+  <drawing node="Character_RPupil" name="4-RPupil" drwId="6"/>
+  <drawing node="Character_REyewhite" name="2-REyewhite" drwId="7"/>
+  <drawing node="Character_Nose" name="8-Nose" drwId="8"/>
+  <drawing node="Character_Mouth" name="7-Mouth" drwId="9"/>
+  <drawing node="Character_BEar_1" name="9-BEar" drwId="10"/>
+  <drawing node="Character_HeadShape" name="1-HeadShape" drwId="11">
+   <drw skinId="0" frame="1" repeat="17" name="1-HeadShape-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="1-HeadShape-2.png"/>
+  </drawing>
+  <drawing node="Character_BEar" name="9-BEar" drwId="12"/>
+  <drawing node="Character_BHair" name="6-BHair" drwId="13"/>
+  <drawing node="Character_LHand" name="22-LHand" drwId="14">
+   <drw skinId="0" frame="1" repeat="17" name="22-LHand-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="22-LHand-2.png"/>
+  </drawing>
+  <drawing node="Character_LWrist" name="23-LWrist" drwId="15">
+   <drw skinId="0" frame="1" repeat="17" name="23-LWrist-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="23-LWrist-2.png"/>
+  </drawing>
+  <drawing node="Character_LBicep" name="24-LBicep" drwId="16">
+   <drw skinId="0" frame="1" repeat="17" name="24-LBicep-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="24-LBicep-2.png"/>
+  </drawing>
+  <drawing node="Character_Neck" name="12-Neck" drwId="17">
+   <drw skinId="0" frame="1" repeat="86" name="12-Neck-1.png"/>
+  </drawing>
+  <drawing node="Character_Chest" name="10-Chest" drwId="18">
+   <drw skinId="0" frame="1" repeat="17" name="10-Chest-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="10-Chest-2.png"/>
+  </drawing>
+  <drawing node="Character_Waist" name="11-Waist" drwId="19">
+   <drw skinId="0" frame="1" repeat="17" name="11-Waist-5.png"/>
+   <drw skinId="0" frame="18" repeat="53" name="11-Waist-2.png"/>
+   <drw skinId="0" frame="71" repeat="16" name="11-Waist-6.png"/>
+  </drawing>
+  <drawing node="Character_RHand" name="21-RHand" drwId="20">
+   <drw skinId="0" frame="1" repeat="17" name="21-RHand-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="21-RHand-2.png"/>
+  </drawing>
+  <drawing node="Character_RWrist" name="20-RWrist" drwId="21">
+   <drw skinId="0" frame="1" repeat="17" name="20-RWrist-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="20-RWrist-2.png"/>
+  </drawing>
+  <drawing node="Character_RBicep" name="19-RBicep" drwId="22">
+   <drw skinId="0" frame="1" repeat="17" name="19-RBicep-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="19-RBicep-2.png"/>
+  </drawing>
+  <drawing node="Character_LFoot" name="16-LFoot" drwId="23">
+   <drw skinId="0" frame="1" repeat="8" name="16-LFoot-5.png"/>
+   <drw skinId="0" frame="9" repeat="2" name="16-LFoot-6.png"/>
+   <drw skinId="0" frame="11" repeat="7" name="16-LFoot-5.png"/>
+   <drw skinId="0" frame="18" repeat="53" name="16-LFoot-2.png"/>
+   <drw skinId="0" frame="71" repeat="2" name="16-LFoot-7.png"/>
+   <drw skinId="0" frame="73" repeat="6" name="16-LFoot-8.png"/>
+   <drw skinId="0" frame="79" repeat="8" name="16-LFoot-7.png"/>
+  </drawing>
+  <drawing node="Character_LShin" name="17-LShin" drwId="24">
+   <drw skinId="0" frame="1" repeat="17" name="17-LShin-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="17-LShin-2.png"/>
+  </drawing>
+  <drawing node="Character_LKneepad" name="34-LKneepad" drwId="25">
+   <drw skinId="0" frame="1" repeat="17" name="34-LKneepad-2.png"/>
+  </drawing>
+  <drawing node="Character_LThigh" name="18-LThigh" drwId="26">
+   <drw skinId="0" frame="1" repeat="17" name="18-LThigh-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="18-LThigh-2.png"/>
+  </drawing>
+  <drawing node="Character_RFoot" name="15-RFoot" drwId="27">
+   <drw skinId="0" frame="1" repeat="2" name="15-RFoot-6.png"/>
+   <drw skinId="0" frame="3" repeat="14" name="15-RFoot-5.png"/>
+   <drw skinId="0" frame="17" repeat="1" name="15-RFoot-6.png"/>
+   <drw skinId="0" frame="18" repeat="53" name="15-RFoot-2.png"/>
+   <drw skinId="0" frame="71" repeat="10" name="15-RFoot-8.png"/>
+   <drw skinId="0" frame="81" repeat="6" name="15-RFoot-9.png"/>
+  </drawing>
+  <drawing node="Character_RShin" name="14-RShin" drwId="28">
+   <drw skinId="0" frame="1" repeat="17" name="14-RShin-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="14-RShin-2.png"/>
+  </drawing>
+  <drawing node="Character_RKneepad" name="32-RKneepad" drwId="29">
+   <drw skinId="0" frame="1" repeat="17" name="32-RKneepad-2.png"/>
+  </drawing>
+  <drawing node="Character_RThigh" name="13-RThigh" drwId="30">
+   <drw skinId="0" frame="1" repeat="17" name="13-RThigh-3.png"/>
+   <drw skinId="0" frame="18" repeat="69" name="13-RThigh-2.png"/>
+  </drawing>
+ </drawingAnimation>
+</drawingAnimations>

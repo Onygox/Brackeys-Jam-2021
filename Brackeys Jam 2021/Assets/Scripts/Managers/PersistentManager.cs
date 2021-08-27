@@ -8,7 +8,7 @@ public class PersistentManager : MonoBehaviour
     public static PersistentManager Instance;
 
     [HideInInspector] public SoundManager soundManager;
-    public VolumeManager volumeManager;
+    [HideInInspector] public VolumeManager volumeManager;
     [HideInInspector] public MusicManager musicManager;
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;

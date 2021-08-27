@@ -16,12 +16,16 @@ MonoBehaviour:
   _projectileNumber: 1
   _reloadSpeed: 1
   _fireRate: 0.9
-  _clipSize: 0
+  _clipSize: 12
   _maxClipSize: 12
   _spreadAngle: 66
   _power: 13
   _recoil: 0
-  weaponImage: {fileID: 0}
+  weaponImages:
+  - {fileID: -5994075732212966133, guid: d5760dddd07594673b43af8f20b115fc, type: 3}
+  - {fileID: -7285743680418718988, guid: d5760dddd07594673b43af8f20b115fc, type: 3}
+  - {fileID: -7637377185654576060, guid: d5760dddd07594673b43af8f20b115fc, type: 3}
+  - {fileID: -2459978865532173919, guid: d5760dddd07594673b43af8f20b115fc, type: 3}
   sound:
     name: Pistol
     clips:

@@ -148,6 +148,7 @@ MonoBehaviour:
   lookTarget: {fileID: 443938452350197059}
   playerHealthComponent: {fileID: 6081203308721728618}
   playerShootingBehaviour: {fileID: 6079519866926023024}
+  gunSprite: {fileID: 3482172588050094568}
 --- !u!50 &2564581518400425306
 Rigidbody2D:
   serializedVersion: 4

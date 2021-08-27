@@ -37,5 +37,5 @@ MonoBehaviour:
   m_Sprites:
   - {fileID: 50227009415234798, guid: ca549556cffa947fbbcde74c8ff93eaa, type: 3}
   m_Preview: {fileID: 50227009415234798, guid: ca549556cffa947fbbcde74c8ff93eaa, type: 3}
-  associatedPrefab: {fileID: 7491155677833363042, guid: 00bf4b822ab644b1eb5b9282d3398962,
+  associatedPrefab: {fileID: 7491155677833363042, guid: 64b64b5e9ac12455dbf1e9b66f97165b,
     type: 3}

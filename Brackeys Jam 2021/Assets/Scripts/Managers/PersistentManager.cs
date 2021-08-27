@@ -9,7 +9,6 @@ public class PersistentManager : MonoBehaviour
 
     [HideInInspector] public SoundManager soundManager;
     [HideInInspector] public VolumeManager volumeManager;
-    [HideInInspector] public MusicManager musicManager;
 
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
     [HideInInspector] public TerminalEffect[] terminalEffectLibrary;
@@ -42,16 +41,7 @@ public class PersistentManager : MonoBehaviour
 
     void Start() {
         soundManager = GetComponentInChildren<SoundManager>();
-        musicManager = GetComponentInChildren<MusicManager>();
-        volumeManager = GetComponentInChildren<VolumeManager>();
-
-        // if (GameManager.Instance.uiManager.musicSlider) {
-        //     GameManager.Instance.uiManager.musicSlider.value = volumeManager.musicVolumeVar.Value;
-        // }
-
-        // if (GameManager.Instance.uiManager.sfxSlider) {
-        //     GameManager.Instance.uiManager.sfxSlider.value = volumeManager.sfxVolumeVar.Value;
-        // }
+        volumeManager = transform.parent.gameObject.GetComponentInChildren<VolumeManager>();
     }
 
     public CustomScriptable FindVariableBySavePath(string varSavePath) {
@@ -67,9 +57,5 @@ public class PersistentManager : MonoBehaviour
 
     public void RestartCurrentScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void LoadSceneByIndex(int sceneIndex) {
-        SceneManager.LoadScene(sceneIndex);
     }
 }

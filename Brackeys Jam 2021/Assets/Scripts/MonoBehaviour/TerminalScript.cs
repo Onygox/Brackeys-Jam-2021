@@ -13,7 +13,6 @@ public class TerminalScript : Obstacle {
             GameManager.Instance.uiManager.SendFleetingMessage(transform.position + new Vector3(0, 1, 0), newEffect.message);
             hasBeenActivated = true;
             activationUI.SetActive(false);
-            GameManager.Instance.NumberOfActiveTerminals++;
         }
     }
 }

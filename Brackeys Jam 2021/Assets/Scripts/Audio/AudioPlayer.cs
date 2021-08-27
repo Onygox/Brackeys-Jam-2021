@@ -50,6 +50,8 @@ public class AudioPlayer : MonoBehaviour
             float lowerBound = s.pitch - (s.pitchVariance / 2);
             s.source.pitch = UnityEngine.Random.Range(lowerBound, lowerBound + s.pitchVariance);
         }
+        //volume affected by global sfx volume variable
+        s.source.volume = PersistentManager.Instance.volumeManager.sfxVolumeVar.Value;
 
         s.source.Play();
     }

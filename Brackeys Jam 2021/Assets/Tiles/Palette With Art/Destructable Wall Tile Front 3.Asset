@@ -32,12 +32,13 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 0}
+  m_InstancedGameObject: {fileID: 6925317271357349372, guid: 6803bd459084649d080542437fc2f7d9,
+    type: 3}
   m_Flags: 0
   m_ColliderType: 1
   m_Sprites:
   - {fileID: 2203995668871029606, guid: ca549556cffa947fbbcde74c8ff93eaa, type: 3}
   m_Preview: {fileID: 2203995668871029606, guid: ca549556cffa947fbbcde74c8ff93eaa,
     type: 3}
-  associatedPrefab: {fileID: 6925317271357349372, guid: 2c82ecf8dffd8415386c9508c6086d96,
+  associatedPrefab: {fileID: 6925317271357349372, guid: 6803bd459084649d080542437fc2f7d9,
     type: 3}

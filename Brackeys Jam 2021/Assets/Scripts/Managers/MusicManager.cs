@@ -32,5 +32,9 @@ public class MusicManager : MonoBehaviour
         musicPlayer.Stop();
     }
 
+    public void OnMusicVolumeChanged() {
+        musicPlayer.volume = PersistentManager.Instance.volumeManager.musicVolumeVar.Value;
+    }
+
 
 }

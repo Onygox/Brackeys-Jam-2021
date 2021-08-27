@@ -68,6 +68,8 @@ public class Projectile : ScriptableObject
             _knockback = value;
         }
     }
+    public bool hasExplosionSound = false;
+    public Sound explosionSound;
     [Header("These values are only important if the 'homing' bool is set to true")]
     [SerializeField] private float _homingSpeed;
     public float HomingSpeed {
@@ -113,6 +115,7 @@ public class Projectile : ScriptableObject
         ps.bouncing = bouncing;
         ps.friendlyDamage = friendlyDamage;
         ps.targetOwner = targetOwner;
+        ps.explosionSound = hasExplosionSound ? explosionSound : null;
 
         CircleCollider2D bc = newProjectile.AddComponent<CircleCollider2D>();
         bc.isTrigger = !bouncing;

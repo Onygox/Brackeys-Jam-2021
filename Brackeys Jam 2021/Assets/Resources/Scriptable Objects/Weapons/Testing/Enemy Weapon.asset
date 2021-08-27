@@ -22,7 +22,25 @@ MonoBehaviour:
   _power: 13
   _recoil: 0
   weaponImage: {fileID: 0}
+  sound:
+    name: Shoot
+    clips:
+    - {fileID: 8300000, guid: d263e0085af7346a9a9daebeb2db248e, type: 3}
+    - {fileID: 8300000, guid: 4890e670c3f4248669afc8b65a47ea4e, type: 3}
+    - {fileID: 8300000, guid: 4661b7051d18c4ebe908a6c08fa62bc9, type: 3}
+    - {fileID: 8300000, guid: b98c219585d6f42b395e00f4e6ff14eb, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0.357
+    loop: 0
+    spatialBlend: 1
+    maxDistance: 10
+    rollOffMode: 0
+    source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: 1632b01ee537a4db29c61be49248cff0, type: 2}
   prefab: {fileID: 0}
+  playerIncreasedProjectilesPerShot: {fileID: 0}
+  playerAccuracyMultiplier: {fileID: 0}
+  playerDamageDealtMultiplier: {fileID: 0}

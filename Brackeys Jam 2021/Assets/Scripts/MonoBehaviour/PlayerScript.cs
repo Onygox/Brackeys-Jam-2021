@@ -30,6 +30,8 @@ public class PlayerScript : MonoBehaviour
 
     void Update() {
 
+        if (GameManager.Instance.GameIsOver()) return;
+
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
 
         if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
@@ -59,6 +61,7 @@ public class PlayerScript : MonoBehaviour
                 aAura.closestTerminal.Activate();
             }
         }
+        
     }
 
     private void ShootWeapon(Vector3 direction) {

@@ -36,6 +36,8 @@ public class EnemyScript : Enemy
     }
 
     void Update() {
+        if (GameManager.Instance.GameIsOver()) return;
+
         if (!isActive) {
             hc.indestructible = true;
             return;
@@ -66,7 +68,7 @@ public class EnemyScript : Enemy
     IEnumerator ShootTowardPlayer() {
         while (true) {
             yield return new WaitForSeconds(0.1f);
-            if (IsInRange() && rtp.PlayerIsVisible()) {
+            if (IsInRange() && rtp.PlayerIsVisible() && !GameManager.Instance.GameIsOver()) {
                 timeBetweenShots+=0.1f;
                 if (timeBetweenShots >= sb.currentWeapon.FireRate) {
                     Vector2 normalizedDirection = rtp.vectorToTarget.normalized;

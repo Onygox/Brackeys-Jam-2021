@@ -19,7 +19,7 @@ MonoBehaviour:
   _clipSize: 0
   _maxClipSize: 4
   _spreadAngle: 25
-  _power: 15
+  _power: 20
   _recoil: 0
   weaponImages: []
   sound:

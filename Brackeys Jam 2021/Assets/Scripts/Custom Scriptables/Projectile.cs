@@ -93,6 +93,7 @@ public class Projectile : ScriptableObject
     public GameObject prefab;
     public Sprite projectileImage;
     public Vector3 projectileSize;
+    public GameObject explosionEffect;
 
     public GameObject InstantiatedProjectile() {
         GameObject newProjectile = Instantiate(prefab);
@@ -116,6 +117,7 @@ public class Projectile : ScriptableObject
         ps.friendlyDamage = friendlyDamage;
         ps.targetOwner = targetOwner;
         ps.explosionSound = hasExplosionSound ? explosionSound : null;
+        ps.explosionEffect = (explosionEffect is null) ? null : explosionEffect;
 
         CircleCollider2D bc = newProjectile.AddComponent<CircleCollider2D>();
         bc.isTrigger = !bouncing;

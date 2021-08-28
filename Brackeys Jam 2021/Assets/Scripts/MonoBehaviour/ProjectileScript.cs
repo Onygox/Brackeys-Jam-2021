@@ -16,6 +16,7 @@ public class ProjectileScript : MonoBehaviour
     private Vector3 vectorToTarget;
     [SerializeField] public GameObject homingAimTarget;
     public Sound explosionSound;
+    public GameObject explosionEffect;
 
     void Start() {
         StartCoroutine("EndLife");
@@ -82,6 +83,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnBulletHit(GameObject collider, GameObject playerObject)
     {
+        if (explosionEffect) Instantiate(explosionEffect,transform.position,Quaternion.identity);
         //if owned by player, hit the first enemy
         //if not owned by player, do not hit enemies
         if ((collider.layer == enemyLayer && owner == playerObject) || collider.layer == playerLayer)
@@ -100,6 +102,7 @@ public class ProjectileScript : MonoBehaviour
             DealDamage(radius, damage);
             Destroy(gameObject);
         }
+
     }
 
     void DisplayRadius() {

@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _accuracy: 95
   _projectileNumber: 1
-  _reloadSpeed: 1.6
-  _fireRate: 1.6
+  _reloadSpeed: 2
+  _fireRate: 2
   _clipSize: 0
   _maxClipSize: 0
   _spreadAngle: 66
   _power: 13
   _recoil: 0
-  weaponImage: {fileID: 0}
+  weaponImages: []
   sound:
     name: Shoot
     clips:
@@ -44,3 +44,4 @@ MonoBehaviour:
   playerIncreasedProjectilesPerShot: {fileID: 0}
   playerAccuracyMultiplier: {fileID: 0}
   playerDamageDealtMultiplier: {fileID: 0}
+  animTrigger: 

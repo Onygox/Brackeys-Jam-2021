@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatToAffect: {fileID: 11400000, guid: 4e0b5489b4a8d4962969dfdc27d6a646, type: 2}
   intToAffect: {fileID: 0}
-  floatAmount: -0.25
+  floatAmount: -0.15
   intAmount: 0
-  message: Increased Damage Received By Player
+  message: Decreased Damage Received By Player

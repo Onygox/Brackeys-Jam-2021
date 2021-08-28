@@ -14,6 +14,8 @@ public class EnemyScript : Enemy
     HealthComponent hc;
     public GameObject aim;
     RotateTowardsPlayer rtp;
+    public Animator headAnim, bodyAnim;
+
     protected override void Start() {
 
         base.Start();
@@ -64,6 +66,9 @@ public class EnemyScript : Enemy
         } else {
             agent.CanMove = false;
         }
+
+        bodyAnim.SetBool("Active", agent.CanMove);
+        headAnim.SetBool("Active", rtp.PlayerIsVisible());
     }
 
     IEnumerator ShootTowardPlayer() {

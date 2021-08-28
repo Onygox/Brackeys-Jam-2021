@@ -83,7 +83,7 @@ public class ProjectileScript : MonoBehaviour
 
     private void OnBulletHit(GameObject collider, GameObject playerObject)
     {
-        if (explosionEffect) Instantiate(explosionEffect,transform.position,Quaternion.identity);
+        // if (explosionEffect) Instantiate(explosionEffect,transform.position,Quaternion.identity);
         //if owned by player, hit the first enemy
         //if not owned by player, do not hit enemies
         if ((collider.layer == enemyLayer && owner == playerObject) || collider.layer == playerLayer)
@@ -106,6 +106,7 @@ public class ProjectileScript : MonoBehaviour
     }
 
     void DisplayRadius() {
+        if (explosionEffect) Instantiate(explosionEffect,transform.position,Quaternion.identity);
         GameObject gizmo = Instantiate(radiusIndicator);
         gizmo.transform.position = transform.position;
         gizmo.transform.localScale = Vector3.one*(radius*2);

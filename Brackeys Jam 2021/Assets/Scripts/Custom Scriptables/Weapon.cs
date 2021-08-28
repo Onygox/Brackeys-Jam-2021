@@ -99,6 +99,7 @@ public class Weapon : ScriptableObject
     public GameObject prefab;
     public ScriptableInt playerIncreasedProjectilesPerShot;
     public ScriptableFloat playerAccuracyMultiplier, playerDamageDealtMultiplier;
+    public string animTrigger;
 
     public void Shoot(Vector3 spawnLocation, Vector3 direction, GameObject owner) {
 

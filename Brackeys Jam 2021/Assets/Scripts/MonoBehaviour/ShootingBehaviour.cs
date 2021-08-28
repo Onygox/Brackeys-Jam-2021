@@ -94,6 +94,7 @@ public class ShootingBehaviour : MonoBehaviour
         sounds.Play("Change Weapon");
         if (GameManager.Instance.uiManager.currentWeaponText) GameManager.Instance.uiManager.currentWeaponText.text = "Current Weapon: " + currentWeapon.name;
         ReloadWeapon();
+        if (isPlayer) GameManager.Instance.playerManager.playerScript.OnWeaponChange(currentWeapon.animTrigger);
     }
 
     public void ReloadWeapon() {

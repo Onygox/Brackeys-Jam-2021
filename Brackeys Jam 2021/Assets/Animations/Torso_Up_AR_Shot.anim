@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player Legs Idle Up
+  m_Name: Torso_Up_AR_Shot
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,28 +20,28 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -5344738361028271101, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 2939248842795188488, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.13333334
-      value: {fileID: 1798578013898125915, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 811416899813022982, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.26666668
-      value: {fileID: 926634564245703702, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 6335604731578747793, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.4
-      value: {fileID: 4349397796101543950, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 3901478967240901424, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.53333336
-      value: {fileID: -6253931061362643743, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 7198502725934562926, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.6666667
-      value: {fileID: -2324222131978094939, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: -4880349989408291626, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.8
-      value: {fileID: -529990690260535239, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: 2059268027293175903, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     - time: 0.93333334
-      value: {fileID: 5796200709243561022, guid: 8ef3ae5233b5448a0b0497b05ebbed72,
+      value: {fileID: -3692632365839704145, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -62,14 +62,14 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -5344738361028271101, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: 1798578013898125915, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: 926634564245703702, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: 4349397796101543950, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: -6253931061362643743, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: -2324222131978094939, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: -529990690260535239, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
-    - {fileID: 5796200709243561022, guid: 8ef3ae5233b5448a0b0497b05ebbed72, type: 3}
+    - {fileID: 2939248842795188488, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: 811416899813022982, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: 6335604731578747793, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: 3901478967240901424, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: 7198502725934562926, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: -4880349989408291626, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: 2059268027293175903, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
+    - {fileID: -3692632365839704145, guid: f6fcea19c422a445f9c1fbf6ca2e4b2f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

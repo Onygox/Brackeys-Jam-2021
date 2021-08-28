@@ -48,3 +48,4 @@ MonoBehaviour:
     type: 2}
   playerDamageDealtMultiplier: {fileID: 11400000, guid: 5250fa46bd43f43b4831270fbeee151a,
     type: 2}
+  animTrigger: shotgun

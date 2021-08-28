@@ -73,6 +73,12 @@ public class PlayerScript : MonoBehaviour
     }
 
     private void ShootWeapon(Vector3 direction) {
+
+        if (torsoAnim) {
+            torsoAnim.SetFloat("xDir", direction.x);
+            torsoAnim.SetFloat("yDir", direction.y);
+        }
+
         int startingZRotation = 0;
 
         switch (direction.x) {
@@ -94,6 +100,8 @@ public class PlayerScript : MonoBehaviour
 
         }
 
+        if (torsoAnim) torsoAnim.SetTrigger("Shoot");
+
         if (playerShootingBehaviour.timeSinceLastShot >= playerShootingBehaviour.currentWeapon.FireRate && playerShootingBehaviour.currentWeapon.Recoil > 0) {
             StartCoroutine(RecoilRoutine(-direction, playerShootingBehaviour.currentWeapon.Recoil));
         }
@@ -102,6 +110,10 @@ public class PlayerScript : MonoBehaviour
 
         GameManager.Instance.uiManager.ammoSlider.value = playerShootingBehaviour.currentWeapon.ClipSize;
         GameManager.Instance.uiManager.ammoText.text = playerShootingBehaviour.currentWeapon.MaxClipSize > 0 ? "Ammo Left: " + playerShootingBehaviour.currentWeapon.ClipSize.ToString() + "/" + playerShootingBehaviour.currentWeapon.MaxClipSize.ToString() : "Ammo Left: ∞";
+    }
+
+    public void OnWeaponChange(string animTrigger) {
+        if (torsoAnim) torsoAnim.SetTrigger(animTrigger);
     }
 
     public IEnumerator RecoilRoutine(Vector2 direction, float strength, float delay = 0.7f) {

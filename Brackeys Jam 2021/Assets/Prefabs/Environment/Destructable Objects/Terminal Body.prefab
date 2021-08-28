@@ -124,7 +124,6 @@ GameObject:
   - component: {fileID: 4784363213565739509}
   - component: {fileID: 4148664971838662730}
   - component: {fileID: 6035526844326408212}
-  - component: {fileID: -954749048123099477}
   m_Layer: 8
   m_Name: Terminal Body
   m_TagString: Untagged
@@ -241,19 +240,6 @@ MonoBehaviour:
   destructable: 1
   activationUI: {fileID: 1133204275690704202}
   hasBeenActivated: 0
---- !u!114 &-954749048123099477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5084922871356578660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f48a8d66b2adc46887f23a3a88ac01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
 --- !u!1 &5357229272626768278
 GameObject:
   m_ObjectHideFlags: 0

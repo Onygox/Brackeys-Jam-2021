@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour {
     protected bool isBeingKnocked;
     protected virtual void Start() {
         GameManager.Instance.enemyManager.currentEnemies.Add(this);
+        transform.SetParent(GameObject.Find("GameObject Holder").transform);
 
         if (GetComponentInChildren<Rigidbody2D>()) {
             thisBody = GetComponentInChildren<Rigidbody2D>();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using SAP2D;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class MapManager : MonoBehaviour
 {
@@ -39,7 +40,8 @@ public class MapManager : MonoBehaviour
 		grid = mapObject.GetComponent<Grid>();
 
         TileBase[] allTiles = tilemap.GetTilesBlock(bounds);
-        GameObject gameObjectHolder = new GameObject("Gameobject Holder");
+        GameObject gameObjectHolder = new GameObject("GameObject Holder");
+        CompositeShadowCaster2D shadowCaster = gameObjectHolder.AddComponent<CompositeShadowCaster2D>();
 
         for (int x = 0; x < bounds.size.x; x++) {
             for (int y = 0; y < bounds.size.y; y++) {

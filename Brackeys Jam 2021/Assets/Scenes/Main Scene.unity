@@ -10267,6 +10267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debug Button Standard
       objectReference: {fileID: 0}
+    - target: {fileID: 8076665262096305949, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247027ee034974850863a40058a6dd89, type: 3}
 --- !u!1 &1566239793 stripped
@@ -14648,7 +14653,7 @@ PrefabInstance:
     - target: {fileID: 1920231027048529116, guid: 7b787de3defe54da3847eeadf57a1e8e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4855790787213669780, guid: 7b787de3defe54da3847eeadf57a1e8e,
         type: 3}

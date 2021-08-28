@@ -11596,8 +11596,6 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 1135
     m_Data: {r: 1, g: 1, b: 1, a: 1}
-  - m_RefCount: 0
-    m_Data: {r: -8.612542e-30, g: -8.612542e-30, b: -8.612542e-30, a: -8.612542e-30}
   m_TileObjectToInstantiateArray:
   - m_RefCount: 94
     m_Data: {fileID: 7491155677833363042, guid: 00bf4b822ab644b1eb5b9282d3398962,
@@ -11641,7 +11639,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -2, y: -22, z: 0}
-  m_Size: {x: 59, y: 69, z: 1}
+  m_Size: {x: 59, y: 25, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:

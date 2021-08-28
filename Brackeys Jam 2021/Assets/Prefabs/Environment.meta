@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Brackeys Jam 2021/Assets/Prefabs/Environment.meta
 guid: 90c485acdad8a4ddb989696a355c130b
 folderAsset: yes
 DefaultImporter:
+=======
+guid: cf0b1098acee31c469ec0d9872426a9a
+PrefabImporter:
+>>>>>>> Stashed changes:Brackeys Jam 2021/Assets/Prefabs/Maps/Level Layout 1.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

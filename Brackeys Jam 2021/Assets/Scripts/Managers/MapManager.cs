@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
 	Tilemap tilemap;
 	Grid grid;	
  	BoundsInt bounds;
-    List<GameObject> mapObjects = new List<GameObject>();
+    public List<GameObject> mapObjects = new List<GameObject>();
     SAP2DPathfinder pathfinder;
     public List<Obstacle> destructableObjects = new List<Obstacle>();
     public List<TerminalScript> terminalsInLevel = new List<TerminalScript>();
@@ -31,6 +31,7 @@ public class MapManager : MonoBehaviour
 	public void CreateMap(GameObject mapObject) {
 
         ResetMap();
+        terminalsInLevel.Clear();
 
         tilemap = mapObject.GetComponentInChildren<Tilemap>();
 		tilemap.CompressBounds();
@@ -79,12 +80,14 @@ public class MapManager : MonoBehaviour
                     if (!associatedPrefab.name.Contains("Floor")) {
                         GameObject floor = Instantiate(floorContainer, associatedPrefab.transform.position, Quaternion.identity);
                         floor.transform.SetParent(gameObjectHolder.transform);
+                        mapObjects.Add(floor);
                     }
 
                     mapObjects.Add(associatedPrefab);
 				} else {
                     GameObject floor = Instantiate(floorContainer, new Vector2(vecInt.x+.5f,vecInt.y+.5f), Quaternion.identity);
                     floor.transform.SetParent(gameObjectHolder.transform);
+                    mapObjects.Add(floor);
                 }
     	
             }

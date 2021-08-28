@@ -41,6 +41,18 @@ public class PlayerScript : MonoBehaviour
             legsAnim.SetFloat("xVelFloat", Input.GetAxis("Horizontal"));
             legsAnim.SetFloat("yVelFloat", Input.GetAxis("Vertical"));
         }
+        // if (torsoAnim) {
+        //     torsoAnim.SetFloat("xDir", Input.GetAxis("Horizontal"));
+        //     torsoAnim.SetFloat("yDir", Input.GetAxis("Vertical"));
+        // }
+
+        if (Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0) {
+            torsoAnim.SetFloat("yDir", 0);
+            torsoAnim.SetFloat("xDir", Input.GetAxis("Horizontal"));
+        } else if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0) {
+            torsoAnim.SetFloat("yDir", Input.GetAxis("Vertical"));
+            torsoAnim.SetFloat("xDir", 0);
+        }
 
         if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
 

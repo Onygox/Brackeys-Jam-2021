@@ -69,6 +69,18 @@ public class EnemyScript : Enemy
 
         bodyAnim.SetBool("Active", agent.CanMove);
         headAnim.SetBool("Active", rtp.PlayerIsVisible());
+
+        if (Mathf.Abs(rtp.vectorToTarget.x) > Mathf.Abs(rtp.vectorToTarget.y)) {
+            bodyAnim.SetFloat("yDir", 0);
+            bodyAnim.SetFloat("xDir", rtp.vectorToTarget.x);
+            headAnim.SetFloat("yDir", 0);
+            headAnim.SetFloat("xDir", rtp.vectorToTarget.x);
+        } else {
+            bodyAnim.SetFloat("yDir", rtp.vectorToTarget.y);
+            bodyAnim.SetFloat("xDir", 0);
+            headAnim.SetFloat("yDir", rtp.vectorToTarget.y);
+            headAnim.SetFloat("xDir", 0);
+        }
     }
 
     IEnumerator ShootTowardPlayer() {

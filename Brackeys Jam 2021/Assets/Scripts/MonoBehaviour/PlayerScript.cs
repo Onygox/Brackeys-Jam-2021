@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] float baseSpeed = 2.7f;
     Vector3 velocity;
     private Rigidbody2D thisBody;
+    [SerializeField] private Animator torsoAnim, legsAnim;
     public CircleCollider2D thisCollider;
     public GameObject lookTarget;
     public HealthComponent playerHealthComponent;
@@ -36,6 +37,10 @@ public class PlayerScript : MonoBehaviour
         if (GameManager.Instance.GameIsOver()) return;
 
         velocity = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+        if (legsAnim) {
+            legsAnim.SetFloat("xVelFloat", Input.GetAxis("Horizontal"));
+            legsAnim.SetFloat("yVelFloat", Input.GetAxis("Vertical"));
+        }
 
         if (!isRecoiling) thisBody.velocity = velocity * baseSpeed * GameManager.Instance.playerManager.playerMovementSpeedVar.Value;
 

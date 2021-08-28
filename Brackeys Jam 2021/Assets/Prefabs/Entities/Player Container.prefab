@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 3
+  torsoAnim: {fileID: 0}
+  legsAnim: {fileID: 4048700095721856584}
   thisCollider: {fileID: 0}
   lookTarget: {fileID: 443938452350197059}
   playerHealthComponent: {fileID: 6081203308721728618}
@@ -710,7 +712,7 @@ Animator:
   m_GameObject: {fileID: 7403194067461236641}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf41647000f1442dda9e60b3c9bc6aa9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

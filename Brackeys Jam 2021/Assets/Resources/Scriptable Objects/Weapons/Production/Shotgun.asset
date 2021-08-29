@@ -16,7 +16,7 @@ MonoBehaviour:
   _projectileNumber: 26
   _reloadSpeed: 1.5
   _fireRate: 1.5
-  _clipSize: 2
+  _clipSize: 3
   _maxClipSize: 6
   _spreadAngle: 40
   _power: 20
@@ -29,7 +29,7 @@ MonoBehaviour:
   sound:
     name: 
     clips:
-    - {fileID: 8300000, guid: 097bb57c86e944a2b97988728966c155, type: 3}
+    - {fileID: 8300000, guid: 53aa4358105f9440187bcb4b4325e2e8, type: 3}
     volume: 0.8
     pitch: 1
     pitchVariance: 0.106

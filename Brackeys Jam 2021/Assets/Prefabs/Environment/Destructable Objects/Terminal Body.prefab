@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 4784363213565739509}
   - component: {fileID: 4148664971838662730}
   - component: {fileID: 6035526844326408212}
+  - component: {fileID: -818828736883335382}
   m_Layer: 8
   m_Name: Terminal Body
   m_TagString: Untagged
@@ -240,6 +241,30 @@ MonoBehaviour:
   destructable: 1
   activationUI: {fileID: 1133204275690704202}
   hasBeenActivated: 0
+--- !u!114 &-818828736883335382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5084922871356578660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d46e2e7140e24fe9a875c3466d4e241, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Activate
+    clips:
+    - {fileID: 8300000, guid: 1aa36f37bc629499792e59f084d2d661, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 20
+    rollOffMode: 1
+    source: {fileID: 0}
 --- !u!1 &5357229272626768278
 GameObject:
   m_ObjectHideFlags: 0

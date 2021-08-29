@@ -25,12 +25,12 @@ MonoBehaviour:
   sound:
     name: Energy
     clips:
-    - {fileID: 8300000, guid: 8c2c298068618462dba8eda23c2b6a07, type: 3}
-    - {fileID: 8300000, guid: dedcf7d634e894d34ae9a7a4db2ed23e, type: 3}
-    - {fileID: 8300000, guid: d76c64bcc849649faaaea0917950f26f, type: 3}
+    - {fileID: 8300000, guid: f6c8ff42555cb4e2d8ac8a287378d1ea, type: 3}
+    - {fileID: 8300000, guid: 9fe5131d37b184338a651c6ca6e275e7, type: 3}
+    - {fileID: 8300000, guid: cc27190f106704e208ee6678c3d5a957, type: 3}
     volume: 0.8
     pitch: 1
-    pitchVariance: 0.504
+    pitchVariance: 0.102
     loop: 0
     spatialBlend: 0
     maxDistance: 0

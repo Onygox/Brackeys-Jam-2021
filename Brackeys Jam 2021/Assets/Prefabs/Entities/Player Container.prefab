@@ -251,12 +251,12 @@ MonoBehaviour:
     maxDistance: 0
     rollOffMode: 0
     source: {fileID: 0}
-  - name: Out Of Ammo
+  - name: Ready To Fire
     clips:
-    - {fileID: 8300000, guid: 03570a04133e64657b9386ba00e27879, type: 3}
+    - {fileID: 8300000, guid: 99a5a09066b424d53a8c42e4d2dd35fc, type: 3}
     volume: 0.8
     pitch: 1
-    pitchVariance: 0.186
+    pitchVariance: 0
     loop: 0
     spatialBlend: 0
     maxDistance: 0

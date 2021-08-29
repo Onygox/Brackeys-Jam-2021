@@ -12,18 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
   m_Name: Shotgun Pellet
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 3
   _radius: 0.01
   _lifetime: 0.3
   _enemiesToPierce: 1
   _deceleration: 0.998
   _startingSpeed: 20
   _knockback: 0
+  hasExplosionSound: 0
+  explosionSound:
+    name: 
+    clips: []
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
   _homingSpeed: 0
   _homingAccuracy: 0
   homing: 0
+  targetOwner: 0
   bouncing: 0
   friendlyDamage: 0
   prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}
   projectileImage: {fileID: 21300000, guid: a3e6004fa570c4901b2be4e5a901e06f, type: 3}
   projectileSize: {x: 0.1, y: 0.1, z: 0.1}
+  explosionEffect: {fileID: 0}

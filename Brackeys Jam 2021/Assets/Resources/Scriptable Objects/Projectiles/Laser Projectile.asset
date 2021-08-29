@@ -12,14 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7e26aff7f76a43a3933b277f78e9695, type: 3}
   m_Name: Laser Projectile
   m_EditorClassIdentifier: 
-  _damage: 2
+  _damage: 3
   _radius: 0.05
   _lifetime: 64
   _enemiesToPierce: 0
   _deceleration: 1
-  _startingSpeed: 20
+  _startingSpeed: 30
+  _knockback: 0
+  hasExplosionSound: 0
+  explosionSound:
+    name: 
+    clips: []
+    volume: 0.8
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    spatialBlend: 0
+    maxDistance: 0
+    rollOffMode: 0
+    source: {fileID: 0}
+  _homingSpeed: 0
+  _homingAccuracy: 0
   homing: 0
+  targetOwner: 0
   bouncing: 0
+  friendlyDamage: 0
   prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}
   projectileImage: {fileID: 21300000, guid: 1160e4481ce2d40c2aabf175be2e7ad9, type: 3}
   projectileSize: {x: 0.15, y: 0.15, z: 0.15}
+  explosionEffect: {fileID: 0}

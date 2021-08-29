@@ -5,10 +5,12 @@ using UnityEngine;
 public class PauseMenuUiManager : MonoBehaviour
 {
     public static bool gameIsPaused = false;
-    public GameObject pauseMenuCanvas;
-    public GameObject optionsMenu;
     public GameObject optionsFileSystem;
+    public GameObject optionsMenu;
+    public GameObject pauseMenuCanvas;
     public GameObject pauseMenuUi;
+    public GameObject restartAreYouSure;
+    public GameObject quitAreYouSure;
     // public GameObject musicManager;
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)){
@@ -45,6 +47,8 @@ public class PauseMenuUiManager : MonoBehaviour
         optionsMenu.SetActive(false);
         // musicManager.GetComponent<MusicManager>().OnResumeGame();
         PersistentManager.Instance.musicManager.OnResumeGame();
+        quitAreYouSure.SetActive(false);
+        restartAreYouSure.SetActive(false);
 
     }
     public void QuitGame() {

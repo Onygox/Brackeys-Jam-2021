@@ -55,6 +55,7 @@ public class GameManager : MonoBehaviour
         }
         // mapManager.CreateMap(PersistentManager.Instance.maps[level]);
         levelInt = level;
+        numberOfActiveTerminals = 0;
         StartCoroutine("StartGameRoutine");
     }
 

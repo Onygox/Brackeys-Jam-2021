@@ -34,8 +34,8 @@ MonoBehaviour:
     pitchVariance: 0.357
     loop: 0
     spatialBlend: 1
-    maxDistance: 10
-    rollOffMode: 0
+    maxDistance: 30
+    rollOffMode: 1
     source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}

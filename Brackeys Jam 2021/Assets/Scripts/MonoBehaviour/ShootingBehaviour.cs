@@ -12,17 +12,19 @@ public class ShootingBehaviour : MonoBehaviour
     // public bool isReloading;
     private AudioPlayer sounds;
     private AudioSource weaponAudio;
+    private AudioSource backupWeaponAudio;
 
     private void Awake()
     {
         weaponAudio = gameObject.AddComponent<AudioSource>();
+        backupWeaponAudio = gameObject.AddComponent<AudioSource>();
         sounds = GetComponent<AudioPlayer>();
     }
 
     void Start() {
         isPlayer = GetComponent<PlayerScript>() != null;
         ReloadWeapon();
-        SetupWeaponAudio();
+        SetupWeaponAudio(weaponAudio);
     }
 
     public void ShootWeapon(Vector3 location, Vector3 direction) {
@@ -36,20 +38,26 @@ public class ShootingBehaviour : MonoBehaviour
         }
 
         if (currentWeapon.ClipSize <= 0 && currentWeapon.MaxClipSize > 0) {
-            sounds.Play("Out Of Ammo");
             return;
         }
 
         StopCoroutine("CoolDown");
 
         currentWeapon.Shoot(location, direction, this.gameObject);
-        AudioPlayer.PlaySFX(currentWeapon.sound);
-        // todo: last bullet of clip won't play sound because it gets swapped out
-        // but this will likely be fixed if we bind swap weapon to a button instead of auto swapping
 
-        if (isPlayer && currentWeapon.ClipSize <= 0) {
+        if (isPlayer && currentWeapon.ClipSize <= 0)
+        {
+            // ensuring old shoot plays
+            // change audio to backup source because it'll be swapped out immediately with the new weapon
+            SetupWeaponAudio(backupWeaponAudio);
+            AudioPlayer.PlaySFX(currentWeapon.sound);
+
             //change weapon automatically on clip empty
             ChangeWeapons(PersistentManager.Instance.weaponLibrary[Mathf.FloorToInt(Random.Range(0, PersistentManager.Instance.weaponLibrary.Length))]);
+        }
+        else
+        {
+            AudioPlayer.PlaySFX(currentWeapon.sound);
         }
 
         StartCoroutine("CoolDown");
@@ -68,7 +76,11 @@ public class ShootingBehaviour : MonoBehaviour
                 timeSinceLastShot += 0.1f;
             }
         }
-        if (GameManager.Instance.uiManager.readyToFireText) GameManager.Instance.uiManager.readyToFireText.text = "Ready To Fire";
+        if (GameManager.Instance.uiManager.readyToFireText)
+        {
+            GameManager.Instance.uiManager.readyToFireText.text = "Ready To Fire";
+            sounds.Play("Ready To Fire");
+        }
     }
 
     // public IEnumerator ReloadWeaponRoutine() {
@@ -82,15 +94,15 @@ public class ShootingBehaviour : MonoBehaviour
     //     ReloadWeapon();
     // }
 
-    private void SetupWeaponAudio()
+    private void SetupWeaponAudio(AudioSource audioSource)
     {
         if (currentWeapon != null)
-            AudioPlayer.SetUpSound(currentWeapon.sound, weaponAudio);
+            AudioPlayer.SetUpSound(currentWeapon.sound, audioSource);
     }
 
     public void ChangeWeapons(Weapon newWeapon) {
         currentWeapon = newWeapon;
-        SetupWeaponAudio();
+        SetupWeaponAudio(weaponAudio);
         sounds.Play("Change Weapon");
         if (GameManager.Instance.uiManager.currentWeaponText) GameManager.Instance.uiManager.currentWeaponText.text = "Current Weapon: " + currentWeapon.name;
         ReloadWeapon();

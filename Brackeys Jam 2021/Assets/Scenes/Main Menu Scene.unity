@@ -1724,18 +1724,18 @@ PrefabInstance:
     - target: {fileID: -1470528038058697615, guid: 80c757a10d75b7c4081bfb0e511d15ed,
         type: 3}
       propertyPath: backSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 7b72c951acf1444428004a81c1a66cf2, type: 3}
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -1470528038058697615, guid: 80c757a10d75b7c4081bfb0e511d15ed,
         type: 3}
       propertyPath: clickSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 461cafc31650d1a45b7ed79d60f83646, type: 3}
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -1470528038058697615, guid: 80c757a10d75b7c4081bfb0e511d15ed,
         type: 3}
       propertyPath: hoverSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 2de3e03c9421738439da77d370760f84, type: 3}
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: -1470528038058697615, guid: 80c757a10d75b7c4081bfb0e511d15ed,
         type: 3}
       propertyPath: backSfxPlayer
@@ -3431,7 +3431,7 @@ PrefabInstance:
     - target: {fileID: 2163860580805659888, guid: 94d08ab9903734cecb4f406a7dee6503,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -200.7
+      value: -112
       objectReference: {fileID: 0}
     - target: {fileID: 2163860580805659888, guid: 94d08ab9903734cecb4f406a7dee6503,
         type: 3}

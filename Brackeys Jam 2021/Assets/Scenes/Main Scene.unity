@@ -5503,7 +5503,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 94707326}
-          m_MethodName: OnClick
+          m_MethodName: OnBack
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7191,7 +7191,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 2.5533981, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11954,6 +11954,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 646582007739206617, guid: 547a8cbb36e8d964db15201225ccd3b7,
         type: 3}
+      propertyPath: quitAreYouSure
+      value: 
+      objectReference: {fileID: 603166255}
+    - target: {fileID: 646582007739206617, guid: 547a8cbb36e8d964db15201225ccd3b7,
+        type: 3}
       propertyPath: pauseMenuCanvas
       value: 
       objectReference: {fileID: 128052652}
@@ -11962,6 +11967,11 @@ PrefabInstance:
       propertyPath: optionsFileSystem
       value: 
       objectReference: {fileID: 826619280}
+    - target: {fileID: 646582007739206617, guid: 547a8cbb36e8d964db15201225ccd3b7,
+        type: 3}
+      propertyPath: restartAreYouSure
+      value: 
+      objectReference: {fileID: 240546771}
     - target: {fileID: 1227479543201081620, guid: 547a8cbb36e8d964db15201225ccd3b7,
         type: 3}
       propertyPath: m_Name
@@ -13969,7 +13979,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 94707326}
-          m_MethodName: OnClick
+          m_MethodName: OnBack
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

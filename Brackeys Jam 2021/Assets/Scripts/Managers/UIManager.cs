@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     List<string> weaponNames = new List<string>();
     public TMP_Dropdown weaponSelector;
     public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
-    public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText;
+    public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText, terminalsReachedText, terminalsIntactText;
     public GameObject messageCanvas, deathCanvas, winCanvas;
     public int pistolIndex = 0;
 

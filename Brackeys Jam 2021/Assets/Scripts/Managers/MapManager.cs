@@ -16,6 +16,7 @@ public class MapManager : MonoBehaviour
     public List<Obstacle> destructableObjects = new List<Obstacle>();
     public List<TerminalScript> terminalsInLevel = new List<TerminalScript>();
     public GameObject floorContainer;
+    public int maxTerminals;
  	
 	public static Vector2Int[] directions = new Vector2Int[]{
 		Vector2Int.left,Vector2Int.up,
@@ -97,6 +98,10 @@ public class MapManager : MonoBehaviour
 
         //set starting weapon
         GameManager.Instance.uiManager.weaponSelector.value = GameManager.Instance.uiManager.pistolIndex;
+
+        maxTerminals = terminalsInLevel.Count;
+        GameManager.Instance.uiManager.terminalsReachedText.text = "Terminals Reached: " + GameManager.Instance.NumberOfActiveTerminals.ToString() + "/" + terminalsInLevel.Count.ToString();
+        GameManager.Instance.uiManager.terminalsIntactText.text = "Terminals Intact: " + terminalsInLevel.Count.ToString()  + "/" + maxTerminals.ToString();
 
         // pathfinder.AddGrid(bounds.size.x * 2, bounds.size.y * 2);
         SAP_GridSource sapgrid = pathfinder.GetGrid(0);

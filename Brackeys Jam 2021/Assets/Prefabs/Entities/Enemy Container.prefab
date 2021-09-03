@@ -244,7 +244,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!114 &4438139875564495031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   - {x: -0.49383223, y: 0.0004068017, z: 0}
   m_ShapePathHash: -674599827
   m_Mesh: {fileID: 0}
-  m_InstanceId: 65082
+  m_InstanceId: 39998
 --- !u!95 &2358459094117005938
 Animator:
   serializedVersion: 3
@@ -773,7 +773,7 @@ MonoBehaviour:
   - {x: -0.49383223, y: 0.0004068017, z: 0}
   m_ShapePathHash: -674599827
   m_Mesh: {fileID: 0}
-  m_InstanceId: 65018
+  m_InstanceId: 39934
 --- !u!1 &8900523579605413015
 GameObject:
   m_ObjectHideFlags: 0

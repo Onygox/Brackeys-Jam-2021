@@ -53,18 +53,19 @@ public class HealthComponent : MonoBehaviour
         if (playerScript != null) {
             Health -= Mathf.FloorToInt(damageTaken*damageReceivedMultiplier.Value);
             GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
-            if (damageReceivedMessage) {
-                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
-                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
-                Destroy(fleetingDamageMessage, 1.0f);
-            }
+            // if (damageReceivedMessage) {
+            //     GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
+            //     fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
+            //     Destroy(fleetingDamageMessage, 1.0f);
+            // }
         } else {
             Health -= damageTaken;
-            if (damageReceivedMessage) {
-                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
-                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken).ToString();
-                Destroy(fleetingDamageMessage, 1.0f);
-            }    
+
+            // if (damageReceivedMessage) {
+            //     GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
+            //     fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken).ToString();
+            //     Destroy(fleetingDamageMessage, 1.0f);
+            // }    
         }
 
         
@@ -80,6 +81,13 @@ public class HealthComponent : MonoBehaviour
             Obstacle thisObstacle = GetComponent<Obstacle>();
             if (thisObstacle != null && GameManager.Instance.mapManager.destructableObjects.Contains(thisObstacle)) {
                 GameManager.Instance.mapManager.destructableObjects.Remove(thisObstacle);
+            }
+            TerminalScript thisTerminal = GetComponent<TerminalScript>();
+            if (thisTerminal != null && GameManager.Instance.mapManager.terminalsInLevel.Contains(thisTerminal)) {
+                GameManager.Instance.mapManager.terminalsInLevel.Remove(thisTerminal);
+                GameManager.Instance.uiManager.terminalsReachedText.text = "Terminals Reached: " + GameManager.Instance.NumberOfActiveTerminals.ToString() + "/" + GameManager.Instance.mapManager.terminalsInLevel.Count.ToString();
+                GameManager.Instance.uiManager.terminalsIntactText.text = "Terminals Intact: " + GameManager.Instance.mapManager.terminalsInLevel.Count.ToString() + "/" + GameManager.Instance.mapManager.maxTerminals.ToString();
+                if (GameManager.Instance.mapManager.terminalsInLevel.Count <= Mathf.FloorToInt(GameManager.Instance.mapManager.maxTerminals/2)) GameManager.Instance.EndGame(false);
             }
             Destroy(gameObject);
         } else {

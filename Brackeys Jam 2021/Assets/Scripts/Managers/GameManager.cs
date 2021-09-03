@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
             return numberOfActiveTerminals;
         }
         set {
-             numberOfActiveTerminals = value;
-             if (numberOfActiveTerminals >= mapManager.terminalsInLevel.Count) EndGame(true);
+            numberOfActiveTerminals = value;
+            uiManager.terminalsReachedText.text = "Terminals Reached: " + numberOfActiveTerminals.ToString() + "/" + mapManager.terminalsInLevel.ToString();
+            if (numberOfActiveTerminals >= mapManager.terminalsInLevel.Count) EndGame(true);
         }
     }
 

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2141,22 +2141,22 @@ PrefabInstance:
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.16470589
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.09487361
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.09487361
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.49056602
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
@@ -5567,6 +5567,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887152826}
   m_CullTransparentMesh: 0
+--- !u!114 &900477238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
+    type: 3}
+  m_PrefabInstance: {fileID: 368445655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &916032410 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4290902228864493929, guid: f735557dc85ba4a0da9ae92bba8c7db8,
@@ -6640,6 +6652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
         type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -7681,6 +7698,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146254961}
   m_CullTransparentMesh: 0
+--- !u!114 &1256054772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4223924737328397636, guid: 94d08ab9903734cecb4f406a7dee6503,
+    type: 3}
+  m_PrefabInstance: {fileID: 1335378011}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259802820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,22 +7929,22 @@ PrefabInstance:
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.16470589
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.08699717
+      value: 0.12255251
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.8018868
+      value: 0.509434
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.25298613
+      value: 0.21395858
       objectReference: {fileID: 0}
     - target: {fileID: 2546050851764094876, guid: 2be1161b9221e4f3e979d5b4e2763725,
         type: 3}
@@ -15127,6 +15156,16 @@ PrefabInstance:
       propertyPath: playerHealthSlider
       value: 
       objectReference: {fileID: 1813361538}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: terminalsIntactText
+      value: 
+      objectReference: {fileID: 1256054772}
+    - target: {fileID: 4371051878795006196, guid: 466d300ddcda64257811bde1f688d03f,
+        type: 3}
+      propertyPath: terminalsReachedText
+      value: 
+      objectReference: {fileID: 900477238}
     - target: {fileID: 5088101403082041662, guid: 466d300ddcda64257811bde1f688d03f,
         type: 3}
       propertyPath: m_Name

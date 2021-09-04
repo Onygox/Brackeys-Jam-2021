@@ -107,7 +107,6 @@ GameObject:
   - component: {fileID: 4374716101602720705}
   - component: {fileID: 313761139770133929}
   - component: {fileID: -2478963311969498363}
-  - component: {fileID: 2832686526067445708}
   m_Layer: 11
   m_Name: Player Container
   m_TagString: Untagged
@@ -211,6 +210,8 @@ MonoBehaviour:
     type: 2}
   damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
     type: 3}
+  damageReceivedEffect: {fileID: 986374354345587790, guid: 22b589ea8fc3941ca958bf7667de5cfa,
+    type: 3}
 --- !u!58 &4374716101602720705
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -303,25 +304,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
---- !u!95 &2832686526067445708
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1469068319573537018}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1469068319871198302
 GameObject:
   m_ObjectHideFlags: 0

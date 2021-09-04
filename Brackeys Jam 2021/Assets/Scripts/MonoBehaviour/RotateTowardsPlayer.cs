@@ -13,6 +13,7 @@ public class RotateTowardsPlayer : MonoBehaviour
     }
 
     void Update() {
+        if (target is null) return;
         vectorToTarget = target.transform.position - transform.position;
         float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -20,6 +21,9 @@ public class RotateTowardsPlayer : MonoBehaviour
     }
 
     public bool PlayerIsVisible() {
+
+        if (target is null) return false;
+
         RaycastHit2D hit1 = Physics2D.Raycast(transform.position + new Vector3(0.12f, -0.12f, 0.0f), vectorToTarget, 100, layersToSee);
         RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-0.12f, 0.12f, 0.0f), vectorToTarget, 100, layersToSee);
         RaycastHit2D hit3 = Physics2D.Raycast(transform.position + new Vector3(-0.12f, -0.12f, 0.0f), vectorToTarget, 100, layersToSee);

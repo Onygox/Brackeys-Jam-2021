@@ -277,6 +277,9 @@ MonoBehaviour:
   damageReceivedMultiplier: {fileID: 0}
   damageReceivedMessage: {fileID: 192326105131246247, guid: 5eff208a5ab104c8097b157341bbf4e4,
     type: 3}
+  damageReceivedEffect: {fileID: 9203006273650542739, guid: 712680ddc54dc44efaaa90f4d8c4d21d,
+    type: 3}
+  deathSprite: {fileID: 21300000, guid: 76ad20f54d6b33342af5ae8f46f527a7, type: 3}
 --- !u!114 &1449732935525843319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSinceLastShot: 0
-  reloadTime: 2
+  reloadTime: 2.5
   currentWeapon: {fileID: 11400000, guid: 16a056abda5774bd2ad4682d80c2048f, type: 2}
   playerFireRateMultiplier: {fileID: 0}
 --- !u!114 &8150824961624442272
@@ -443,7 +446,7 @@ MonoBehaviour:
   - {x: -0.49383223, y: 0.0004068017, z: 0}
   m_ShapePathHash: -674599827
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39998
+  m_InstanceId: 39766
 --- !u!95 &2358459094117005938
 Animator:
   serializedVersion: 3
@@ -773,7 +776,7 @@ MonoBehaviour:
   - {x: -0.49383223, y: 0.0004068017, z: 0}
   m_ShapePathHash: -674599827
   m_Mesh: {fileID: 0}
-  m_InstanceId: 39934
+  m_InstanceId: 39702
 --- !u!1 &8900523579605413015
 GameObject:
   m_ObjectHideFlags: 0

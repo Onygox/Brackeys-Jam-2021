@@ -34,6 +34,8 @@ public class HealthComponent : MonoBehaviour
     }
     public ScriptableFloat damageReceivedMultiplier;
     public GameObject damageReceivedMessage;
+    public GameObject damageReceivedEffect;
+    public Sprite deathSprite;
 
     void Start() {
 
@@ -49,13 +51,14 @@ public class HealthComponent : MonoBehaviour
         if (indestructible) return;
 
         Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
+        if (damageReceivedEffect) Instantiate(damageReceivedEffect, transform.position, Quaternion.identity);
 
         if (playerScript != null) {
             Health -= Mathf.FloorToInt(damageTaken*damageReceivedMultiplier.Value);
             GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
             if (damageReceivedMessage) {
                 GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position + randomOffset, Quaternion.identity);
-                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
+                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken * damageReceivedMultiplier.Value).ToString();
                 Destroy(fleetingDamageMessage, 1.0f);
             }
         } else {
@@ -77,10 +80,18 @@ public class HealthComponent : MonoBehaviour
             Enemy thisEnemy = GetComponent<Enemy>();
             if (thisEnemy != null && GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
                 GameManager.Instance.enemyManager.currentEnemies.Remove(thisEnemy);
+                if (deathSprite) {
+                    GetComponentInChildren<Animator>().enabled = false;
+                    GetComponentInChildren<SpriteRenderer>().sprite = deathSprite;
+                    Destroy(gameObject, 1);
+                } else {
+                    Destroy(gameObject);
+                }
             }
             Obstacle thisObstacle = GetComponent<Obstacle>();
             if (thisObstacle != null && GameManager.Instance.mapManager.destructableObjects.Contains(thisObstacle)) {
                 GameManager.Instance.mapManager.destructableObjects.Remove(thisObstacle);
+                Destroy(gameObject);
             }
             TerminalScript thisTerminal = GetComponent<TerminalScript>();
             if (thisTerminal != null && GameManager.Instance.mapManager.terminalsInLevel.Contains(thisTerminal)) {
@@ -88,10 +99,18 @@ public class HealthComponent : MonoBehaviour
                 GameManager.Instance.uiManager.terminalsReachedText.text = "Terminals Reached: " + GameManager.Instance.NumberOfActiveTerminals.ToString() + "/" + GameManager.Instance.mapManager.terminalsInLevel.Count.ToString();
                 GameManager.Instance.uiManager.terminalsIntactText.text = "Terminals Intact: " + GameManager.Instance.mapManager.terminalsInLevel.Count.ToString() + "/" + GameManager.Instance.mapManager.maxTerminals.ToString();
                 if (GameManager.Instance.mapManager.terminalsInLevel.Count <= Mathf.FloorToInt(GameManager.Instance.mapManager.maxTerminals/2)) GameManager.Instance.EndGame(false);
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
+            
         } else {
             GameManager.Instance.EndGame(false);
+            if (deathSprite) {
+                    GetComponentInChildren<Animator>().enabled = false;
+                    GetComponentInChildren<SpriteRenderer>().sprite = deathSprite;
+                    Destroy(gameObject, 1);
+                } else {
+                    Destroy(gameObject);
+                }
         }
     }
 }

@@ -21,6 +21,8 @@ public class PauseMenuUiManager : MonoBehaviour
                 PauseGame();
             }
         }
+
+        Cursor.visible = (gameIsPaused || GameManager.Instance.GameIsOver());
     }
 
     public void PauseGame() {

@@ -23,12 +23,13 @@ public class GameManager : MonoBehaviour
         }
         set {
             numberOfActiveTerminals = value;
-            uiManager.terminalsReachedText.text = "Terminals Reached: " + numberOfActiveTerminals.ToString() + "/" + mapManager.terminalsInLevel.ToString();
+            uiManager.terminalsReachedText.text = "Terminals Reached: " + numberOfActiveTerminals.ToString() + "/" + mapManager.terminalsInLevel.Count.ToString();
             if (numberOfActiveTerminals >= mapManager.terminalsInLevel.Count) EndGame(true);
         }
     }
 
     public CinemachineVirtualCamera vcam;
+    [SerializeField] private Weapon assaultRifle;
 
     void Awake() {
         if (Instance == null) {
@@ -63,7 +64,7 @@ public class GameManager : MonoBehaviour
     IEnumerator StartGameRoutine() {
         Time.timeScale = 1;
         yield return new WaitForSeconds(0.1f);
-        mapManager.CreateMap(PersistentManager.Instance.maps[levelInt]);
+        mapManager.CreateMap(PersistentManager.Instance.maps[levelInt], assaultRifle);
     }
 
     public void RestartCurrentScene() {

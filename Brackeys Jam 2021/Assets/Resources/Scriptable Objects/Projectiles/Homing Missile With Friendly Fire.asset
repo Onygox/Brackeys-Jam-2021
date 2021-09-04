@@ -42,5 +42,7 @@ MonoBehaviour:
   friendlyDamage: 1
   prefab: {fileID: 4938746224974453875, guid: 92481ce5c84284fe6b406592b09e8d33, type: 3}
   projectileSize: {x: 0.3, y: 0.3, z: 0.3}
-  explosionEffect: {fileID: 5812449325107735505, guid: 9a368ce6d90c04149a1ce8039286cb2e,
+  explosionEffect1: {fileID: 5812449325107735505, guid: 9a368ce6d90c04149a1ce8039286cb2e,
+    type: 3}
+  explosionEffect2: {fileID: 1744126071477814358, guid: a8457858d335945219560ffcca90ef24,
     type: 3}

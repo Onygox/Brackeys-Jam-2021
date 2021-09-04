@@ -16,7 +16,7 @@ public class ProjectileScript : MonoBehaviour
     private Vector3 vectorToTarget;
     [SerializeField] public GameObject homingAimTarget;
     public Sound explosionSound;
-    public GameObject explosionEffect;
+    public GameObject explosionEffect1, explosionEffect2;
 
     void Start() {
         StartCoroutine("EndLife");
@@ -108,7 +108,8 @@ public class ProjectileScript : MonoBehaviour
     }
 
     void DisplayRadius() {
-        if (explosionEffect) Instantiate(explosionEffect,transform.position,Quaternion.identity);
+        if (explosionEffect1) Instantiate(explosionEffect1,transform.position,Quaternion.identity);
+        if (explosionEffect2) Instantiate(explosionEffect2,transform.position,Quaternion.identity);
         GameObject gizmo = Instantiate(radiusIndicator);
         gizmo.transform.position = transform.position;
         gizmo.transform.localScale = Vector3.one*(radius*2);

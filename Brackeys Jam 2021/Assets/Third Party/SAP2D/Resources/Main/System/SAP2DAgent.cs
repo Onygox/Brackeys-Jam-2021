@@ -165,6 +165,7 @@ namespace SAP2D {
 
         private bool isTargetWalkable()
         {
+            if (Target is null) return false;
             return grid.GetTileDataAtWorldPosition(Target.position).isWalkable;
         }
 

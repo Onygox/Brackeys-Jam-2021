@@ -30,7 +30,7 @@ public class MapManager : MonoBehaviour
 	void Start () {
         pathfinder = GetComponent<SAP2DPathfinder>();
 	}
-	public void CreateMap(GameObject mapObject) {
+	public void CreateMap(GameObject mapObject, Weapon startingWeapon) {
 
         ResetMap();
         terminalsInLevel.Clear();
@@ -96,12 +96,11 @@ public class MapManager : MonoBehaviour
             }
         }
 
-        //set starting weapon
-        GameManager.Instance.uiManager.weaponSelector.value = GameManager.Instance.uiManager.pistolIndex;
-
         maxTerminals = terminalsInLevel.Count;
         GameManager.Instance.uiManager.terminalsReachedText.text = "Terminals Reached: " + GameManager.Instance.NumberOfActiveTerminals.ToString() + "/" + terminalsInLevel.Count.ToString();
         GameManager.Instance.uiManager.terminalsIntactText.text = "Terminals Intact: " + terminalsInLevel.Count.ToString()  + "/" + maxTerminals.ToString();
+
+        GameManager.Instance.playerManager.ChangeWeapon(startingWeapon);
 
         // pathfinder.AddGrid(bounds.size.x * 2, bounds.size.y * 2);
         SAP_GridSource sapgrid = pathfinder.GetGrid(0);

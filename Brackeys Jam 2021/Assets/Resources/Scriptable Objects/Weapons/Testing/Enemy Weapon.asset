@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _accuracy: 95
   _projectileNumber: 1
-  _reloadSpeed: 2
-  _fireRate: 2
+  _reloadSpeed: 2.5
+  _fireRate: 2.5
   _clipSize: 0
   _maxClipSize: 0
   _spreadAngle: 66

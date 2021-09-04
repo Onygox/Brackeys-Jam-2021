@@ -48,24 +48,24 @@ public class HealthComponent : MonoBehaviour
 
         if (indestructible) return;
 
-        
+        Vector3 randomOffset = new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f));
 
         if (playerScript != null) {
             Health -= Mathf.FloorToInt(damageTaken*damageReceivedMultiplier.Value);
             GameManager.Instance.playerManager.currentPlayerHealthVar.Value = Health;
-            // if (damageReceivedMessage) {
-            //     GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
-            //     fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
-            //     Destroy(fleetingDamageMessage, 1.0f);
-            // }
+            if (damageReceivedMessage) {
+                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position + randomOffset, Quaternion.identity);
+                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken*damageReceivedMultiplier.Value).ToString();
+                Destroy(fleetingDamageMessage, 1.0f);
+            }
         } else {
             Health -= damageTaken;
 
-            // if (damageReceivedMessage) {
-            //     GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position, Quaternion.identity);
-            //     fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken).ToString();
-            //     Destroy(fleetingDamageMessage, 1.0f);
-            // }    
+            if (damageReceivedMessage) {
+                GameObject fleetingDamageMessage = Instantiate(damageReceivedMessage, transform.position + randomOffset, Quaternion.identity);
+                fleetingDamageMessage.GetComponentInChildren<TextMeshProUGUI>().text = (damageTaken).ToString();
+                Destroy(fleetingDamageMessage, 1.0f);
+            }    
         }
 
         

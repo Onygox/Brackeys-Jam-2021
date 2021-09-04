@@ -91,12 +91,12 @@ public class Weapon : ScriptableObject
         }
     }
 
-    public Sprite[] weaponImages;
+    // public Sprite[] weaponImages;
     public Sound sound;
     public bool automatic;
     public GameEvent onShootEvent;
     public Projectile projectileType;
-    public GameObject prefab;
+    public GameObject prefab, shotEffect;
     public ScriptableInt playerIncreasedProjectilesPerShot;
     public ScriptableFloat playerAccuracyMultiplier, playerDamageDealtMultiplier;
     public string animTrigger;

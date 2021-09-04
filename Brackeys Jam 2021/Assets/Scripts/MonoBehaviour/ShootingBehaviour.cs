@@ -45,6 +45,9 @@ public class ShootingBehaviour : MonoBehaviour
 
         currentWeapon.Shoot(location, direction, this.gameObject);
 
+        //animate weapon shot effect
+        if (currentWeapon.shotEffect) Instantiate(currentWeapon.shotEffect, location, Quaternion.Euler(new Vector3(direction.x, direction.y, direction.z-90)));
+
         if (isPlayer && currentWeapon.ClipSize <= 0)
         {
             // ensuring old shoot plays
@@ -83,17 +86,6 @@ public class ShootingBehaviour : MonoBehaviour
         }
     }
 
-    // public IEnumerator ReloadWeaponRoutine() {
-    //     reloadTime = 0;
-    //     GameManager.Instance.uiManager.ammoText.text = "Reloading";
-    //     while (reloadTime <= currentWeapon.ReloadSpeed) {
-    //         yield return new WaitForSeconds(0.1f);
-    //         reloadTime += 0.1f;
-    //         if (isPlayer) GameManager.Instance.uiManager.reloadTimeSlider.value = ExtensionMethods.Remap(reloadTime, 0.0f, currentWeapon.ReloadSpeed, 0.0f, 1.0f);
-    //     }
-    //     ReloadWeapon();
-    // }
-
     private void SetupWeaponAudio(AudioSource audioSource)
     {
         if (currentWeapon != null)
@@ -115,7 +107,7 @@ public class ShootingBehaviour : MonoBehaviour
         reloadTime = Mathf.CeilToInt(currentWeapon.ReloadSpeed);
         if (isPlayer) {
             GameManager.Instance.playerManager.OnWeaponReload();
-            if (GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) GameManager.Instance.playerManager.playerScript.gunSprite.sprite = GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages[0];
+            // if (GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages.Length > 0) GameManager.Instance.playerManager.playerScript.gunSprite.sprite = GameManager.Instance.playerManager.playerScript.playerShootingBehaviour.currentWeapon.weaponImages[0];
         }
     }
 }

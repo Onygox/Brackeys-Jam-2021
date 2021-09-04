@@ -91,7 +91,7 @@ public class Projectile : ScriptableObject
     }
     public bool homing, targetOwner, bouncing, friendlyDamage;
     public GameObject prefab;
-    public Sprite projectileImage;
+    // public Sprite projectileImage;
     public Vector3 projectileSize;
     public GameObject explosionEffect;
 
@@ -99,8 +99,8 @@ public class Projectile : ScriptableObject
         GameObject newProjectile = Instantiate(prefab);
         newProjectile.transform.localScale = projectileSize;
 
-        SpriteRenderer sr = newProjectile.GetComponentInChildren<SpriteRenderer>();
-        sr.sprite = projectileImage;
+        // SpriteRenderer sr = newProjectile.GetComponentInChildren<SpriteRenderer>();
+        // sr.sprite = projectileImage;
 
         ProjectileScript ps = newProjectile.GetComponent<ProjectileScript>();
         ps.damage = Damage;

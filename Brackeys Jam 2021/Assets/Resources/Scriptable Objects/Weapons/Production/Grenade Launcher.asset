@@ -21,7 +21,6 @@ MonoBehaviour:
   _spreadAngle: 25
   _power: 20
   _recoil: 0
-  weaponImages: []
   sound:
     name: Grenade Launcher
     clips:
@@ -40,6 +39,8 @@ MonoBehaviour:
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: 55d23d4124a2b4f4b8aba629252d5fae, type: 2}
   prefab: {fileID: 0}
+  shotEffect: {fileID: 333072121780290573, guid: 140109ad5724c48ae973dfb5752641fe,
+    type: 3}
   playerIncreasedProjectilesPerShot: {fileID: 11400000, guid: 9e750323fcba64ef1b5ed01a7b760d87,
     type: 2}
   playerAccuracyMultiplier: {fileID: 11400000, guid: 96e8edb8b91ba4d23b1743e7130b5870,

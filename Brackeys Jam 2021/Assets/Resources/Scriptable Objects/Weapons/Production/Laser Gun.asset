@@ -21,7 +21,6 @@ MonoBehaviour:
   _spreadAngle: 10
   _power: 20
   _recoil: 0
-  weaponImages: []
   sound:
     name: Energy
     clips:
@@ -40,6 +39,8 @@ MonoBehaviour:
   onShootEvent: {fileID: 0}
   projectileType: {fileID: 11400000, guid: fd057b21487bd400a80e470511ac431b, type: 2}
   prefab: {fileID: 0}
+  shotEffect: {fileID: 4302455823950252805, guid: 7eb490307bc064ecdb7738527ce29755,
+    type: 3}
   playerIncreasedProjectilesPerShot: {fileID: 11400000, guid: 9e750323fcba64ef1b5ed01a7b760d87,
     type: 2}
   playerAccuracyMultiplier: {fileID: 11400000, guid: 96e8edb8b91ba4d23b1743e7130b5870,

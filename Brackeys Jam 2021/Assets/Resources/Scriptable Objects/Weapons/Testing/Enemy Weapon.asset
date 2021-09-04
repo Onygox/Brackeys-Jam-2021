@@ -21,7 +21,6 @@ MonoBehaviour:
   _spreadAngle: 66
   _power: 13
   _recoil: 0
-  weaponImages: []
   sound:
     name: Shoot
     clips:
@@ -39,8 +38,10 @@ MonoBehaviour:
     source: {fileID: 0}
   automatic: 0
   onShootEvent: {fileID: 0}
-  projectileType: {fileID: 11400000, guid: 1632b01ee537a4db29c61be49248cff0, type: 2}
+  projectileType: {fileID: 11400000, guid: dfbb33437b31d432cb44e63ab47f872b, type: 2}
   prefab: {fileID: 0}
+  shotEffect: {fileID: 216545993923308912, guid: ce78f2991d1694d018cbacce93a3d06f,
+    type: 3}
   playerIncreasedProjectilesPerShot: {fileID: 0}
   playerAccuracyMultiplier: {fileID: 0}
   playerDamageDealtMultiplier: {fileID: 0}

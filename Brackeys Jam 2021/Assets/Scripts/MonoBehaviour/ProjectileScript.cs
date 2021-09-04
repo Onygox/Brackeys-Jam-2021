@@ -42,6 +42,8 @@ public class ProjectileScript : MonoBehaviour
             vectorToTarget = target.position - transform.position;
             float angle = (Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg) - 90;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            // Quaternion homingRotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * homingSpeed);
+            // transform.rotation = new Quaternion(transform.rotation.x, transform.rotation.y, homingRotation.z, transform.rotation.w);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * homingSpeed);
             thisBody.AddForce(transform.up * homingAccuracy);
         }

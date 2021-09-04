@@ -37,7 +37,6 @@ MonoBehaviour:
   targetOwner: 0
   bouncing: 0
   friendlyDamage: 0
-  prefab: {fileID: 4938746224974453875, guid: 3f4259b49b9094c3581fbbb5ff9b3f60, type: 3}
-  projectileImage: {fileID: 21300000, guid: a3e6004fa570c4901b2be4e5a901e06f, type: 3}
+  prefab: {fileID: 4938746224974453875, guid: 4bafe0bcb80ad44508b8ebfda5ead04a, type: 3}
   projectileSize: {x: 0.15, y: 0.15, z: 0.15}
   explosionEffect: {fileID: 0}

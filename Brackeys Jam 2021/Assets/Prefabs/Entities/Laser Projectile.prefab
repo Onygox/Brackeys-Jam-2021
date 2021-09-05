@@ -79,7 +79,9 @@ MonoBehaviour:
     maxDistance: 0
     rollOffMode: 0
     source: {fileID: 0}
-  explosionEffect: {fileID: 0}
+  explosionEffect1: {fileID: 0}
+  explosionEffect2: {fileID: 0}
+  shakeSource: {fileID: 0}
 --- !u!50 &4938746224974453874
 Rigidbody2D:
   serializedVersion: 4

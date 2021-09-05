@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ProjectileScript : MonoBehaviour
 {
@@ -17,8 +18,10 @@ public class ProjectileScript : MonoBehaviour
     [SerializeField] public GameObject homingAimTarget;
     public Sound explosionSound;
     public GameObject explosionEffect1, explosionEffect2;
+    public CinemachineImpulseSource shakeSource;
 
     void Start() {
+        shakeSource = GetComponentInChildren<CinemachineImpulseSource>();
         StartCoroutine("EndLife");
         enemiesHit = 0;
         thisBody = GetComponentInChildren<Rigidbody2D>();
@@ -108,6 +111,7 @@ public class ProjectileScript : MonoBehaviour
     }
 
     void DisplayRadius() {
+        if (shakeSource) shakeSource.GenerateImpulse();
         if (explosionEffect1) Instantiate(explosionEffect1,transform.position,Quaternion.identity);
         if (explosionEffect2) Instantiate(explosionEffect2,transform.position,Quaternion.identity);
         GameObject gizmo = Instantiate(radiusIndicator);

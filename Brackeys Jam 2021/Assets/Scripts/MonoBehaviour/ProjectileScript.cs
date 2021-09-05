@@ -111,21 +111,22 @@ public class ProjectileScript : MonoBehaviour
     }
 
     void DisplayRadius() {
+
         if (shakeSource) shakeSource.GenerateImpulse();
+
         if (explosionEffect1) Instantiate(explosionEffect1,transform.position,Quaternion.identity);
         if (explosionEffect2) Instantiate(explosionEffect2,transform.position,Quaternion.identity);
+
         GameObject gizmo = Instantiate(radiusIndicator);
         gizmo.transform.position = transform.position;
         gizmo.transform.localScale = Vector3.one*(radius*2);
+        Destroy(gizmo, 2);
 
-        if (explosionSound != null)
-        {
+        if (explosionSound != null) {
             AudioSource source = gizmo.AddComponent<AudioSource>();
             AudioPlayer.SetUpSound(explosionSound, source);
             AudioPlayer.PlaySFX(explosionSound);
         }
-
-        Destroy(gizmo, 2);
     }
 
     void DealDamage(float r, int damageAmount) {

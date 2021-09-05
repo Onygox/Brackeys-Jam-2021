@@ -10,6 +10,7 @@ public class TerminalEffect : ScriptableObject {
     public float floatAmount;
     public int intAmount;
     public string message;
+    public string description;
 
     public void PerformEffect() {
 

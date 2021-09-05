@@ -17,3 +17,4 @@ MonoBehaviour:
   floatAmount: 0
   intAmount: 1
   message: Increased Number of Base Projectiles Per Shot By 1
+  description: +1 Projectile Per Shot

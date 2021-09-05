@@ -12,8 +12,9 @@ public class UIManager : MonoBehaviour
     public TMP_Dropdown weaponSelector;
     public Slider ammoSlider, fireRateSlider, reloadTimeSlider, playerHealthSlider;
     public TextMeshProUGUI ammoText, currentWeaponText, readyToFireText, terminalsReachedText, terminalsIntactText;
-    public GameObject messageCanvas, deathCanvas, winCanvas;
+    public GameObject messageCanvas, deathCanvas, winCanvas, choiceCanvas;
     public int pistolIndex = 0;
+    public GameObject[] choiceButtons;
 
     void Start() {
         if (weaponSelector != null) {
@@ -53,5 +54,26 @@ public class UIManager : MonoBehaviour
 
     public void SetGlobalMusicVolume(float newValue) {
         PersistentManager.Instance.volumeManager.musicVolumeVar.Value = newValue;
+    }
+
+    public void DisplayChoices() {
+        choiceCanvas.SetActive(true);
+        Time.timeScale = 0;
+        List<TerminalEffect> tempList = new List<TerminalEffect>();
+        foreach(TerminalEffect te in PersistentManager.Instance.terminalEffectLibrary) {
+            tempList.Add(te);
+        }
+        int firstIndex = Mathf.FloorToInt(Random.Range(0, tempList.Count));
+        TerminalEffect firstEffect = tempList[firstIndex];
+        tempList.RemoveAt(firstIndex);
+        int secondIndex = Mathf.FloorToInt(Random.Range(0, tempList.Count));
+        TerminalEffect secondEffect = tempList[secondIndex];
+        tempList.RemoveAt(secondIndex);
+
+        choiceButtons[0].GetComponent<ChoiceButtonScript>().ChangeEffect(firstEffect);
+        choiceButtons[1].GetComponent<ChoiceButtonScript>().ChangeEffect(secondEffect);
+
+        choiceButtons[0].GetComponentInChildren<TextMeshProUGUI>().text = firstEffect.description;
+        choiceButtons[1].GetComponentInChildren<TextMeshProUGUI>().text = secondEffect.description;
     }
 }

@@ -17,3 +17,4 @@ MonoBehaviour:
   floatAmount: 0.17
   intAmount: 0
   message: Increased Damage Dealt By Player
+  description: +17% Damage Dealt

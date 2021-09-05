@@ -17,3 +17,4 @@ MonoBehaviour:
   floatAmount: -0.15
   intAmount: 0
   message: Decreased Damage Received By Player
+  description: -15% Damage Received

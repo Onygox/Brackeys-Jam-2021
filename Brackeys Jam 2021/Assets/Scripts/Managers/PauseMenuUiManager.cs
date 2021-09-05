@@ -13,7 +13,7 @@ public class PauseMenuUiManager : MonoBehaviour
     public GameObject quitAreYouSure;
     // public GameObject musicManager;
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)){
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.Instance.uiManager.choiceCanvas.activeSelf){
             if (gameIsPaused){
                 ResumeGame();
             }
@@ -22,7 +22,7 @@ public class PauseMenuUiManager : MonoBehaviour
             }
         }
 
-        Cursor.visible = (gameIsPaused || GameManager.Instance.GameIsOver());
+        Cursor.visible = (gameIsPaused || GameManager.Instance.GameIsOver() || GameManager.Instance.uiManager.choiceCanvas.activeSelf);
     }
 
     public void PauseGame() {

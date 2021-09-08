@@ -56,12 +56,14 @@ public class PauseMenuUiManager : MonoBehaviour
     public void QuitGame() {
         // Application.Quit();
         gameIsPaused = false;
+        Cursor.visible = true;
         PersistentManager.Instance.LoadSceneByIndex(0);
     }
 
     public void RestartGame() {
         // Application.Quit();
         gameIsPaused = false;
+        Cursor.visible = true;
         PersistentManager.Instance.RestartCurrentScene();
     }
 }

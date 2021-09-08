@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(bool win) {
 
+        Cursor.visible = true;
+
         if (win) {
             //if the current level is less than the total number of levels, progress to the next one
             //otherwise, go to the end game scene

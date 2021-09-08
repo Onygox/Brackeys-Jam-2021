@@ -15,8 +15,8 @@ MonoBehaviour:
   libraryIndex: 8
   _saveDataPath: musicvolumedata
   onVariableChange: {fileID: 11400000, guid: 35abde1bbd2b445e19fbcd7526bd4dee, type: 2}
-  _value: 0.4
-  _defaultValue: 1
+  _value: 0.17175576
+  _defaultValue: 0.4
   isClamped: 1
   lowClampValue: 0
   highClampValue: 0.4

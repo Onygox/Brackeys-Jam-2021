@@ -14,6 +14,7 @@ public class MainSceneMusicManager : MonoBehaviour
     void Start() {
         if (MSMusicManager is null) MSMusicManager = this;
         thisSource = GetComponent<AudioSource>();
+        // thisSource.volume = PersistentManager.Instance.volumeManager.musicVolumeVar.Value;
         clipToPlayNext = mainSceneTracks[0];
         StartCoroutine(PlayMusicWithTransitions());
     }

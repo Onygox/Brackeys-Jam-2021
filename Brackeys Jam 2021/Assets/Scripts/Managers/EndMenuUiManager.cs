@@ -7,6 +7,7 @@ public class EndMenuUiManager : MonoBehaviour
     }
 
     public void ReturnToMenu() {
+        Destroy(GameObject.Find("DontDestroyOnLoad"));
         PersistentManager.Instance.LoadSceneByIndex(0);
     }
 }

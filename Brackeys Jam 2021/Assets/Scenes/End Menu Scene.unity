@@ -1291,6 +1291,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1045359653306958766, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
+        type: 3}
+      propertyPath: mainMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: fae87768ad172485eb48fb4238980729, type: 3}
+    - target: {fileID: 1493040008482224988, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4930699424965256099, guid: 07d2a566ee7844fa8b9abf70b63b55b0,
         type: 3}
       propertyPath: m_Name
@@ -1651,13 +1661,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8178012384269127141, guid: 13692fdf2dc096a49af022cb16df6ba0,
         type: 3}
+      propertyPath: mainMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: fae87768ad172485eb48fb4238980729, type: 3}
+    - target: {fileID: -8178012384269127141, guid: 13692fdf2dc096a49af022cb16df6ba0,
+        type: 3}
       propertyPath: musicVolume
       value: 0.029
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504860213737395979, guid: 13692fdf2dc096a49af022cb16df6ba0,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1493040007760366313, guid: 13692fdf2dc096a49af022cb16df6ba0,
         type: 3}
       propertyPath: m_Name
       value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1493040007760366313, guid: 13692fdf2dc096a49af022cb16df6ba0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8862228695446906273, guid: 13692fdf2dc096a49af022cb16df6ba0,
         type: 3}
@@ -2609,26 +2634,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882736384}
-  - component: {fileID: 1882736383}
   m_Layer: 0
   m_Name: DontDestroyOnLoad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1882736383
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1882736382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41941f18e37b440259efcb76056f4bd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!4 &1882736384
 Transform:
   m_ObjectHideFlags: 0

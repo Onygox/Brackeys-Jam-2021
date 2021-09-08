@@ -11,9 +11,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public MapManager mapManager;
     [HideInInspector] public EnemyManager enemyManager;
+    // [HideInInspector]
     // public bool playerCanBeKilled;
     private int levelInt;
     public int startingLevel = 0;
+    public RoboRyanTron.Unite2017.Events.GameEvent playerDeathEvent, levelSuccessEvent;
 
     private int numberOfActiveTerminals = 0;
 
@@ -91,8 +93,12 @@ public class GameManager : MonoBehaviour
                 StartCoroutine(LoadEndSceneWithDelay());
             }
 
+            levelSuccessEvent.Raise();
+
         } else {
             uiManager.deathCanvas.SetActive(true);
+
+            playerDeathEvent.Raise();
         }
 
     }

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2380,7 +2380,7 @@ PrefabInstance:
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 196
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
@@ -2390,17 +2390,17 @@ PrefabInstance:
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.74999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.74999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.74999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
@@ -2445,7 +2445,7 @@ PrefabInstance:
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -80
+      value: -64
       objectReference: {fileID: 0}
     - target: {fileID: 4484898964658112429, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
@@ -2462,6 +2462,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5872069581784851969, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c1527e4feacea2e44a6be1076903b05d,
+        type: 3}
+    - target: {fileID: 5872069581784851969, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872069581784851969, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872069581784851969, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6440485669545980367, guid: 247027ee034974850863a40058a6dd89,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8076665262096305949, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_Name
@@ -2470,7 +2496,7 @@ PrefabInstance:
     - target: {fileID: 8076665262096305949, guid: 247027ee034974850863a40058a6dd89,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 247027ee034974850863a40058a6dd89, type: 3}
@@ -3331,7 +3357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1127915248
 Transform:
   m_ObjectHideFlags: 0

@@ -8,3 +8,16 @@ public static class ExtensionMethods {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
 }
+// [System.Serializable]
+// public class MainMusicClip {
+//     public AudioClip playThisTrack;
+//     // public bool loop;
+//     [SerializeField]
+//     public TransitionalClip clipToTransitionTo;
+// }
+// [System.Serializable]
+// public class TransitionalClip {
+//     public AudioClip playThisTrack;
+//     [SerializeField]
+//     public MainMusicClip clipToTransitionTo;
+// }

@@ -49,11 +49,11 @@ public class UIManager : MonoBehaviour
     }
 
     public void SetGlobalSFXVolume(float newValue) {
-        PersistentManager.Instance.volumeManager.sfxVolumeVar.Value = newValue;
+        PersistentManager.Instance.volumeManager.sfxVolumeVar.Value = ExtensionMethods.Remap(newValue, 0.0f, 1.0f, 0.0f, 0.4f);
     }
 
     public void SetGlobalMusicVolume(float newValue) {
-        PersistentManager.Instance.volumeManager.musicVolumeVar.Value = newValue;
+        PersistentManager.Instance.volumeManager.musicVolumeVar.Value = ExtensionMethods.Remap(newValue, 0.0f, 1.0f, 0.0f, 0.4f);
     }
 
     public void DisplayChoices() {

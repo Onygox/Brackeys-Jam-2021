@@ -33,7 +33,7 @@ public class PauseMenuUiManager : MonoBehaviour
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
         // musicManager.GetComponent<MusicManager>().OnPauseGame();
-        PersistentManager.Instance.musicManager.OnPauseGame();
+        if (PersistentManager.Instance.musicManager) PersistentManager.Instance.musicManager.OnPauseGame();
     }
     public void ResumeGame() {
 
@@ -48,7 +48,7 @@ public class PauseMenuUiManager : MonoBehaviour
         pauseMenuUi.SetActive(true);
         optionsMenu.SetActive(false);
         // musicManager.GetComponent<MusicManager>().OnResumeGame();
-        PersistentManager.Instance.musicManager.OnResumeGame();
+        if (PersistentManager.Instance.musicManager) PersistentManager.Instance.musicManager.OnResumeGame();
         quitAreYouSure.SetActive(false);
         restartAreYouSure.SetActive(false);
 

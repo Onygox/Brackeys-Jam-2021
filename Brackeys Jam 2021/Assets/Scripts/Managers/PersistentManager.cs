@@ -14,7 +14,7 @@ public class PersistentManager : MonoBehaviour
     [HideInInspector] public CustomScriptable[] scriptableLibrary;
     [HideInInspector] public TerminalEffect[] terminalEffectLibrary;
     [HideInInspector] public AudioClip[] audioLibrary;
-    public AudioClip[] playerFootstepLibrary;
+    [HideInInspector] public AudioClip[] playerFootstepLibrary;
     [HideInInspector] public AudioClip[] enemyFootstepLibrary;
     [HideInInspector] public Weapon[] weaponLibrary;
     public GameObject[] maps;

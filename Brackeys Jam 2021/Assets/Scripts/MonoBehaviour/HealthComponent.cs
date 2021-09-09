@@ -35,6 +35,7 @@ public class HealthComponent : MonoBehaviour
     public ScriptableFloat damageReceivedMultiplier;
     public GameObject damageReceivedMessage;
     public GameObject damageReceivedEffect;
+    public GameObject deathEffect;
     public Sprite deathSprite;
 
     void Start() {
@@ -75,8 +76,13 @@ public class HealthComponent : MonoBehaviour
     }
 
     void OnDeath() {
-        GameManager.Instance.mapManager.mapObjects.Remove(this.gameObject);
+
+        if (GameManager.Instance.mapManager.mapObjects.Contains(this.gameObject)) GameManager.Instance.mapManager.mapObjects.Remove(this.gameObject);
+
+        if (deathEffect) Instantiate(deathEffect, transform.position, Quaternion.identity);
+
         if (playerScript is null) {
+
             Enemy thisEnemy = GetComponent<Enemy>();
             if (thisEnemy != null && GameManager.Instance.enemyManager.currentEnemies.Contains(thisEnemy)) {
                 GameManager.Instance.enemyManager.currentEnemies.Remove(thisEnemy);
@@ -88,11 +94,13 @@ public class HealthComponent : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
+
             Obstacle thisObstacle = GetComponent<Obstacle>();
             if (thisObstacle != null && GameManager.Instance.mapManager.destructableObjects.Contains(thisObstacle)) {
                 GameManager.Instance.mapManager.destructableObjects.Remove(thisObstacle);
                 Destroy(gameObject);
             }
+
             TerminalScript thisTerminal = GetComponent<TerminalScript>();
             if (thisTerminal != null && GameManager.Instance.mapManager.terminalsInLevel.Contains(thisTerminal)) {
                 GameManager.Instance.mapManager.terminalsInLevel.Remove(thisTerminal);
@@ -104,13 +112,14 @@ public class HealthComponent : MonoBehaviour
             
         } else {
             GameManager.Instance.EndGame(false);
+
             if (deathSprite) {
-                    GetComponentInChildren<Animator>().enabled = false;
-                    GetComponentInChildren<SpriteRenderer>().sprite = deathSprite;
-                    Destroy(gameObject, 1);
-                } else {
-                    Destroy(gameObject);
-                }
+                GetComponentInChildren<Animator>().enabled = false;
+                GetComponentInChildren<SpriteRenderer>().sprite = deathSprite;
+                Destroy(gameObject, 1);
+            } else {
+                Destroy(gameObject);
+            }
         }
     }
 }

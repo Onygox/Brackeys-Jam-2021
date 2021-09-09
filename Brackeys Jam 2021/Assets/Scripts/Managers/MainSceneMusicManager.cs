@@ -32,7 +32,7 @@ public class MainSceneMusicManager : MonoBehaviour
                 Destroy(this.gameObject, currentlyPlayingClip.playThisTrack.length);
             }
             
-            yield return new WaitForSeconds(currentlyPlayingClip.playThisTrack.length);
+            yield return new WaitForSecondsRealtime(currentlyPlayingClip.playThisTrack.length);
         }
     }
 

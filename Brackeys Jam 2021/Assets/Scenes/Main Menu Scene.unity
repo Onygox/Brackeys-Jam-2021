@@ -4569,3 +4569,72 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1001 &1792788668582596986
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -110.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 141.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -74.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 592465180590892188, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4348844173413284859, guid: 3551e6dc0077f4028973992774f1bfb0,
+        type: 3}
+      propertyPath: m_Name
+      value: Glass Explosion
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3551e6dc0077f4028973992774f1bfb0, type: 3}

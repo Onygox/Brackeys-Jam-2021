@@ -127,6 +127,10 @@ MonoBehaviour:
   _maxHealth: 0
   damageReceivedMultiplier: {fileID: 0}
   damageReceivedMessage: {fileID: 0}
+  damageReceivedEffect: {fileID: 0}
+  deathEffect: {fileID: 4348844173413284859, guid: 3551e6dc0077f4028973992774f1bfb0,
+    type: 3}
+  deathSprite: {fileID: 0}
 --- !u!1 &7281048154269473312
 GameObject:
   m_ObjectHideFlags: 0
